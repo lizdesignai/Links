@@ -101,7 +101,7 @@ body {
 
 .headline {
     font-family: var(--font-headline);
-    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     font-weight: normal;
     color: var(--text-color-light);
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
