@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liz Design - Identidade Visual</title>
+    <meta name="description" content="Links úteis e portfólio de Liz Design, especialista em identidade visual.">
+    
+    <!-- Link para a nossa folha de estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Favicon (Opcional, mas recomendado) -->
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+</head>
+<body>
+
+    <!-- Seção 1: BG com Imagem, Logo e Headline -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="logo-container">
+            </div>
+            <header>
+                <h1 class="headline">Sua marca merece ser mais do que um nome.</h1>
+            </header>
+        </div>
+    </div>
+
+    <!-- Seção 2: Botões com fundo sólido -->
+    <div class="links-section">
+        <div class="container">
+            <main class="link-buttons">
+                <!-- NOTA: Troque '#' pelos seus links reais -->
+                <a href="https://forms.gle/otRycfJRRfJSGKsx7" class="link-button">
+                    Aplique para a <strong>Consultoria<br>de Posicionamento</strong> gratuita
+                </a>
+                <a href="https://forms.gle/f6tCwJHLAdV4uPUWA" class="link-button">
+                    Orçamento | <strong>Identidade Visual</strong>
+                </a>
+                <a href="https://wa.link/ud1j4k" class="link-button">
+                    Orçamento | <strong>Gerenciamento<br>de Instagram</strong>
+                </a>
+                <a href="https://www.behance.net/lizsacramento2" class="link-button">
+                    Portfólio de Design | <strong>Conheça<br>meu trabalho</strong>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1yC6JATyPy-CQabewxWV44NIcKSm8biZI?" class="link-button">
+                    Portfólio de Vídeos | <strong>Conheça<br>meu trabalho</strong>
+                </a>
+                <a href="wa.me/75991625481" class="link-button">
+                    WhatsApp | <strong>Dúvidas e<br>informações</strong>
+                </a>
+            </main>
+        </div>
+    </div>
+
+    <!-- Seção 3: Redes Sociais e Rodapé com fundo sólido -->
+    <div class="footer-section">
+        <div class="container">
+            <section class="social-links">
+                <!-- NOTA: Troque '#' pelos seus links reais -->
+                <a href="https://br.pinterest.com/lizdesignai" target="_blank" rel="noopener noreferrer"><img src="{{ url_for('static', filename='img/icone pinterest.png') }}" alt="Ícone do Pinterest"></a>
+                <a href="https://www.tiktok.com/@lizdesign.ai?" target="_blank" rel="noopener noreferrer"><img src="{{ url_for('static', filename='img/icone instagram.png') }}" alt="Ícone do Instagram"></a>
+                <a href="instagram.com/lizdesign.ai" target="_blank" rel="noopener noreferrer"><img src="{{ url_for('static', filename='img/icone tiktok.png') }}" alt="Ícone do TikTok"></a>
+                <a href="mailto:lizbranddesign@gmail.com?"><img src="{{ url_for('static', filename='img/icone email.png') }}" alt="Ícone de E-mail"></a>
+            </section>
+            <footer>
+                <p>Liz Design &copy; 2025 - Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>

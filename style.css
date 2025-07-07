@@ -1,0 +1,185 @@
+/* --- 1. Definição das Fontes com @font-face --- */
+/* IMPORTANTE: 
+   - Coloque seus arquivos de fonte (ex: .woff, .woff2) na pasta /static/fonts/.
+   - Renomeie os nomes dos arquivos ('Elegant-Regular.woff2', etc.) para corresponderem aos seus arquivos.
+*/
+@font-face {
+    font-family: 'Elegant';
+    src: url('../fonts/Elegant-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Homemade Apple';
+    src: url('../fonts/HomemadeApple-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- 2. Variáveis Globais (CSS Custom Properties) --- */
+:root {
+    --font-headline: 'Elegant', serif;
+    --font-base: 'Roboto', sans-serif;
+    --button-bg-color: #8c6e54;
+    --text-color-light: #ffffff;
+    --text-color-dark: #5c4b3c;
+    --background-color: #FEF5E6;
+}
+
+/* --- 3. Estilos Base e Reset --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-base);
+    color: var(--text-color-dark);
+    background-color: var(--background-color); /* Fundo sólido geral */
+}
+
+/* --- 4. Layout das Seções --- */
+.hero-section {
+    /* Seção 1: Fundo com imagem (Estilos para Mobile - Comportamento Original) */
+    background-image: url('../img/BG Mobile.png');
+    background-size: cover; /* REVERTIDO: Garante que não há barras de cor */
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 25vh 0 8rem 0; /* Espaçamento interno original para mobile */
+}
+
+.links-section {
+    /* Seção 2: Fundo sólido para botões */
+    background-color: var(--background-color);
+    padding-top: -3rem;
+}
+
+.footer-section {
+    /* Seção 3: Fundo sólido para redes sociais e rodapé */
+    background-color: var(--background-color);
+    padding: 1rem 0 2rem 0;
+}
+
+/* --- 5. Container Genérico --- */
+.container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 0 20px; /* Espaçamento lateral */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+}
+
+/* --- 6. Estilos dos Componentes --- */
+.logo-container {
+    margin-bottom: 1rem;
+    text-align: center; /* Garante que o logo fique centralizado */
+}
+
+.logo-container img {
+    width: 80px;
+    height: auto;
+    opacity: 0.9;
+}
+
+.headline {
+    font-family: var(--font-headline);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: normal;
+    color: var(--text-color-light);
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+    text-align: left;
+}
+
+.link-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.link-button {
+    background-color: var(--button-bg-color);
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    line-height: 1.4;
+    font-weight: 300;
+    text-align: center;
+}
+
+.link-button strong {
+    font-weight: 700;
+}
+
+.link-button:hover {
+    background-color: #7a5f49;
+    transform: scale(1.03);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.social-links img {
+    width: 28px;
+    height: 28px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover img {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+footer {
+    font-size: 0.8rem;
+    color: var(--text-color-dark); /* Cor escura para fundo claro */
+    opacity: 0.8;
+}
+
+
+/* --- 7. Media Query para Telas Maiores (Desktop) --- */
+@media (min-width: 768px) {
+    .hero-section {
+        /* Troca a imagem de fundo em telas maiores */
+        background-image: url('../img/BG Desktop.png');
+        
+        /* --- ALTERAÇÕES PARA ALINHAMENTO APENAS NO DESKTOP --- */
+        min-height: 70vh; /* Garante que a seção tenha altura suficiente */
+        display: flex; /* Torna a seção um container flex */
+        justify-content: flex-end; /* Empurra o .container para o fundo */
+        flex-direction: column; /* Organiza os filhos verticalmente */
+        padding: 0; /* Remove o padding para controle mais preciso */
+    }
+
+    /* Adiciona um padding inferior ao container dentro do hero para não colar na borda */
+    .hero-section .container {
+        padding-bottom: 5rem;
+    }
+}
