@@ -5,7 +5,7 @@
 */
 @font-face {
     font-family: 'Elegant';
-    src: url('fonts/Elegant-Regular.woff2') format('woff2');
+    src: url('../fonts/Elegant-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: 'Homemade Apple';
-    src: url('fonts/HomemadeApple-Regular.woff2') format('woff2');
+    src: url('../fonts/HomemadeApple-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -21,7 +21,7 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: url('fonts/Roboto-Regular.woff2') format('woff2');
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -57,17 +57,21 @@ body {
 /* --- 4. Layout das Seções --- */
 .hero-section {
     /* Seção 1: Fundo com imagem (Estilos para Mobile - Comportamento Original) */
-    background-image: url('img/BG Mobile.png');
-    background-size: cover; /* REVERTIDO: Garante que não há barras de cor */
+    background-image: url('../img/BG Mobile.png');
+    background-size: cover; /* Garante que não há barras de cor */
     background-position: center center;
     background-repeat: no-repeat;
-    padding: 25vh 0 8rem 0; /* Espaçamento interno original para mobile */
+    padding: 25vh 0 8rem 0; /* Espaçamento interno com suas alterações */
 }
 
 .links-section {
     /* Seção 2: Fundo sólido para botões */
     background-color: var(--background-color);
-    padding-top: -3rem;
+    /* Usando margin-top negativo para puxar a seção para cima, sobrepondo a hero-section */
+    margin-top: -6rem; 
+    padding-top: 2rem; /* Adiciona um espaço interno para o conteúdo não colar no topo */
+    position: relative; /* Necessário para o empilhamento correto */
+    z-index: 2; /* Garante que esta seção fique por cima */
 }
 
 .footer-section {
@@ -168,7 +172,7 @@ footer {
 @media (min-width: 768px) {
     .hero-section {
         /* Troca a imagem de fundo em telas maiores */
-        background-image: url('img/BG Desktop.png');
+        background-image: url('../img/BG Desktop.png');
         
         /* --- ALTERAÇÕES PARA ALINHAMENTO APENAS NO DESKTOP --- */
         min-height: 70vh; /* Garante que a seção tenha altura suficiente */
@@ -181,5 +185,9 @@ footer {
     /* Adiciona um padding inferior ao container dentro do hero para não colar na borda */
     .hero-section .container {
         padding-bottom: 5rem;
+    }
+
+    .links-section {
+        margin-top: -5rem; /* Ajusta a sobreposição para desktop */
     }
 }
