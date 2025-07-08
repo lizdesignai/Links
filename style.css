@@ -172,7 +172,7 @@ footer {
 @media (min-width: 768px) {
     .hero-section {
         /* Troca a imagem de fundo em telas maiores */
-        background-image: url('../img/BG Desktop.png');
+        background-image: url('img/BG Desktop.png');
         
         /* --- ALTERAÇÕES PARA ALINHAMENTO APENAS NO DESKTOP --- */
         min-height: 70vh; /* Garante que a seção tenha altura suficiente */
