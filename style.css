@@ -108,7 +108,8 @@ body {
     font-size: clamp(3rem, 6vw, 3.5rem);
     font-weight: normal;
     color: var(--text-color-light);
-    margin: 20 10rem
+    margin-right: 10px;
+    margin-left: 10px;
     line-height: 1.2;
     text-align: left;
 }
