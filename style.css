@@ -61,7 +61,7 @@ body {
     background-size: cover; /* Garante que não há barras de cor */
     background-position: center center;
     background-repeat: no-repeat;
-    padding: 50vh 0 18rem 0; /* Espaçamento interno com suas alterações */
+    padding: 45vh 0 15rem 0; /* Espaçamento interno com suas alterações */
 }
 
 .links-section {
