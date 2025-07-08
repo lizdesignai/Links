@@ -119,7 +119,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    margin-top: -220px; 
+    margin-top: -240px; 
 }
 
 .link-button {
