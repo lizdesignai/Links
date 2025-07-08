@@ -61,7 +61,7 @@ body {
     background-size: cover; /* Garante que não há barras de cor */
     background-position: center center;
     background-repeat: no-repeat;
-    padding: 45vh 0 30rem 0; /* Espaçamento interno com suas alterações */
+    padding: 55vh 0 30rem 0; /* Espaçamento interno com suas alterações */
 }
 
 .links-section {
@@ -119,7 +119,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    margin-top: -190px; 
+    margin-top: -220px; 
 }
 
 .link-button {
