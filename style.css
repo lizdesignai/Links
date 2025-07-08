@@ -61,7 +61,7 @@ body {
     background-size: cover; /* Garante que não há barras de cor */
     background-position: center center;
     background-repeat: no-repeat;
-    padding: 45vh 0 12rem 0; /* Espaçamento interno com suas alterações */
+    padding: 35vh 0 25rem 0; /* Espaçamento interno com suas alterações */
 }
 
 .links-section {
@@ -105,7 +105,7 @@ body {
 
 .headline {
     font-family: var(--font-headline);
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-size: clamp(3rem, 6vw, 3.5rem);
     font-weight: normal;
     color: var(--text-color-light);
     margin: 20 10rem
