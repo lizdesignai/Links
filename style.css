@@ -68,7 +68,7 @@ body {
     /* Seção 2: Fundo sólido para botões */
     background-color: var(--background-color);
     /* Usando margin-top negativo para puxar a seção para cima, sobrepondo a hero-section */
-    margin-top: -190px; 
+    margin-top: 0px; 
     padding-top: 2rem; /* Adiciona um espaço interno para o conteúdo não colar no topo */
     position: relative; /* Necessário para o empilhamento correto */
     z-index: 2; /* Garante que esta seção fique por cima */
@@ -119,6 +119,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    margin-top: -190px; 
 }
 
 .link-button {
