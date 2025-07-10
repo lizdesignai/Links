@@ -61,7 +61,7 @@ body {
     background-size: cover; /* Garante que não há barras de cor */
     background-position: center center;
     background-repeat: no-repeat;
-    padding: 70vh 0 25rem 0; /* Espaçamento interno com suas alterações */
+    padding: 30vh 0 55rem 0; /* Espaçamento interno com suas alterações */
 }
 
 .links-section {
@@ -109,7 +109,7 @@ body {
     font-weight: normal;
     color: var(--text-color-light);
     margin-right: 20px;
-    margin-left: 35px;
+    margin-left: 25px;
     line-height: 1.2;
     text-align: left;
 }
