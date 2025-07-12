@@ -67,7 +67,7 @@ body {
     /* Seção 2: Fundo sólido para botões */
     background-color: var(--background-color);
     /* Usando margin-top negativo para puxar a seção para cima, sobrepondo a hero-section */
-    margin-top: 0px; 
+    margin-top: 20px; 
     padding-top: 2rem; /* Adiciona um espaço interno para o conteúdo não colar no topo */
     position: relative; /* Necessário para o empilhamento correto */
     z-index: 2; /* Garante que esta seção fique por cima */
