@@ -6,28 +6,28 @@
     <title>Liz Design - Identidade Visual</title>
     <meta name="description" content="Links úteis e portfólio de Liz Design, especialista em identidade visual.">
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
     <link rel="stylesheet" href="style.css">
     
-    <link rel="icon" href="img/logo.png">
+    <link rel="icon" href="img/logo.png}">
 </head>
 <body>
 
-    <!-- Seção 1: BG com Imagem, Logo e Headline -->
     <div class="hero-section">
         <div class="container">
             <div class="logo-container">
+                
             </div>
             <header>
-                <h1 class="headline"> </h1>
+                 <h1 class="headline"></h1>
             </header>
         </div>
     </div>
 
-    <!-- Seção 2: Botões com fundo sólido -->
     <div class="links-section">
         <div class="container">
             <main class="link-buttons">
-                
                 <a href="https://forms.gle/otRycfJRRfJSGKsx7" class="link-button">
                     Aplique para a <strong>Consultoria<br>de Posicionamento</strong> gratuita
                 </a>
@@ -37,7 +37,6 @@
                 <a href="https://wa.link/ud1j4k" class="link-button">
                     Orçamento | <strong>Gerenciamento<br>de Instagram</strong>
                 </a>
-                
                 <a href="https://drive.google.com/drive/folders/1yC6JATyPy-CQabewxWV44NIcKSm8biZI?" class="link-button">
                     Portfólio de Vídeos | <strong>Conheça<br>meu trabalho</strong>
                 </a>
@@ -45,15 +44,38 @@
         </div>
     </div>
 
-    <!-- Seção 3: Redes Sociais e Rodapé com fundo sólido -->
+    <div class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Projetos que Contam Histórias</h2>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-title="Projeto de Identidade Visual 1" data-description="Descrição detalhada do primeiro projeto, focando no desafio e na solução criativa implementada para o cliente.">
+                    <img src="img/Port 1.png" alt="Portfólio 1">
+                </div>
+                <div class="swiper-slide" data-title="Branding para Café Aconchego" data-description="Uma identidade visual completa para uma cafeteria, que buscava transmitir conforto e qualidade artesanal.">
+                    <img src="img/Port 2.png" alt="Portfólio 2">
+                </div>
+                <div class="swiper-slide" data-title="Marca para Startup Tech" data-description="Desenvolvimento de uma marca moderna e dinâmica para uma startup, focada em inovação e confiança.">
+                    <img src="img/Port 3.png" alt="Portfólio 3">
+                </div>
+                <div class="swiper-slide" data-title="Projeto de Rebranding" data-description="Reestruturação completa de uma marca existente, modernizando sua comunicação visual para um novo público.">
+                    <img src="img/Port 4.png" alt="Portfólio 4">
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
     <div class="footer-section">
         <div class="container">
             <section class="social-links">
-                <a href="https://wa.me/message/CNPV764NN3EKF1" target="_blank" rel="noopener noreferrer"><img src="img/Ícone Wpp.png" alt="Ícone do WhatsApp"></a>
-                <a href="https://br.pinterest.com/lizdesignai" target="_blank" rel="noopener noreferrer"><img src="img/icone pinterest.png" alt="Ícone do Pinterest"></a>
-                <a href="https://www.instagram.com/lizdesign.ai?igsh=MThiMGp0a3hscmptdw==" target="_blank" rel="noopener noreferrer"><img src="img/icone instagram.png" alt="Ícone do Instagram"></a>
-                <a href="https://www.tiktok.com/@lizdesign.ai?" target="_blank" rel="noopener noreferrer"><img src="img/icone tiktok.png" alt="Ícone do TikTok"></a>
-                <a href="mailto:lizbranddesign@gmail.com?"><img src="img/icone email.png" alt="Ícone de E-mail"></a>
+                <a href="https://wa.me/message/CNPV764NN3EKF1" target="_blank" rel="noopener noreferrer"><img src="{{ url_for('static', filename='img/Ícone Wpp.png') }}" alt="Ícone do WhatsApp"></a>
+                <a href="https://br.pinterest.com/lizdesignai" target="_blank" rel="noopener noreferrer"><img src="{{ url_for('static', filename='img/icone pinterest.png') }}" alt="Ícone do Pinterest"></a>
+                <a href="https://www.instagram.com/lizdesign.ai?igsh=MThiMGp0a3hscmptdw==" target="_blank" rel="noopener noreferrer"><img src="{{ url_for('static', filename='img/icone instagram.png') }}" alt="Ícone do Instagram"></a>
+                <a href="https://www.tiktok.com/@lizdesign.ai?" target="_blank" rel="noopener noreferrer"><img src="{{ url_for('static', filename='img/icone tiktok.png') }}" alt="Ícone do TikTok"></a>
+                <a href="mailto:lizbranddesign@gmail.com?"><img src="{{ url_for('static', filename='img/icone email.png') }}" alt="Ícone de E-mail"></a>
             </section>
             <footer>
                 <p>LizDesign &copy; 2025 - Todos os direitos reservados.</p>
@@ -61,5 +83,15 @@
         </div>
     </div>
 
+    <div id="portfolio-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
