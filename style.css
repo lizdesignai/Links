@@ -278,6 +278,7 @@ footer {
 .portfolio-actions .link-button {
     max-width: 400px;
     width: 100%;
+    text-align: center;
 }
 
 .portfolio-full-link {
