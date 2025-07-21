@@ -57,7 +57,7 @@ body {
 /* --- 4. Layout das Seções --- */
 .hero-section {
     /* Seção 1: Fundo com imagem (Estilos para Mobile - Comportamento Original) */
-    background-image: url('img/BG Mobile V2.png');
+    background-image: url('img/BG Mobile V4.png');
     background-size: cover; /* Garante que não há barras de cor */
     background-position: center center;
     background-repeat: no-repeat;
