@@ -48,7 +48,7 @@ body {
 
 /* --- 4. Layout das Seções --- */
 .hero-section {
-    background-image: url('../img/BG Mobile V3 (1).png');
+    background-image: url('img/BG Mobile V3 (1).png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
