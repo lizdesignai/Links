@@ -56,7 +56,7 @@ body {
 }
 .links-section {
     background-color: var(--background-color);
-    margin-top: -100px; /* Reduzi um pouco a sobreposição */
+    margin-top: 180px;
     padding-top: 2rem;
     position: relative;
     z-index: 2;
