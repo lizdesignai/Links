@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // --- LÓGICA DO PRE-LOADER ---
-// O evento 'load' espera que toda a página, incluindo imagens e outros recursos, seja carregada.
 window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        // Adiciona a classe 'hidden' para iniciar a animação de fade-out
-        preloader.classList.add('hidden');
+        // Adiciona a classe para iniciar a animação de preenchimento do logo
+        preloader.classList.add('filled');
+
+        // Esconde o pre-loader após um tempo para as animações terminarem
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 3500); // Aumente o tempo para a animação completa (desenho + preenchimento)
     }
 });
 
