@@ -295,52 +295,46 @@ footer {
 }
 
 /* ================================== */
-/* ESTILOS DO PRE-LOADER              */
+/* NOVOS ESTILOS DO PRE-LOADER (SVG)  */
 /* ================================== */
 
-/* A camada que cobre toda a tela */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: var(--background-color); /* Usa o bege do seu site */
-    z-index: 9999; /* Garante que fica por cima de tudo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Transição para o efeito de fade-out */
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.75s ease, visibility 0.75s ease;
+#preloader-logo {
+    width: 120px; /* Ajuste o tamanho conforme necessário */
 }
 
-/* Classe que será adicionada via JS para esconder o pre-loader */
-#preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
+#preloader-logo path {
+    /* Estilo do traço do desenho */
+    stroke: var(--text-color-dark);
+    stroke-width: 2;
+    fill: transparent; /* Começa sem preenchimento */
+
+    /* A mágica da animação de desenho */
+    stroke-dasharray: 1500; /* Um valor grande que seja maior que o comprimento do seu traço */
+    stroke-dashoffset: 1500; /* Faz o traço começar "invisível" */
+    
+    /* A animação que "desenha" o logo */
+    animation: draw-in 2s ease-in-out forwards;
 }
 
-/* Animação de pulsação para o logo */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.9;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.9;
+/* Animação que preenche o logo após ser desenhado */
+#preloader.filled #preloader-logo path {
+    animation: draw-in 2s ease-in-out forwards, 
+               fill-in 1s ease-in-out 2s forwards; /* O '2s' atrasa o início do preenchimento */
+}
+
+/* Keyframes para a animação de desenho */
+@keyframes draw-in {
+    to {
+        stroke-dashoffset: 0;
     }
 }
 
-/* Estilos do logo dentro do pre-loader */
-.preloader-logo {
-    width: 100px; /* Ajuste o tamanho do logo conforme necessário */
-    height: auto;
-    animation: pulse 2s infinite ease-in-out;
+/* Keyframes para a animação de preenchimento */
+@keyframes fill-in {
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: var(--text-color-dark);
+    }
 }
