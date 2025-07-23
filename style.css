@@ -1,21 +1,21 @@
 /* --- 1. Definição das Fontes com @font-face --- */
 @font-face {
     font-family: 'Elegant';
-    src: url('../fonts/Elegant-Regular.woff2') format('woff2');
+    src: url('fonts/Elegant-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Homemade Apple';
-    src: url('../fonts/HomemadeApple-Regular.woff2') format('woff2');
+    src: url('fonts/HomemadeApple-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Roboto';
-    src: url('../fonts/Roboto-Regular.woff2') format('woff2');
+    src: url('fonts/Roboto-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
