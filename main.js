@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
 
    // --- LÓGICA DO PRE-LOADER ---
-// O evento 'load' espera que toda a página, incluindo imagens e outros recursos, seja carregada.
 window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        // Adiciona a classe 'hidden' para iniciar a animação de fade-out
-        preloader.classList.add('hidden');
+        // Define um tempo para a animação do SVG acontecer antes de esconder
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 3500); // 3.5 segundos (2.5s para desenhar + 1s para preencher)
     }
 });
 
