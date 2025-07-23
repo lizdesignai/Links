@@ -1,5 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // --- LÓGICA DO PRE-LOADER ---
+// O evento 'load' espera que toda a página, incluindo imagens e outros recursos, seja carregada.
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Adiciona a classe 'hidden' para iniciar a animação de fade-out
+        preloader.classList.add('hidden');
+    }
+});
+
     // --- 1. Inicialização do Swiper.js ---
     const swiper = new Swiper('.swiper', {
         // Ativa o efeito de "coverflow" (perspectiva 3D)
