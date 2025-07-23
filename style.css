@@ -293,3 +293,54 @@ footer {
 .portfolio-full-link:hover {
     border-bottom: 2px solid var(--text-color-dark);
 }
+
+/* ================================== */
+/* ESTILOS DO PRE-LOADER              */
+/* ================================== */
+
+/* A camada que cobre toda a tela */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background-color); /* Usa o bege do seu site */
+    z-index: 9999; /* Garante que fica por cima de tudo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Transição para o efeito de fade-out */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.75s ease, visibility 0.75s ease;
+}
+
+/* Classe que será adicionada via JS para esconder o pre-loader */
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Animação de pulsação para o logo */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
+
+/* Estilos do logo dentro do pre-loader */
+.preloader-logo {
+    width: 100px; /* Ajuste o tamanho do logo conforme necessário */
+    height: auto;
+    animation: pulse 2s infinite ease-in-out;
+}
