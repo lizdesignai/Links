@@ -183,7 +183,7 @@ footer {
 /* --- 8. NOVOS ESTILOS PARA O PORTFÓLIO E MODAL --- */
 /* (Esta secção está intacta) */
 .portfolio-section {
-    margin-top: 10px;
+    margin-top: 30px;
     padding: 2rem 0;
     background-color: var(--background-color);
     position: relative;
@@ -288,7 +288,7 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem; /* Espaçamento entre os botões */
-    margin-top: 2.5rem; /* Margem acima dos botões */
+    margin-top: 5.5rem; /* Margem acima dos botões */
     padding: 0 20px;
 }
 
@@ -385,7 +385,7 @@ footer {
     display: flex;
     background-color: rgba(255, 255, 255, 0.2); /* Fundo translúcido */
     backdrop-filter: blur(5px); /* Efeito de vidro fosco */
-    border-radius: 20px;
+    border-radius: 25px;
     padding: 5px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave */
@@ -399,7 +399,7 @@ footer {
     background-color: transparent;
     border: none;
     padding: 0.7rem 1rem;
-    border-radius: 15px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     text-transform: uppercase;
