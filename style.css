@@ -56,7 +56,7 @@ body {
 }
 .links-section {
     background-color: var(--background-color);
-    /* margin-top: 180px; <-- MODIFICADO: Esta regra foi removida */
+    margin-top: 180px; <-- MODIFICADO: Esta regra foi removida */
     padding-top: 2rem;
     position: relative;
     z-index: 2;
@@ -102,7 +102,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    /* margin-top: -240px; <-- MODIFICADO: Esta regra foi removida */
+    margin-top: -240px; <-- MODIFICADO: Esta regra foi removida */
 }
 .link-button {
     background-color: var(--button-bg-color);
@@ -149,7 +149,7 @@ footer {
 /* --- 7. Media Query para Telas Maiores (Desktop) --- */
 @media (min-width: 768px) {
     .hero-section {
-        background-image: url('../img/BG Desktop.png');
+        background-image: url('img/BG Desktop.png');
         min-height: 70vh;
         display: flex;
         justify-content: flex-end;
