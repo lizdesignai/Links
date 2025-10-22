@@ -102,7 +102,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    margin-top: -240px; <-- MODIFICADO: Esta regra foi removida */
+    /* margin-top: -240px; <-- MODIFICADO: Esta regra foi removida */
 }
 .link-button {
     background-color: var(--button-bg-color);
