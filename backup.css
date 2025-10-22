@@ -1,1 +1,359 @@
+/* --- 1. Definição das Fontes com @font-face --- */
+@font-face {
+    font-family: 'Elegant';
+    src: url('fonts/Elegant-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Homemade Apple';
+    src: url('fonts/HomemadeApple-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
+/* --- 2. Variáveis Globais (CSS Custom Properties) --- */
+:root {
+    --font-headline: 'Elegant', serif;
+    --font-base: 'Roboto', sans-serif;
+    --button-bg-color: #8c6e54;
+    --text-color-light: #FEF5E6;
+    --text-color-dark: #5c4b3c;
+    --background-color: #FEF5E6;
+}
+
+/* --- 3. Estilos Base e Reset --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--font-base);
+    color: var(--text-color-dark);
+    background-color: var(--background-color);
+}
+
+/* --- 4. Layout das Seções --- */
+.hero-section {
+    background-image: url('img/BG Mobile V3 (1).png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 30vh 0 10rem 0;
+}
+.links-section {
+    background-color: var(--background-color);
+    margin-top: 180px;
+    padding-top: 2rem;
+    position: relative;
+    z-index: 2;
+}
+.footer-section {
+    background-color: var(--background-color);
+    padding: 1rem 0 2rem 0;
+}
+
+/* --- 5. Container Genérico --- */
+.container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+}
+
+/* --- 6. Estilos dos Componentes --- */
+.logo-container {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.logo-container img {
+    width: 80px;
+    height: auto;
+    opacity: 0.9;
+}
+.headline {
+    font-family: var(--font-headline);
+    font-size: clamp(3.5rem, 6vw, 3.5rem);
+    font-weight: normal;
+    color: var(--text-color-light);
+    margin-right: 20px;
+    margin-left: 20px;
+    line-height: 1.2;
+    text-align: left;
+}
+.link-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: -240px;
+}
+.link-button {
+    background-color: var(--button-bg-color);
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    line-height: 1.4;
+    font-weight: 300;
+    text-align: center;
+}
+.link-button strong {
+    font-weight: 700;
+}
+.link-button:hover {
+    background-color: #7a5f49;
+    transform: scale(1.03);
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.social-links img {
+    width: 28px;
+    height: 28px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.social-links a:hover img {
+    opacity: 1;
+    transform: scale(1.15);
+}
+footer {
+    font-size: 0.8rem;
+    color: var(--text-color-dark);
+    opacity: 0.8;
+}
+
+/* --- 7. Media Query para Telas Maiores (Desktop) --- */
+@media (min-width: 768px) {
+    .hero-section {
+        background-image: url('../img/BG Desktop.png');
+        min-height: 70vh;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        padding: 0;
+    }
+    .hero-section .container {
+        padding-bottom: 5rem;
+    }
+    .links-section {
+        margin-top: -5rem;
+    }
+}
+
+/* --- 8. NOVOS ESTILOS PARA O PORTFÓLIO E MODAL --- */
+.portfolio-section {
+    padding: 2rem 0;
+    background-color: var(--background-color);
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    font-family: var(--font-headline);
+    font-size: 2.5rem;
+    color: var(--text-color-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--button-bg-color);
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: var(--text-color-dark);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+}
+
+#modal-title {
+    font-family: var(--font-headline);
+    margin-bottom: 1rem;
+}
+/* --- ADIÇÕES PARA OS BOTÕES DO PORTFÓLIO --- */
+
+.portfolio-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Espaçamento entre os botões */
+    margin-top: 2.5rem; /* Margem acima dos botões */
+    padding: 0 20px;
+}
+
+/* Ajuste para o botão movido, para que não ocupe a largura toda */
+.portfolio-actions .link-button {
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.portfolio-full-link {
+    font-family: var(--font-base);
+    color: var(--text-color-dark);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.portfolio-full-link:hover {
+    border-bottom: 2px solid var(--text-color-dark);
+}
+
+/* ================================== */
+/* ESTILOS DO PRE-LOADER (SVG)        */
+/* ================================== */
+
+/* A camada que cobre toda a tela */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Usa 100% em vez de 100vh para evitar problemas em browsers mobile */
+    background-color: var(--background-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Classe para esconder o pre-loader */
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Estilos para o SVG */
+#preloader-logo {
+    width: 120px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+}
+
+/* Estilos para os caminhos (paths) dentro do SVG */
+#preloader-logo path {
+    /* A mágica da animação de desenho */
+    stroke: var(--text-color-dark); /* Cor do traço do desenho */
+    stroke-width: 2;
+    fill: transparent; /* Começa transparente */
+    stroke-dasharray: 2500; /* Um valor grande, maior que o comprimento de qualquer traço */
+    stroke-dashoffset: 2500; /* Faz o traço começar "invisível" */
+    
+    /* Animação: desenha e depois preenche */
+    animation: draw-in 2.5s ease-in-out forwards, 
+               fill-in 1s ease-in-out 2.5s forwards; /* O '2.5s' atrasa o preenchimento */
+}
+
+/* Animação que "desenha" o logo */
+@keyframes draw-in {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Animação que preenche o logo com cor */
+@keyframes fill-in {
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: var(--text-color-dark);
+    }
+}
