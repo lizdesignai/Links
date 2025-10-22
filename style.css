@@ -183,6 +183,7 @@ footer {
 /* --- 8. NOVOS ESTILOS PARA O PORTFÓLIO E MODAL --- */
 /* (Esta secção está intacta) */
 .portfolio-section {
+    margin-top: 10px;
     padding: 2rem 0;
     background-color: var(--background-color);
     position: relative;
