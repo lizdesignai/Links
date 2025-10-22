@@ -149,7 +149,7 @@ footer {
 /* --- 7. Media Query para Telas Maiores (Desktop) --- */
 @media (min-width: 768px) {
     .hero-section {
-        background-image: url('img/BG Desktop.png');
+        background-image: url('../img/BG Desktop.png');
         min-height: 70vh;
         display: flex;
         justify-content: flex-end;
@@ -159,10 +159,10 @@ footer {
     .hero-section .container {
         padding-bottom: 5rem;
     }
-
-    /* --- MODIFICAÇÃO (Regra antiga removida e novas adicionadas) --- */
-    
-    /* A regra .links-section { margin-top: -5rem; } foi removida daqui */
+    .links-section {
+        margin-top: -5rem;
+    }
+}
 
     /* NOVAS REGRAS DESKTOP PARA A CHAVE E VISTAS */
     .toggle-container {
