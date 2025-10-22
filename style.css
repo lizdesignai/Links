@@ -52,21 +52,14 @@ body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    /* ALTERAÇÃO AQUI: Reduz o padding inferior */
-    padding: 30vh 0 3rem 0; 
-    
-    /* ADIÇÃO AQUI: Garante que o hero fique por cima se necessário (embora não mais sobreposto) */
-    position: relative;
-    z-index: 1;
+    padding: 30vh 0 10rem 0;
 }
 .links-section {
     background-color: var(--background-color);
-    /* REMOÇÃO AQUI: Remove a margem que causava o espaço */
-    /* margin-top: 180px; */ 
-    /* ALTERAÇÃO AQUI: Reduz o padding superior */
-    padding-top: 1rem; 
+    margin-top: 180px;
+    padding-top: 2rem;
     position: relative;
-    /* z-index: 2; (Pode remover, mas não prejudica) */
+    z-index: 2;
 }
 .footer-section {
     background-color: var(--background-color);
