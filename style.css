@@ -56,7 +56,7 @@ body {
 }
 .links-section {
     background-color: var(--background-color);
-    margin-top: 180px;
+    /* margin-top: 180px; <-- MODIFICADO: Esta regra foi removida */
     padding-top: 2rem;
     position: relative;
     z-index: 2;
@@ -102,7 +102,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    margin-top: -240px;
+    /* margin-top: -240px; <-- MODIFICADO: Esta regra foi removida */
 }
 .link-button {
     background-color: var(--button-bg-color);
@@ -159,12 +159,29 @@ footer {
     .hero-section .container {
         padding-bottom: 5rem;
     }
+
+    /* --- MODIFICAÇÃO (Regra antiga removida e novas adicionadas) --- */
+    
+    /* A regra .links-section { margin-top: -5rem; } foi removida daqui */
+
+    /* NOVAS REGRAS DESKTOP PARA A CHAVE E VISTAS */
+    .toggle-container {
+        margin-top: -5rem; /* Posição da chave no desktop */
+        margin-bottom: 1rem;
+    }
+    .content-view {
+        margin-top: 0; /* Reseta o margin-top do mobile */
+    }
     .links-section {
-        margin-top: -5rem;
+         padding-top: 1rem; /* Menos padding no desktop */
+    }
+    .manifesto-section {
+        padding: 3rem 0; /* Mais padding no desktop */
     }
 }
 
 /* --- 8. NOVOS ESTILOS PARA O PORTFÓLIO E MODAL --- */
+/* (Esta secção está intacta) */
 .portfolio-section {
     padding: 2rem 0;
     background-color: var(--background-color);
@@ -297,14 +314,13 @@ footer {
 /* ================================== */
 /* ESTILOS DO PRE-LOADER (SVG)        */
 /* ================================== */
-
-/* A camada que cobre toda a tela */
+/* (Esta secção está intacta) */
 #preloader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Usa 100% em vez de 100vh para evitar problemas em browsers mobile */
+    height: 100%; 
     background-color: var(--background-color);
     z-index: 9999;
     display: flex;
@@ -314,46 +330,195 @@ footer {
     visibility: visible;
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
-
-/* Classe para esconder o pre-loader */
 #preloader.hidden {
     opacity: 0;
     visibility: hidden;
 }
-
-/* Estilos para o SVG */
 #preloader-logo {
-    width: 120px; /* Ajuste o tamanho conforme necessário */
+    width: 120px; 
     height: auto;
 }
-
-/* Estilos para os caminhos (paths) dentro do SVG */
 #preloader-logo path {
-    /* A mágica da animação de desenho */
-    stroke: var(--text-color-dark); /* Cor do traço do desenho */
+    stroke: var(--text-color-dark); 
     stroke-width: 2;
-    fill: transparent; /* Começa transparente */
-    stroke-dasharray: 2500; /* Um valor grande, maior que o comprimento de qualquer traço */
-    stroke-dashoffset: 2500; /* Faz o traço começar "invisível" */
+    fill: transparent; 
+    stroke-dasharray: 2500; 
+    stroke-dashoffset: 2500; 
     
-    /* Animação: desenha e depois preenche */
     animation: draw-in 2.5s ease-in-out forwards, 
-               fill-in 1s ease-in-out 2.5s forwards; /* O '2.5s' atrasa o preenchimento */
+             fill-in 1s ease-in-out 2.5s forwards; 
 }
-
-/* Animação que "desenha" o logo */
 @keyframes draw-in {
     to {
         stroke-dashoffset: 0;
     }
 }
-
-/* Animação que preenche o logo com cor */
 @keyframes fill-in {
     from {
         fill: transparent;
     }
     to {
         fill: var(--text-color-dark);
+    }
+}
+
+
+/* ================================== */
+/* --- 9. CÓDIGO NOVO ---        */
+/* ESTILOS DO SISTEMA DE ABAS (TOGGLE)*/
+/* ================================== */
+
+/* O contentor da chave/botões */
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    position: relative; /* Para ficar por cima */
+    z-index: 3; /* Acima do hero (1) e do content-view (2) */
+    margin-top: -240px; /* Puxa a chave para cima da hero (Mobile) */
+    margin-bottom: 2rem; 
+}
+
+/* O retângulo que agrupa as opções */
+.toggle-switch {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo translúcido */
+    backdrop-filter: blur(5px); /* Efeito de vidro fosco */
+    border-radius: 20px;
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+.toggle-option {
+    font-family: var(--font-base);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-color-light);
+    background-color: transparent;
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* O estilo da opção ATIVA */
+.toggle-option.active {
+    background-color: var(--text-color-light);
+    color: var(--button-bg-color);
+    font-weight: 700;
+}
+
+/* ================================== */
+/* --- 10. CÓDIGO NOVO ---       */
+/* ESTILOS DAS VISTAS DE CONTEÚDO     */
+/* ================================== */
+
+.content-view {
+    display: none; /* Escondido por defeito */
+    width: 100%;
+    position: relative; 
+    z-index: 2; /* Abaixo do toggle, acima do hero-bg */
+    margin-top: 180px; /* Posição inicial do conteúdo (Mobile) */
+    background-color: var(--background-color); /* Garante o fundo */
+}
+
+/* A vista ativa é mostrada */
+.content-view.active {
+    display: block;
+}
+
+
+/* ================================== */
+/* --- 11. CÓDIGO NOVO ---       */
+/* ESTILOS DA NOVA VISTA "SOBRE"      */
+/* ================================== */
+
+.manifesto-section {
+    padding: 2rem 0; 
+    text-align: center;
+}
+
+.manifesto-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color-dark);
+    opacity: 0.9;
+    max-width: 400px; /* Limita a largura do texto */
+    margin: 1.5rem auto; /* Espaçamento vertical */
+}
+
+.manifesto-cta {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 3rem 0;
+}
+
+/* O botão com o efeito de luz (shimmer) */
+.shimmer-button {
+    font-family: var(--font-base);
+    color: var(--text-color-dark);
+    font-size: 1rem;
+    text-decoration: underline;
+    text-decoration-color: var(--button-bg-color);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px; /* Espaço entre texto e sublinhado */
+    padding: 10px 15px;
+    position: relative;
+    overflow: hidden; /* Essencial para o efeito */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.shimmer-button strong {
+    font-weight: 700;
+}
+
+/* O pseudo-elemento que cria a luz */
+.shimmer-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* O gradiente da luz */
+    background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 80%
+    );
+    
+    /* Começa fora da tela (à esquerda) */
+    transform: translateX(-100%);
+}
+
+/* Esta classe será adicionada pelo JS para disparar a animação */
+.shimmer-button.animate-shimmer::after {
+    /* A animação "shimmer" vai demorar 1.5s, 
+       começa 0.5s depois de aparecer (delay) 
+    */
+    animation: shimmer 1.5s ease-in-out 0.5s;
+    /* Impede que o gradiente volte ao início */
+    transform: translateX(100%); 
+}
+
+/* ================================== */
+/* --- 12. CÓDIGO NOVO ---       */
+/* ANIMAÇÃO SHIMMER (KEYFRAMES)       */
+/* ================================== */
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
     }
 }
