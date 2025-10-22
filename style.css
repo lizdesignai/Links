@@ -166,7 +166,7 @@ footer {
 
     /* NOVAS REGRAS DESKTOP PARA A CHAVE E VISTAS */
     .toggle-container {
-        margin-top: -5rem; /* Posição da chave no desktop */
+        margin-top: 5rem; /* Posição da chave no desktop */
         margin-bottom: 1rem;
     }
     .content-view {
@@ -375,7 +375,7 @@ footer {
     padding: 1rem 0;
     position: relative; /* Para ficar por cima */
     z-index: 3; /* Acima do hero (1) e do content-view (2) */
-    /* margin-top: -240px; /* Puxa a chave para cima da hero (Mobile) */
+    margin-top: -140px; /* Puxa a chave para cima da hero (Mobile) */
     margin-bottom: 2rem; 
 }
 
