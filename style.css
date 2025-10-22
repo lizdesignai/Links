@@ -56,7 +56,7 @@ body {
 }
 .links-section {
     background-color: var(--background-color);
-    margin-top: 180px; <-- MODIFICADO: Esta regra foi removida */
+    /* margin-top: 180px; <-- MODIFICADO: Esta regra foi removida */
     padding-top: 2rem;
     position: relative;
     z-index: 2;
