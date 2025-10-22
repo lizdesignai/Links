@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Define um tempo para a animação do SVG acontecer antes de esconder
             setTimeout(() => {
                 preloader.classList.add('hidden');
-            }, 3500); // 3.5 segundos (2.5s para desenhar + 1s para preencher)
+            }, 2500); // 3.5 segundos (2.5s para desenhar + 1s para preencher)
         }
     });
 
