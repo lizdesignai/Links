@@ -58,6 +58,7 @@ body {
     background-color: var(--background-color);
     margin-top: 240px;
     padding-top: 2rem;
+    margin-bottom: 100px;
     position: relative;
     z-index: 2;
 }
