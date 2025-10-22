@@ -375,8 +375,8 @@ footer {
     padding: 1rem 0;
     position: relative; /* Para ficar por cima */
     z-index: 3; /* Acima do hero (1) e do content-view (2) */
-    margin-top: 0px; /* Puxa a chave para cima da hero (Mobile) */
-    margin-bottom: 5rem; 
+    margin-top: -60px; /* Puxa a chave para cima da hero (Mobile) */
+    margin-bottom: 1rem; 
 }
 
 /* O retângulo que agrupa as opções */
