@@ -522,3 +522,138 @@ footer {
         transform: translateX(100%);
     }
 }
+
+/* ================================== */
+/* --- 13. CÓDIGO NOVO ---       */
+/* ESTILOS DO MANIFESTO FORMATADO     */
+/* ================================== */
+
+/* O "Gradiente Vivo" animado para o fundo */
+.manifesto-section {
+    padding: 2rem 0;
+    text-align: left; /* Melhor para leitura de blocos de texto */
+
+    /* Aqui está o gradiente "vivo":
+      Usamos as cores da tua paleta (o fundo e uma versão mais escura)
+      e animamos a posição do fundo lentamente.
+    */
+    background: linear-gradient(
+        270deg, 
+        var(--background-color), 
+        #e9dccd, /* Um tom entre o fundo e o botão */
+        var(--background-color)
+    );
+    background-size: 400% 400%; /* Tamanho grande para a animação */
+    animation: gradient-flow 12s ease infinite;
+}
+
+/* O subtítulo (itálico, abaixo do título) */
+.manifesto-subtitle {
+    font-family: var(--font-headline);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-color-dark);
+    opacity: 0.6;
+    text-align: center;
+    margin-top: -1.5rem; /* Puxa para perto do título */
+    margin-bottom: 2.5rem;
+}
+
+/* Parágrafos de texto padrão */
+.manifesto-text {
+    font-size: 1rem;
+    line-height: 1.7; /* Mais espaço entre linhas */
+    color: var(--text-color-dark);
+    max-width: 400px;
+    margin: 1.5rem auto;
+}
+
+/* As divisórias elegantes */
+.manifesto-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--button-bg-color);
+    opacity: 0.2;
+    margin: 2.5rem auto; /* Mais espaço */
+    width: 80%;
+}
+
+/* Caixa de destaque para as frases de impacto */
+.manifesto-emphasis-box {
+    border-left: 3px solid var(--button-bg-color);
+    padding: 0.5rem 1.5rem;
+    margin: 2rem auto;
+    max-width: 400px;
+}
+.manifesto-emphasis-box p {
+    font-family: var(--font-headline);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--text-color-dark);
+}
+.manifesto-emphasis-box strong {
+    font-weight: bold; /* Garante o peso da fonte */
+}
+
+/* O "alerta" para quem NÃO é seu cliente */
+.manifesto-callout {
+    background-color: rgba(92, 75, 60, 0.05); /* Cor escura com 5% opacidade */
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 400px;
+    font-style: italic;
+    line-height: 1.7;
+}
+
+/* O "Mas." que serve de transição */
+.manifesto-transition {
+    font-family: var(--font-headline);
+    font-size: 2.5rem;
+    color: var(--button-bg-color);
+    text-align: center;
+    font-weight: bold;
+    margin: 2.5rem 0 1rem 0;
+}
+
+/* A mensagem final de boas-vindas */
+.manifesto-welcome {
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--text-color-dark);
+    margin: 2rem auto;
+    font-weight: bold;
+}
+
+/* ================================== */
+/* --- 14. CÓDIGO NOVO ---       */
+/* ANIMAÇÃO DO GRADIENTE "VIVO"   */
+/* ================================== */
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* --- AJUSTE DE ESTILO --- */
+/* Precisamos garantir que o .manifesto-section antigo 
+   tenha o alinhamento de texto removido.
+   Vamos modificar a regra na Secção 11.
+*/
+.manifesto-section {
+    padding: 2rem 0; 
+    /* text-align: center; <-- REMOVA ou substitua por 'left' */
+    text-align: left;
+}
+.manifesto-text {
+    /* ... (estilos anteriores) ... */
+    margin: 1.5rem auto; 
+    text-align: left; /* Garante que o texto dentro do container fique alinhado à esquerda */
+}
