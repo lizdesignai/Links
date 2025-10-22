@@ -52,14 +52,21 @@ body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    padding: 30vh 0 10rem 0;
+    /* ALTERAÇÃO AQUI: Reduz o padding inferior */
+    padding: 30vh 0 3rem 0; 
+    
+    /* ADIÇÃO AQUI: Garante que o hero fique por cima se necessário (embora não mais sobreposto) */
+    position: relative;
+    z-index: 1;
 }
 .links-section {
     background-color: var(--background-color);
-    margin-top: 180px; <-- MODIFICADO: Esta regra foi removida */
-    padding-top: 2rem;
+    /* REMOÇÃO AQUI: Remove a margem que causava o espaço */
+    /* margin-top: 180px; */ 
+    /* ALTERAÇÃO AQUI: Reduz o padding superior */
+    padding-top: 1rem; 
     position: relative;
-    z-index: 2;
+    /* z-index: 2; (Pode remover, mas não prejudica) */
 }
 .footer-section {
     background-color: var(--background-color);
@@ -102,7 +109,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    margin-top: -240px; <-- MODIFICADO: Esta regra foi removida */
+    /* margin-top: -240px; <-- MODIFICADO: Esta regra foi removida */
 }
 .link-button {
     background-color: var(--button-bg-color);
@@ -375,7 +382,7 @@ footer {
     padding: 1rem 0;
     position: relative; /* Para ficar por cima */
     z-index: 3; /* Acima do hero (1) e do content-view (2) */
-    margin-top: -240px; /* Puxa a chave para cima da hero (Mobile) */
+    /* margin-top: -240px; /* Puxa a chave para cima da hero (Mobile) */
     margin-bottom: 2rem; 
 }
 
@@ -422,7 +429,7 @@ footer {
     width: 100%;
     position: relative; 
     z-index: 2; /* Abaixo do toggle, acima do hero-bg */
-    margin-top: 180px; /* Posição inicial do conteúdo (Mobile) */
+    /* margin-top: 180px; /* Posição inicial do conteúdo (Mobile) */
     background-color: var(--background-color); /* Garante o fundo */
 }
 
