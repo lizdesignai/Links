@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 /* ==========================================================================
-   1. Definição das Fontes com @font-face
+   1. Definição das Fontes
    ========================================================================== */
-=======
-/* --- 1. Definição das Fontes com @font-face --- */
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
 @font-face {
     font-family: 'Elegant';
     src: url('fonts/Elegant-Regular.woff2') format('woff2');
@@ -27,13 +23,9 @@
     font-display: swap;
 }
 
-<<<<<<< HEAD
 /* ==========================================================================
-   2. Variáveis Globais (CSS Custom Properties)
+   2. Variáveis Globais
    ========================================================================== */
-=======
-/* --- 2. Variáveis Globais (CSS Custom Properties) --- */
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
 :root {
     --font-headline: 'Elegant', serif;
     --font-base: 'Roboto', sans-serif;
@@ -43,13 +35,9 @@
     --background-color: #FEF5E6;
 }
 
-<<<<<<< HEAD
 /* ==========================================================================
    3. Estilos Base e Reset
    ========================================================================== */
-=======
-/* --- 3. Estilos Base e Reset --- */
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -63,14 +51,19 @@ body {
     color: var(--text-color-dark);
     background-color: var(--background-color);
 }
+.container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+}
 
-<<<<<<< HEAD
 /* ==========================================================================
    4. Layout das Seções Base
    ========================================================================== */
-=======
-/* --- 4. Layout das Seções --- */
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
 .hero-section {
     background-image: url('img/BG Mobile V3 (1).png');
     background-size: cover;
@@ -91,28 +84,9 @@ body {
     padding: 1rem 0 2rem 0;
 }
 
-<<<<<<< HEAD
-/* Container Genérico */
-=======
-/* --- 5. Container Genérico --- */
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
-.container {
-    max-width: 450px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-}
-
-<<<<<<< HEAD
 /* ==========================================================================
-   5. Componentes Globais
+   5. Componentes Globais (Botões, Logos, Textos)
    ========================================================================== */
-=======
-/* --- 6. Estilos dos Componentes --- */
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
 .logo-container {
     margin-bottom: 1rem;
     text-align: center;
@@ -181,9 +155,8 @@ footer {
     opacity: 0.8;
 }
 
-<<<<<<< HEAD
 /* ==========================================================================
-   6. Estilos do Pre-Loader (SVG)
+   6. Pre-Loader
    ========================================================================== */
 #preloader {
     position: fixed;
@@ -218,7 +191,7 @@ footer {
 }
 
 /* ==========================================================================
-   7. Sistema de Abas (Toggle) e Vistas de Conteúdo
+   7. Sistema de Abas (Toggle)
    ========================================================================== */
 .toggle-container {
     display: flex;
@@ -229,7 +202,6 @@ footer {
     margin-top: -60px; 
     margin-bottom: -2rem; 
 }
-
 .toggle-switch {
     display: flex;
     background-color: rgba(255, 255, 255, 0.2); 
@@ -239,7 +211,6 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
 }
-
 .toggle-option {
     font-family: var(--font-base);
     font-size: 0.8rem;
@@ -254,14 +225,11 @@ footer {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
-
 .toggle-option.active {
     background-color: var(--text-color-light);
     color: var(--button-bg-color);
     font-weight: 700;
 }
-
-/* Vistas de Conteúdo */
 .content-view {
     display: none; 
     width: 100%;
@@ -274,7 +242,7 @@ footer {
 }
 
 /* ==========================================================================
-   8. Estilos da Seção "Sobre" (Manifesto consolidado)
+   8. Seção "Sobre" (Manifesto)
    ========================================================================== */
 .manifesto-section {
     padding: 2rem 0; 
@@ -283,7 +251,6 @@ footer {
     background-size: 400% 400%; 
     animation: gradient-flow 12s ease infinite;
 }
-
 .manifesto-subtitle {
     font-family: var(--font-headline);
     font-size: 1.2rem;
@@ -294,7 +261,6 @@ footer {
     margin-top: -1.5rem; 
     margin-bottom: 2.5rem;
 }
-
 .manifesto-text {
     font-size: 1rem;
     line-height: 1.7; 
@@ -304,7 +270,6 @@ footer {
     margin: 1.5rem auto; 
     text-align: left; 
 }
-
 .manifesto-divider {
     border: 0;
     height: 1px;
@@ -313,7 +278,6 @@ footer {
     margin: 2.5rem auto; 
     width: 80%;
 }
-
 .manifesto-emphasis-box {
     border-left: 3px solid var(--button-bg-color);
     padding: 0.5rem 1.5rem;
@@ -329,7 +293,6 @@ footer {
 .manifesto-emphasis-box strong {
     font-weight: bold; 
 }
-
 .manifesto-callout {
     background-color: rgba(92, 75, 60, 0.05); 
     padding: 1.5rem;
@@ -339,7 +302,6 @@ footer {
     font-style: italic;
     line-height: 1.7;
 }
-
 .manifesto-transition {
     font-family: var(--font-headline);
     font-size: 2.5rem;
@@ -348,7 +310,6 @@ footer {
     font-weight: bold;
     margin: 2.5rem 0 1rem 0;
 }
-
 .manifesto-welcome {
     font-family: var(--font-headline);
     font-size: 1.5rem;
@@ -357,13 +318,13 @@ footer {
     margin: 2rem auto;
     font-weight: bold;
 }
-
 .manifesto-cta {
     display: flex;
     justify-content: center;
     padding: 1rem 0 3rem 0;
 }
 
+/* Botão Shimmer */
 .shimmer-button {
     font-family: var(--font-base);
     color: var(--text-color-dark);
@@ -400,44 +361,6 @@ footer {
 /* ==========================================================================
    9. Portfólio, Swiper e Modal
    ========================================================================== */
-=======
-/* --- 7. Media Query para Telas Maiores (Desktop) --- */
-@media (min-width: 768px) {
-    .hero-section {
-        background-image: url('../img/BG Desktop.png');
-        min-height: 70vh;
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: column;
-        padding: 0;
-    }
-    .hero-section .container {
-        padding-bottom: 5rem;
-    }
-    .links-section {
-        margin-top: -5rem;
-    }
-}
-
-    /* NOVAS REGRAS DESKTOP PARA A CHAVE E VISTAS */
-    .toggle-container {
-        margin-top: -5rem; /* Posição da chave no desktop */
-        margin-bottom: 1rem;
-    }
-    .content-view {
-        margin-top: 0; /* Reseta o margin-top do mobile */
-    }
-    .links-section {
-         padding-top: 1rem; /* Menos padding no desktop */
-    }
-    .manifesto-section {
-        padding: 3rem 0; /* Mais padding no desktop */
-    }
-}
-
-/* --- 8. NOVOS ESTILOS PARA O PORTFÓLIO E MODAL --- */
-/* (Esta secção está intacta) */
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
 .portfolio-section {
     margin-top: 30px;
     padding: 2rem 0;
@@ -445,7 +368,6 @@ footer {
     position: relative;
     z-index: 1;
 }
-
 .section-title {
     font-family: var(--font-headline);
     font-size: 2.5rem;
@@ -453,13 +375,11 @@ footer {
     text-align: center;
     margin-bottom: 2rem;
 }
-
 .swiper {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
 }
-
 .swiper-slide {
     background-position: center;
     background-size: cover;
@@ -469,103 +389,32 @@ footer {
     transition: opacity 0.4s ease;
     cursor: pointer;
 }
-
 .swiper-slide-active {
     opacity: 1;
 }
-
 .swiper-slide img {
     display: block;
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
-
 .swiper-button-next,
 .swiper-button-prev {
     color: var(--button-bg-color);
 }
-
-<<<<<<< HEAD
-=======
-/* Estilos do Modal */
-.modal {
-    display: none; /* Escondido por padrão */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.6);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.modal.active {
-    display: block;
-    opacity: 1;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 30px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    color: var(--text-color-dark);
-}
-
-.close-button {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: black;
-    text-decoration: none;
-}
-
-#modal-title {
-    font-family: var(--font-headline);
-    margin-bottom: 1rem;
-}
-/* --- ADIÇÕES PARA OS BOTÕES DO PORTFÓLIO --- */
-
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
 .portfolio-actions {
     display: flex;
     flex-direction: column;
     align-items: center;
-<<<<<<< HEAD
     gap: 1.5rem; 
     margin-top: 5.5rem; 
     padding: 0 20px;
 }
-
-=======
-    gap: 1.5rem; /* Espaçamento entre os botões */
-    margin-top: 5.5rem; /* Margem acima dos botões */
-    padding: 0 20px;
-}
-
-/* Ajuste para o botão movido, para que não ocupe a largura toda */
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
 .portfolio-actions .link-button {
     max-width: 400px;
     width: 100%;
     text-align: center;
 }
-
 .portfolio-full-link {
     font-family: var(--font-base);
     color: var(--text-color-dark);
@@ -574,15 +423,10 @@ footer {
     border-bottom: 2px solid transparent;
     transition: border-bottom 0.3s ease;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
 .portfolio-full-link:hover {
     border-bottom: 2px solid var(--text-color-dark);
 }
 
-<<<<<<< HEAD
 /* Modal */
 .modal {
     display: none; 
@@ -631,11 +475,31 @@ footer {
 }
 
 /* ==========================================================================
-   10. Media Queries (Desktop)
+   10. Animações
+   ========================================================================== */
+@keyframes draw-in {
+    to { stroke-dashoffset: 0; }
+}
+@keyframes fill-in {
+    from { fill: transparent; }
+    to { fill: var(--text-color-dark); }
+}
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==========================================================================
+   11. Media Queries (Desktop)
    ========================================================================== */
 @media (min-width: 768px) {
     .hero-section {
-        background-image: url('../img/BG Desktop.png');
+        background-image: url('img/BG Desktop.png');
         min-height: 70vh;
         display: flex;
         justify-content: flex-end;
@@ -647,10 +511,8 @@ footer {
     }
     .links-section {
         margin-top: -5rem;
-        padding-top: 1rem; /* Ajuste para desktop agrupado corretamente */
+        padding-top: 1rem;
     }
-    
-    /* Chave e vistas ajustadas para Desktop */
     .toggle-container {
         margin-top: -5rem; 
         margin-bottom: 1rem;
@@ -659,368 +521,6 @@ footer {
         margin-top: 0; 
     }
     .manifesto-section {
-        padding: 3rem 0; /* Mais respiro visual em telas grandes */
+        padding: 3rem 0; 
     }
 }
-
-/* ==========================================================================
-   11. Animações (Keyframes)
-   ========================================================================== */
-=======
-/* ================================== */
-/* ESTILOS DO PRE-LOADER (SVG)        */
-/* ================================== */
-/* (Esta secção está intacta) */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; 
-    background-color: var(--background-color);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-#preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-#preloader-logo {
-    width: 120px; 
-    height: auto;
-}
-#preloader-logo path {
-    stroke: var(--text-color-dark); 
-    stroke-width: 2;
-    fill: transparent; 
-    stroke-dasharray: 2500; 
-    stroke-dashoffset: 2500; 
-    
-    animation: draw-in 2.5s ease-in-out forwards, 
-             fill-in 1s ease-in-out 2.5s forwards; 
-}
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
-@keyframes draw-in {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-@keyframes fill-in {
-    from {
-        fill: transparent;
-    }
-    to {
-        fill: var(--text-color-dark);
-    }
-}
-<<<<<<< HEAD
-=======
-
-
-/* ================================== */
-/* --- 9. CÓDIGO NOVO ---        */
-/* ESTILOS DO SISTEMA DE ABAS (TOGGLE)*/
-/* ================================== */
-
-/* O contentor da chave/botões */
-.toggle-container {
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
-    position: relative; /* Para ficar por cima */
-    z-index: 3; /* Acima do hero (1) e do content-view (2) */
-    margin-top: -60px; /* Puxa a chave para cima da hero (Mobile) */
-    margin-bottom: -2rem; 
-}
-
-/* O retângulo que agrupa as opções */
-.toggle-switch {
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.2); /* Fundo translúcido */
-    backdrop-filter: blur(5px); /* Efeito de vidro fosco */
-    border-radius: 25px;
-    padding: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave */
-}
-
-.toggle-option {
-    font-family: var(--font-base);
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--text-color-light);
-    background-color: transparent;
-    border: none;
-    padding: 0.7rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* O estilo da opção ATIVA */
-.toggle-option.active {
-    background-color: var(--text-color-light);
-    color: var(--button-bg-color);
-    font-weight: 700;
-}
-
-/* ================================== */
-/* --- 10. CÓDIGO NOVO ---       */
-/* ESTILOS DAS VISTAS DE CONTEÚDO     */
-/* ================================== */
-
-.content-view {
-    display: none; /* Escondido por defeito */
-    width: 100%;
-    position: relative; 
-    z-index: 2; /* Abaixo do toggle, acima do hero-bg */
-    /* margin-top: 180px; /* Posição inicial do conteúdo (Mobile) */
-    background-color: var(--background-color); /* Garante o fundo */
-}
-
-/* A vista ativa é mostrada */
-.content-view.active {
-    display: block;
-}
-
-
-/* ================================== */
-/* --- 11. CÓDIGO NOVO ---       */
-/* ESTILOS DA NOVA VISTA "SOBRE"      */
-/* ================================== */
-
-.manifesto-section {
-    padding: 2rem 0; 
-    text-align: center;
-}
-
-.manifesto-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-color-dark);
-    opacity: 0.9;
-    max-width: 400px; /* Limita a largura do texto */
-    margin: 1.5rem auto; /* Espaçamento vertical */
-}
-
-.manifesto-cta {
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0 3rem 0;
-}
-
-/* O botão com o efeito de luz (shimmer) */
-.shimmer-button {
-    font-family: var(--font-base);
-    color: var(--text-color-dark);
-    font-size: 1rem;
-    text-decoration: underline;
-    text-decoration-color: var(--button-bg-color);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px; /* Espaço entre texto e sublinhado */
-    padding: 10px 15px;
-    position: relative;
-    overflow: hidden; /* Essencial para o efeito */
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.shimmer-button strong {
-    font-weight: 700;
-}
-
-/* O pseudo-elemento que cria a luz */
-.shimmer-button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    /* O gradiente da luz */
-    background: linear-gradient(
-        100deg,
-        rgba(255, 255, 255, 0) 20%,
-        rgba(255, 255, 255, 0.5) 50%,
-        rgba(255, 255, 255, 0) 80%
-    );
-    
-    /* Começa fora da tela (à esquerda) */
-    transform: translateX(-100%);
-}
-
-/* Esta classe será adicionada pelo JS para disparar a animação */
-.shimmer-button.animate-shimmer::after {
-    /* A animação "shimmer" vai demorar 1.5s, 
-       começa 0.5s depois de aparecer (delay) 
-    */
-    animation: shimmer 1.5s ease-in-out 0.5s;
-    /* Impede que o gradiente volte ao início */
-    transform: translateX(100%); 
-}
-
-/* ================================== */
-/* --- 12. CÓDIGO NOVO ---       */
-/* ANIMAÇÃO SHIMMER (KEYFRAMES)       */
-/* ================================== */
-
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-<<<<<<< HEAD
-=======
-
-/* ================================== */
-/* --- 13. CÓDIGO NOVO ---       */
-/* ESTILOS DO MANIFESTO FORMATADO     */
-/* ================================== */
-
-/* O "Gradiente Vivo" animado para o fundo */
-.manifesto-section {
-    padding: 2rem 0;
-    text-align: left; /* Melhor para leitura de blocos de texto */
-
-    /* Aqui está o gradiente "vivo":
-      Usamos as cores da tua paleta (o fundo e uma versão mais escura)
-      e animamos a posição do fundo lentamente.
-    */
-    background: linear-gradient(
-        270deg, 
-        var(--background-color), 
-        #e9dccd, /* Um tom entre o fundo e o botão */
-        var(--background-color)
-    );
-    background-size: 400% 400%; /* Tamanho grande para a animação */
-    animation: gradient-flow 12s ease infinite;
-}
-
-/* O subtítulo (itálico, abaixo do título) */
-.manifesto-subtitle {
-    font-family: var(--font-headline);
-    font-size: 1.2rem;
-    font-style: italic;
-    color: var(--text-color-dark);
-    opacity: 0.6;
-    text-align: center;
-    margin-top: -1.5rem; /* Puxa para perto do título */
-    margin-bottom: 2.5rem;
-}
-
-/* Parágrafos de texto padrão */
-.manifesto-text {
-    font-size: 1rem;
-    line-height: 1.7; /* Mais espaço entre linhas */
-    color: var(--text-color-dark);
-    max-width: 400px;
-    margin: 1.5rem auto;
-}
-
-/* As divisórias elegantes */
-.manifesto-divider {
-    border: 0;
-    height: 1px;
-    background-color: var(--button-bg-color);
-    opacity: 0.2;
-    margin: 2.5rem auto; /* Mais espaço */
-    width: 80%;
-}
-
-/* Caixa de destaque para as frases de impacto */
-.manifesto-emphasis-box {
-    border-left: 3px solid var(--button-bg-color);
-    padding: 0.5rem 1.5rem;
-    margin: 2rem auto;
-    max-width: 400px;
-}
-.manifesto-emphasis-box p {
-    font-family: var(--font-headline);
-    font-size: 1.3rem;
-    line-height: 1.6;
-    color: var(--text-color-dark);
-}
-.manifesto-emphasis-box strong {
-    font-weight: bold; /* Garante o peso da fonte */
-}
-
-/* O "alerta" para quem NÃO é seu cliente */
-.manifesto-callout {
-    background-color: rgba(92, 75, 60, 0.05); /* Cor escura com 5% opacidade */
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin: 2rem auto;
-    max-width: 400px;
-    font-style: italic;
-    line-height: 1.7;
-}
-
-/* O "Mas." que serve de transição */
-.manifesto-transition {
-    font-family: var(--font-headline);
-    font-size: 2.5rem;
-    color: var(--button-bg-color);
-    text-align: center;
-    font-weight: bold;
-    margin: 2.5rem 0 1rem 0;
-}
-
-/* A mensagem final de boas-vindas */
-.manifesto-welcome {
-    font-family: var(--font-headline);
-    font-size: 1.5rem;
-    text-align: center;
-    color: var(--text-color-dark);
-    margin: 2rem auto;
-    font-weight: bold;
-}
-
-/* ================================== */
-/* --- 14. CÓDIGO NOVO ---       */
-/* ANIMAÇÃO DO GRADIENTE "VIVO"   */
-/* ================================== */
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
-@keyframes gradient-flow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-<<<<<<< HEAD
-}
-=======
-}
-
-/* --- AJUSTE DE ESTILO --- */
-/* Precisamos garantir que o .manifesto-section antigo 
-   tenha o alinhamento de texto removido.
-   Vamos modificar a regra na Secção 11.
-*/
-.manifesto-section {
-    padding: 2rem 0; 
-    /* text-align: center; <-- REMOVA ou substitua por 'left' */
-    text-align: left;
-}
-.manifesto-text {
-    /* ... (estilos anteriores) ... */
-    margin: 1.5rem auto; 
-    text-align: left; /* Garante que o texto dentro do container fique alinhado à esquerda */
-}
->>>>>>> a538973b46a1516696c9bc60eeea11b0bedda65b
