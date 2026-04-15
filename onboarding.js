@@ -75,20 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     // ==========================================
-    // 3. UTILITÁRIOS DA INTERFACE
+    // 3. UTILITÁRIOS DA INTERFACE E VALIDAÇÃO
     // ==========================================
     let toastTimeout;
-    function showToast(msg) {
+    window.showToast = function(msg) {
         if(toastTimeout) clearTimeout(toastTimeout);
         toast.textContent = msg;
         toast.classList.add('show');
         toastTimeout = setTimeout(() => toast.classList.remove('show'), 3500);
-    }
+    };
 
-    // Expor globalmente para os onclicks do HTML
-    window.showToast = showToast;
-
-    // Gestão do Select "Outro" no Step 1
+    // Lógica do Select "Outro" no Step 1
     const gatilhoSelect = document.getElementById('gatilho_select');
     const gatilhoOutroContainer = document.getElementById('gatilho_outro_container');
     const gatilhoOutroInput = document.querySelector('input[name="gatilho_compra_outro"]');
@@ -101,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 gatilhoOutroContainer.classList.add('hidden');
                 gatilhoOutroInput.removeAttribute('required');
-                gatilhoOutroInput.value = ''; // Limpa o valor
+                gatilhoOutroInput.value = ''; 
             }
         });
     }
@@ -114,25 +111,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(inputName + '_input').value = value;
     };
 
-    // ==========================================
-    // 4. MOTOR DE NAVEGAÇÃO E VALIDAÇÃO
-    // ==========================================
     function updateProgressUI() {
-        // Atualiza os pontos (dots)
         const dots = progressTracker.querySelectorAll('.dot');
         dots.forEach((dot, idx) => {
             if (idx <= currentStep) dot.classList.add('active');
             else dot.classList.remove('active');
         });
 
-        // Atualiza visibilidade dos botões
-        if (currentStep === 0) {
-            btnPrev.style.visibility = 'hidden';
-        } else {
-            btnPrev.style.visibility = 'visible';
-        }
+        btnPrev.style.visibility = currentStep === 0 ? 'hidden' : 'visible';
         
-        // Altera botão Finalizar
         if (currentStep === totalSteps) {
             btnNext.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Finalizar e Enviar`;
             btnNext.classList.remove('btn-next');
@@ -144,43 +131,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // VALIDAÇÃO BLINDADA ANTES DE AVANÇAR
     function validateCurrentStep() {
         const currentContainer = document.querySelector(`.step-container[data-step="${currentStep}"]`);
         if (!currentContainer) return true;
 
-        // 1. Validação de Inputs, Textareas e Selects Nativos (HTML5 Required)
-        const requiredFields = currentContainer.querySelectorAll('input[required], textarea[required], select[required]');
+        // 1. Inputs Nativos (text, email, tel, textarea, select)
+        const requiredFields = currentContainer.querySelectorAll('input[required]:not([type="hidden"]), textarea[required], select[required]');
         for (let field of requiredFields) {
             if (!field.value || field.value.trim() === '') {
-                showToast('Por favor, preencha todos os campos obrigatórios (*).');
+                window.showToast('Por favor, preencha todos os campos obrigatórios (*).');
                 field.focus();
                 return false;
             }
         }
 
-        // 2. Validação Específica do Eixo de Atenção (Step 4)
+        // 2. Radio Buttons Ocultos (Step 3)
+        if (currentStep === 3) {
+            const radioInputs = currentContainer.querySelectorAll('input[type="hidden"][required]');
+            for (let field of radioInputs) {
+                if (!field.value || field.value.trim() === '') {
+                    window.showToast('Por favor, selecione uma opção em todas as perguntas.');
+                    return false;
+                }
+            }
+        }
+
+        // 3. Eixo de Atenção (Step 4)
         if (currentStep === 4) {
             const sum = payload.tilt_technical + payload.tilt_culture + payload.tilt_status + payload.tilt_community;
             if (sum !== 100) {
-                showToast(`As Fichas de Foco devem somar 100%. Total atual: ${sum}%.`);
+                window.showToast(`As Fichas de Foco devem somar 100%. Total atual: ${sum}%.`);
                 return false;
             }
         }
 
-        // 3. Validação Específica da Semiótica (Step 5)
+        // 4. Semiótica (Step 5)
         if (currentStep === 5) {
             const choicesMade = Object.keys(payload.semiotics_choices).length;
             if (choicesMade < SEMIOTICS_PAIRS.length) {
-                showToast(`Complete todas as rondas de Semiótica (${choicesMade}/${SEMIOTICS_PAIRS.length}).`);
+                window.showToast(`Conclua as rondas de Semiótica (${choicesMade}/${SEMIOTICS_PAIRS.length}). Avance nas imagens.`);
                 return false;
             }
         }
 
-        // 4. Validação Específica da Prova de Fogo (Step 6)
+        // 5. Prova de Fogo (Step 6)
         if (currentStep === 6) {
             const scenariosAnswered = Object.keys(payload.voice_scenarios).length;
             if (scenariosAnswered < SCENARIOS.length) {
-                showToast(`Responda a todos os cenários da Prova de Fogo (${scenariosAnswered}/${SCENARIOS.length}).`);
+                window.showToast(`Responda a todos os cenários da Prova de Fogo (${scenariosAnswered}/${SCENARIOS.length}).`);
                 return false;
             }
         }
@@ -188,56 +187,45 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-    window.submitFinalPayload = async function() {
-        btnNext.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-spin"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="4.93" x2="19.07" y2="7.76"></line></svg> Enviando Cofre...`;
-        btnNext.disabled = true;
-        btnPrev.disabled = true;
+    // ==========================================
+    // 4. NAVEGAÇÃO DE PASSOS
+    // ==========================================
+    function transitionStep(direction) {
+        const oldContainer = document.querySelector(`.step-container[data-step="${currentStep}"]`);
+        
+        // Efeito de saída suave
+        oldContainer.style.opacity = '0';
+        oldContainer.style.transform = 'translateY(-10px)';
+        
+        setTimeout(() => {
+            oldContainer.classList.remove('active');
+            // Restaura estilos para a próxima vez
+            oldContainer.style.opacity = '';
+            oldContainer.style.transform = '';
+            
+            if(direction === 'next') currentStep++;
+            else currentStep--;
+            
+            document.querySelector(`.step-container[data-step="${currentStep}"]`).classList.add('active');
+            updateProgressUI();
+            mainScroll.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 300); // 300ms de transição de CSS
+    }
 
-        const dataToSubmit = gatherAllData();
+    window.nextStep = function() {
+        if (!validateCurrentStep()) return;
 
-        try {
-            console.log("🚀 Payload pronto para envio:", dataToSubmit);
-            
-            // CONEXÃO REAL À SUA API (Next.js)
-            const response = await fetch('/api/public-onboarding', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(dataToSubmit)
-            });
-            
-            const result = await response.json();
-            
-            // Se o servidor devolver erro, a promessa é atirada para o catch
-            if (!response.ok) throw new Error(result.error || "Falha na comunicação com o servidor.");
-
-            // Se for sucesso real, avança a tela
-            document.querySelector(`.step-container[data-step="${currentStep}"]`).classList.remove('active');
-            footer.style.display = 'none';
-            progressTracker.style.display = 'none';
-            document.querySelector('header p.subtitle').innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Transmissão Concluída';
-            
-            document.getElementById('step-success').classList.add('active');
-
-        } catch (error) {
-            // DEPURAÇÃO VISUAL: Se falhar, o erro real do banco de dados aparece aqui!
-            console.error("Erro no envio:", error);
-            showToast(error.message || "Erro de conexão. Verifique o console ou tente novamente.");
-            
-            btnNext.innerHTML = `Tentar Novamente`;
-            btnNext.disabled = false;
-            btnPrev.disabled = false;
+        if (currentStep === totalSteps) {
+            window.submitFinalPayload();
+            return;
         }
+
+        transitionStep('next');
     };
 
     window.prevStep = function() {
         if (currentStep === 0) return;
-        
-        document.querySelector(`.step-container[data-step="${currentStep}"]`).classList.remove('active');
-        currentStep--;
-        document.querySelector(`.step-container[data-step="${currentStep}"]`).classList.add('active');
-        
-        updateProgressUI();
-        mainScroll.scrollTo({ top: 0, behavior: 'smooth' });
+        transitionStep('prev');
     };
 
     // ==========================================
@@ -256,11 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let otherKeys = keys.filter(k => k !== changedKey);
         let otherSum = otherKeys.reduce((sum, k) => sum + payload[`tilt_${k}`], 0);
 
-        // Aplica o novo valor provisoriamente
         let tempPayload = { ...payload };
         tempPayload[`tilt_${changedKey}`] = newValue;
 
-        // Distribui a diferença (delta) pelos outros de forma proporcional
         if (otherSum === 0) {
             let split = -delta / otherKeys.length;
             otherKeys.forEach(k => tempPayload[`tilt_${k}`] = Math.max(0, tempPayload[`tilt_${k}`] + split));
@@ -271,24 +257,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Corrige possíveis erros de arredondamento para garantir que a soma seja exata 100
         let currentSum = keys.reduce((a, k) => a + tempPayload[`tilt_${k}`], 0);
         if (currentSum !== 100) {
             let diff = 100 - currentSum;
-            // Adiciona/remove a diferença na chave (que não foi a alterada) que tiver maior valor
             let largestKey = otherKeys.reduce((a, b) => tempPayload[`tilt_${a}`] > tempPayload[`tilt_${b}`] ? a : b);
             tempPayload[`tilt_${largestKey}`] += diff;
         }
 
-        // Validação final de segurança (nenhum pode ser < 0)
         let isValid = true;
         keys.forEach(k => { if(tempPayload[`tilt_${k}`] < 0) isValid = false; });
 
         if(isValid) {
-            // Aplica ao payload real
             keys.forEach(k => payload[`tilt_${k}`] = tempPayload[`tilt_${k}`]);
             
-            // Atualiza a Interface
             keys.forEach(k => {
                 document.getElementById(`tilt-${tiltLabels[k]}`).value = payload[`tilt_${k}`];
                 document.getElementById(`val-${tiltLabels[k]}`).innerText = payload[`tilt_${k}`] + '%';
@@ -298,9 +279,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const sumDisplay = document.getElementById('total-fichas');
             sumDisplay.innerHTML = `${realSum}<span style="font-size:16px; color:rgba(92,75,60,0.3);">/100</span>`;
             if(realSum === 100) {
-                sumDisplay.style.color = '#16a34a'; // Verde sucesso
+                sumDisplay.style.color = '#16a34a'; 
             } else {
-                sumDisplay.style.color = '#ef4444'; // Vermelho erro
+                sumDisplay.style.color = '#ef4444'; 
             }
         }
     };
@@ -310,8 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     function renderSemiotics() {
         const pair = SEMIOTICS_PAIRS[semioticsIndex];
-        
-        // Fade Out Simples para Transição
         const grid = document.querySelector('.semiotics-grid');
         grid.style.opacity = '0.5';
 
@@ -322,22 +301,19 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('img-B').src = pair.optB.img;
             document.getElementById('desc-B').innerText = pair.optB.desc;
 
-            // Remove classes de seleção
             document.getElementById('card-A').classList.remove('selected');
             document.getElementById('card-B').classList.remove('selected');
 
-            // Atualiza Dots
             const tracker = document.getElementById('semiotic-tracker');
             tracker.innerHTML = '';
             for(let i=0; i<SEMIOTICS_PAIRS.length; i++) {
                 let dot = document.createElement('div');
                 dot.className = `dot ${i === semioticsIndex ? 'active' : ''}`;
                 if (payload.semiotics_choices[SEMIOTICS_PAIRS[i].id]) {
-                    dot.style.background = 'var(--terracota)'; // Marca os concluídos
+                    dot.style.background = 'var(--terracota)';
                 }
                 tracker.appendChild(dot);
             }
-            
             grid.style.opacity = '1';
         }, 150);
     }
@@ -345,7 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.chooseSemiotics = function(choice) {
         const pairId = SEMIOTICS_PAIRS[semioticsIndex].id;
         payload.semiotics_choices[pairId] = choice;
-        
         document.getElementById(`card-${choice}`).classList.add('selected');
 
         setTimeout(() => {
@@ -353,12 +328,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 semioticsIndex++;
                 renderSemiotics();
             } else {
-                showToast("Teste Semiótico concluído com sucesso. Pode avançar.");
-                // Refresca apenas para pintar a última bolinha
+                window.showToast("Teste Semiótico concluído com sucesso. Pode avançar.");
                 const tracker = document.getElementById('semiotic-tracker');
                 tracker.children[semioticsIndex].style.background = 'var(--terracota)';
             }
-        }, 400); // Atraso tático para feedback visual do clique
+        }, 400); 
     };
 
     // ==========================================
@@ -366,15 +340,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     function renderVoiceScenarios() {
         const container = document.getElementById('step-voice');
-        container.innerHTML = ''; // Limpa
+        container.innerHTML = ''; 
 
         SCENARIOS.forEach((scen, idx) => {
-            // Cria a caixa do cenário
             let html = `
             <div class="form-group" style="margin-bottom: 24px;">
                 <span class="input-label" style="text-align:center; display:inline-block; width:100%; margin-bottom:8px; background:rgba(255,255,255,0.8); padding:6px 12px; border-radius:20px; border:1px solid rgba(92,75,60,0.1);">Cenário ${idx + 1}: ${scen.title}</span>
                 <p class="step-desc" style="font-family: var(--font-elegant); font-size: 20px; font-style: italic; color: var(--grafite); text-align: center; margin-bottom: 24px;">"${scen.context}"</p>
-                
                 <div class="radio-group">
             `;
             
@@ -388,7 +360,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>`;
             });
-            
             html += `</div></div>`;
             container.innerHTML += html;
         });
@@ -401,21 +372,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ==========================================
-    // 8. O COMPILADOR FINAL E SUBMISSÃO
+    // 8. COMPILADOR E SUBMISSÃO À API
     // ==========================================
     function gatherAllData() {
         const finalData = { ...payload };
         
-        // Varre todos os inputs padrão de texto, email, tel, textarea, select
-        const inputs = document.querySelectorAll('#onboarding-form input:not([type="radio"]):not([type="range"]), #onboarding-form textarea, #onboarding-form select');
+        const inputs = document.querySelectorAll('#onboarding-form input:not([type="radio"]):not([type="range"]):not([type="hidden"]), #onboarding-form textarea, #onboarding-form select');
         inputs.forEach(input => {
             if (input.name) finalData[input.name] = input.value;
         });
 
-        // Adiciona as seleções de Radio (Persona, Arsenal, Endgame)
-        finalData.persona_marca = document.getElementById('persona_marca_input').value;
-        finalData.arsenal_visual = document.getElementById('arsenal_visual_input').value;
-        finalData.ponto_chegada = document.getElementById('ponto_chegada_input').value;
+        // Adiciona os escondidos do Step 3
+        const hiddenInputs = document.querySelectorAll('#onboarding-form input[type="hidden"]');
+        hiddenInputs.forEach(input => {
+            if (input.name) finalData[input.name] = input.value;
+        });
 
         return finalData;
     }
@@ -428,10 +399,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const dataToSubmit = gatherAllData();
 
         try {
-            console.log("🚀 Payload pronto para envio:", dataToSubmit);
+            console.log("🚀 A iniciar transmissão segura do Dossiê para a API...", dataToSubmit);
             
-            // ⚠️ PONTO DE INTEGRAÇÃO API (Descomentar para Produção)
-            /*
+            // 🔗 CHAMADA REAL À SUA API
             const response = await fetch('/api/public-onboarding', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -439,25 +409,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             const result = await response.json();
-            if (!response.ok) throw new Error(result.error || "Falha na comunicação com o servidor.");
-            */
+            
+            if (!response.ok) {
+                throw new Error(result.error || "Falha na comunicação com o servidor Atelier OS.");
+            }
 
-            // Simulação de Rede Segura
-            setTimeout(() => {
-                document.querySelector(`.step-container[data-step="${currentStep}"]`).classList.remove('active');
-                footer.style.display = 'none';
-                progressTracker.style.display = 'none';
-                document.querySelector('header p.subtitle').innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Transmissão Concluída';
-                
-                document.getElementById('step-success').classList.add('active');
-            }, 1800);
+            // TRANSIÇÃO PARA TELA DE SUCESSO
+            document.querySelector(`.step-container[data-step="${currentStep}"]`).classList.remove('active');
+            footer.style.display = 'none';
+            progressTracker.style.display = 'none';
+            document.querySelector('header p.subtitle').innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Transmissão Concluída';
+            
+            document.getElementById('step-success').classList.add('active');
 
         } catch (error) {
-            console.error("Erro no envio:", error);
-            showToast(error.message || "Erro de conexão. Verifique a internet e tente novamente.");
+            console.error("❌ Erro Crítico no Envio:", error);
+            window.showToast(error.message || "Erro de ligação. Verifique a internet e tente novamente.");
             
-            // Restaura Botões
-            btnNext.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Finalizar e Enviar`;
+            // Restaura os botões para permitir nova tentativa
+            btnNext.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-9.21l-5.6 5.6"></path></svg> Tentar Novamente`;
             btnNext.disabled = false;
             btnPrev.disabled = false;
         }
