@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dossiê Estratégico | Atelier</title>
+    <meta name="description" content="Dossiê de Mercado e Laboratório Semiótico - Atelier OS">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="onboarding.css">
+    <link rel="icon" href="img/logo.png">
+</head>
+<body>
+
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+    <div id="toast" class="toast">Mensagem de aviso</div>
+
+    <header class="app-header">
+        <div>
+            <h1 class="logo">Atelier</h1>
+            <p class="subtitle">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                Dossiê de Mercado
+            </p>
+        </div>
+        <div class="progress-dots" id="progress-tracker">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </header>
+
+    <main id="main-scroll" class="scroll-container">
+        <form id="onboarding-form" onsubmit="return false;">
+            
+            <div class="step-container active" data-step="0">
+                <div class="step-header">
+                    <div class="step-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                    </div>
+                    <div>
+                        <h2 class="step-title">Ligação de Segurança</h2>
+                        <p class="step-desc">Para associarmos as respostas ao seu projeto no nosso sistema central e garantirmos sigilo, precisamos validar a sua identidade.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">Seu Nome *</label>
+                    <input type="text" name="nome" placeholder="Ex: Maria Eduarda" required>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">Instagram (@) *</label>
+                    <input type="text" name="instagram" placeholder="@suamarca" required>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">Seu WhatsApp (com DDD) *</label>
+                    <input type="tel" name="whatsapp" placeholder="+55 99 99999-9999" required>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">Seu melhor E-mail *</label>
+                    <input type="email" name="email" placeholder="contato@suamarca.com" required>
+                </div>
+            </div>
+
+            <div class="step-container" data-step="1">
+                <div class="step-header">
+                    <div>
+                        <h2 class="step-title">O Núcleo de Conversão</h2>
+                        <p class="step-subtitle">Business Core</p>
+                        <p class="step-desc">O objetivo aqui é entender o que realmente coloca dinheiro no caixa da empresa, mapeando o topo e o fundo do funil.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">1. O Produto/Serviço Âncora *</label>
+                    <p class="helper-text">Se só pudesse vender um único produto ou serviço pelos próximos 12 meses, qual seria?</p>
+                    <textarea name="produto_ancora" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">2. A Regra de Pareto (O Cliente Ideal) *</label>
+                    <p class="helper-text">Quem é o cliente que representa os seus 20% de esforço que geram 80% do faturamento?</p>
+                    <textarea name="cliente_ideal" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">3. O Gatilho de Compra *</label>
+                    <p class="helper-text">Quando fecham negócio consigo, qual é o principal motivo alegado?</p>
+                    <select name="gatilho_compra" id="gatilho_select" required>
+                        <option value="">Selecione...</option>
+                        <option value="Velocidade">Velocidade</option>
+                        <option value="Status">Status</option>
+                        <option value="Exclusividade">Exclusividade</option>
+                        <option value="Preço">Preço</option>
+                        <option value="Confiança Técnica">Confiança Técnica</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                <div class="form-group hidden" id="gatilho_outro_container">
+                    <label class="input-label">Qual é o gatilho? *</label>
+                    <input type="text" name="gatilho_compra_outro">
+                </div>
+            </div>
+
+            <div class="step-container" data-step="2">
+                <div class="step-header">
+                    <div>
+                        <h2 class="step-title">A Dinâmica de Guerra</h2>
+                        <p class="step-subtitle">Posicionamento</p>
+                        <p class="step-desc">Nesta seção, definimos as fronteiras da marca. Para saber o que somos, precisamos saber contra o que estamos lutando.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">4. O Inimigo Comum *</label>
+                    <p class="helper-text">No seu mercado, qual é a prática ou concorrente que mais abomina? O que a sua marca absolutamente não faz?</p>
+                    <textarea name="inimigo_comum" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="input-label">5. O Padrão de Excelência *</label>
+                    <p class="helper-text">Cite de 1 a 3 marcas (podem ser de fora do nicho) cuja comunicação e presença digital admira.</p>
+                    <textarea name="padrao_excelencia" required></textarea>
+                </div>
+            </div>
+
+            <div class="step-container" data-step="3">
+                <div class="step-header">
+                    <div>
+                        <h2 class="step-title">O Arsenal e a Voz</h2>
+                        <p class="step-subtitle">Brand Assets & Tone</p>
+                        <p class="step-desc">Aqui estabelecemos a matéria-prima e a personalidade da sua comunicação.</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="input-label">6. A Persona da Marca *</label>
+                    <p class="helper-text">Se a sua empresa entrasse numa sala de reuniões agora, como ela se comportaria?</p>
+                    <div class="radio-group" id="group_persona">
+                        <div class="radio-option" onclick="selectRadio(this, 'persona_marca', 'Implacável, direta e analítica (Foco em dados e poder).')">
+                            <div class="radio-circle"></div><span class="radio-text">Implacável, direta e analítica (Foco em dados e poder).</span>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'persona_marca', 'Acolhedora, educadora e paciente (Foco em comunidade).')">
+                            <div class="radio-circle"></div><span class="radio-text">Acolhedora, educadora e paciente (Foco em comunidade).</span>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'persona_marca', 'Sofisticada, silenciosa e exclusiva (Foco em status).')">
+                            <div class="radio-circle"></div><span class="radio-text">Sofisticada, silenciosa e exclusiva (Foco em status).</span>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'persona_marca', 'Disruptiva, enérgica e provocadora (Foco em inovação).')">
+                            <div class="radio-circle"></div><span class="radio-text">Disruptiva, enérgica e provocadora (Foco em inovação).</span>
+                        </div>
+                    </div>
+                    <input type="hidden" name="persona_marca" id="persona_marca_input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">7. O Estado do Arsenal Visual *</label>
+                    <p class="helper-text">Como estamos de material fotográfico/vídeo bruto hoje?</p>
+                    <div class="radio-group" id="group_arsenal">
+                        <div class="radio-option" onclick="selectRadio(this, 'arsenal_visual', 'Vasto acervo de fotos e vídeos reais de alta qualidade.')">
+                            <div class="radio-circle"></div><span class="radio-text">Vasto acervo de fotos e vídeos reais de alta qualidade.</span>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'arsenal_visual', 'Tenho material, mas precisa de curadoria e edição.')">
+                            <div class="radio-circle"></div><span class="radio-text">Tenho material, mas precisa de curadoria e edição.</span>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'arsenal_visual', 'Não tenho material. Precisaremos agendar captação.')">
+                            <div class="radio-circle"></div><span class="radio-text">Não tenho material. Precisaremos agendar captação.</span>
+                        </div>
+                    </div>
+                    <input type="hidden" name="arsenal_visual" id="arsenal_visual_input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">8. O Ponto de Chegada (Endgame) *</label>
+                    <p class="helper-text">O que fará você dizer: 'Entregar o marketing ao Atelier foi a melhor decisão'?</p>
+                    <div class="radio-group" id="group_chegada">
+                        <div class="radio-option" onclick="selectRadio(this, 'ponto_chegada', 'Crescimento de autoridade percebida (Convites para parcerias).')">
+                            <div class="radio-circle"></div><span class="radio-text">Crescimento de autoridade percebida (Convites para parcerias).</span>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'ponto_chegada', 'Volume de Leads (Aumento no número de orçamentos e DMs).')">
+                            <div class="radio-circle"></div><span class="radio-text">Volume de Leads (Aumento no número de orçamentos e DMs).</span>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'ponto_chegada', 'Conversão Direta (Vendas de produtos de ticket menor).')">
+                            <div class="radio-circle"></div><span class="radio-text">Conversão Direta (Vendas de produtos de ticket menor).</span>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'ponto_chegada', 'Recrutamento (Atração de talentos de alto nível).')">
+                            <div class="radio-circle"></div><span class="radio-text">Recrutamento (Atração de talentos de alto nível).</span>
+                        </div>
+                    </div>
+                    <input type="hidden" name="ponto_chegada" id="ponto_chegada_input" required>
+                </div>
+            </div>
+
+            <div class="step-container" data-step="4">
+                <div class="step-header">
+                    <div class="step-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="step-title">O Eixo de Atenção</h2>
+                        <p class="step-desc">Aloque as suas 100 fichas de foco. Onde colocamos a energia gráfica da sua marca? Deslize os cursores para ajustar a distribuição.</p>
+                    </div>
+                </div>
+                
+                <div class="glass-panel">
+                    <div class="tracker-box">
+                        <span class="input-label" style="margin:0;">Fichas Usadas</span>
+                        <span class="tracker-number" id="total-fichas">100<span class="tracker-sub">/100</span></span>
+                    </div>
+
+                    <div class="range-container">
+                        <div class="range-header">
+                            <span class="range-label">Pragmatismo & Autoridade</span>
+                            <span class="range-value" id="val-tech">25%</span>
+                        </div>
+                        <input type="range" id="tilt-tech" min="0" max="100" value="25" oninput="handleTilt('technical', this.value)">
+                    </div>
+
+                    <div class="range-container">
+                        <div class="range-header">
+                            <span class="range-label">Cultura & Bastidores</span>
+                            <span class="range-value" id="val-cult">25%</span>
+                        </div>
+                        <input type="range" id="tilt-cult" min="0" max="100" value="25" oninput="handleTilt('culture', this.value)">
+                    </div>
+
+                    <div class="range-container">
+                        <div class="range-header">
+                            <span class="range-label">Status & Lifestyle</span>
+                            <span class="range-value" id="val-stat">25%</span>
+                        </div>
+                        <input type="range" id="tilt-stat" min="0" max="100" value="25" oninput="handleTilt('status', this.value)">
+                    </div>
+
+                    <div class="range-container">
+                        <div class="range-header">
+                            <span class="range-label">Comunidade & Tribo</span>
+                            <span class="range-value" id="val-comm">25%</span>
+                        </div>
+                        <input type="range" id="tilt-comm" min="0" max="100" value="25" oninput="handleTilt('community', this.value)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-container" data-step="5">
+                <div class="step-header">
+                    <div class="step-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="step-title">Semiótica Visual</h2>
+                        <p class="step-desc">Não avalie o objeto da foto, avalie a textura e a atmosfera. Clique na imagem que reflete a essência do seu futuro digital.</p>
+                    </div>
+                </div>
+                
+                <div class="glass-panel" style="display: flex; flex-direction: column; align-items: center;">
+                    <div class="semiotic-tracker" id="semiotic-tracker">
+                        </div>
+                    
+                    <h3 class="badge-title" id="semiotic-title">Rodada 1/8: Luz e Atmosfera</h3>
+
+                    <div class="semiotics-grid w-full">
+                        <div class="semiotic-card" id="card-A" onclick="chooseSemiotics('A')">
+                            <img src="" alt="A" class="semiotic-img" id="img-A">
+                            <div class="semiotic-info">
+                                <div class="radio-circle"></div>
+                                <p class="semiotic-desc" id="desc-A"></p>
+                            </div>
+                        </div>
+
+                        <div class="vs-badge">VS</div>
+
+                        <div class="semiotic-card" id="card-B" onclick="chooseSemiotics('B')">
+                            <img src="" alt="B" class="semiotic-img" id="img-B">
+                            <div class="semiotic-info">
+                                <div class="radio-circle"></div>
+                                <p class="semiotic-desc" id="desc-B"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-container" data-step="6">
+                <div class="step-header">
+                    <div class="step-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="step-title">A Prova de Fogo</h2>
+                        <p class="step-desc">A verdadeira personalidade forja-se no conflito. Como a sua marca responde no ambiente digital?</p>
+                    </div>
+                </div>
+                <div id="step-voice" class="glass-panel" style="padding: 0; background: transparent; border: none; box-shadow: none;">
+                    </div>
+            </div>
+
+            <div class="step-container" id="step-success" style="align-items: center; justify-content: center; text-align: center; height: 100%; min-height: 50vh;">
+                <div class="success-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <h2 class="step-title">Dossiê Extraído.</h2>
+                <p class="step-desc" style="max-width: 400px; margin: 0 auto 30px auto;">As suas informações estratégicas foram arquivadas no nosso cofre de inteligência. O Atelier foi notificado e iniciaremos o processamento tático da sua marca.</p>
+                <button type="button" class="btn btn-finish" style="margin: 0 auto;" onclick="window.location.href='https://lizdesign.com.br'">Voltar ao Site Oficial</button>
+            </div>
+
+        </form>
+    </main>
+
+    <footer id="form-footer" class="app-footer">
+        <button class="btn btn-prev" id="btn-prev" onclick="prevStep()">Anterior</button>
+        <button class="btn btn-next" id="btn-next" onclick="nextStep()">Avançar</button>
+    </footer>
+
+    <script src="onboarding.js"></script>
+</body>
+</html>
