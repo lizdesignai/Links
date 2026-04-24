@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         voice_scenarios: {}
     };
 
-    // Controle de Índices
     let semioticsIndex = 0;
 
     // ==========================================
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: "presence", title: "Presença Humana", optA: { img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop", desc: "Pessoas em movimento, leve desfoque, ação do trabalho. (Dinâmica)" }, optB: { img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop", desc: "Retrato posado, estático, contato visual firme. (Imponência)" } },
         { id: "temperature", title: "Temperatura de Cor", optA: { img: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=800&auto=format&fit=crop", desc: "Tons quentes, madeira crua, luz amarelada. (Tradição/Proximidade)" }, optB: { img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop", desc: "Tons frios, cinzas, luz branca cirúrgica. (Hiper-modernidade)" } },
         { id: "composition", title: "Composição", optA: { img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop", desc: "Elementos casuais e assimétricos na mesa. (Caos Criativo)" }, optB: { img: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=800&auto=format&fit=crop", desc: "Simetria absoluta, grid perfeito, alinhamento. (Rigor Técnico)" } },
-        { id: "setting", title: "Cenário", optA: { img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800&auto=format&fit=crop", desc: "Texturas urbanas, asfalto, a fricção da rua. (Vivência)" }, optB: { img: "https://images.unsplash.com/photo-1600607687920-4e2a09be15c7?q=80&w=800&auto=format&fit=crop", desc: "Arquitetura polida, vidros limpos, mármore. (Isolamento/Luxo)" } },
+        { id: "setting", title: "Cenário", optA: { img: "https://images.unsplash.com/photo-1555685812-4b743ea93cd8?q=80&w=800&auto=format&fit=crop", desc: "Texturas urbanas, asfalto, a fricção da rua. (Vivência)" }, optB: { img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop", desc: "Arquitetura polida, vidros limpos, mármore. (Isolamento/Luxo)" } },
         { id: "post_prod", title: "Acabamento", optA: { img: "https://images.unsplash.com/photo-1493804714600-6edb1cd93080?q=80&w=800&auto=format&fit=crop", desc: "Granulação visível (35mm), imperfeições. (Nostalgia/Verdade)" }, optB: { img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop", desc: "Nitidez digital 4K, alto contraste limpo. (Sofisticação)" } },
         { id: "negative_space", title: "Espaço Negativo", optA: { img: "https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=800&auto=format&fit=crop", desc: "Informação densa preenchendo o frame. (Complexidade)" }, optB: { img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop", desc: "Elemento central, 80% de espaço vazio. (Minimalismo Absoluto)" } }
     ];
@@ -75,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     // ==========================================
-    // 3. UTILITÁRIOS DA INTERFACE E VALIDAÇÃO
+    // 3. UTILITÁRIOS DA INTERFACE
     // ==========================================
     let toastTimeout;
     window.showToast = function(msg) {
@@ -85,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         toastTimeout = setTimeout(() => toast.classList.remove('show'), 3500);
     };
 
-    // Lógica do Select "Outro" no Step 1
     const gatilhoSelect = document.getElementById('gatilho_select');
     const gatilhoOutroContainer = document.getElementById('gatilho_outro_container');
     const gatilhoOutroInput = document.querySelector('input[name="gatilho_compra_outro"]');
@@ -103,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Gestão de Radio Buttons Genéricos (Steps 3)
     window.selectRadio = function(element, inputName, value) {
         const group = element.parentElement;
         group.querySelectorAll('.radio-option').forEach(el => el.classList.remove('selected'));
@@ -131,12 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // VALIDAÇÃO BLINDADA ANTES DE AVANÇAR
     function validateCurrentStep() {
         const currentContainer = document.querySelector(`.step-container[data-step="${currentStep}"]`);
         if (!currentContainer) return true;
 
-        // 1. Inputs Nativos (text, email, tel, textarea, select)
         const requiredFields = currentContainer.querySelectorAll('input[required]:not([type="hidden"]), textarea[required], select[required]');
         for (let field of requiredFields) {
             if (!field.value || field.value.trim() === '') {
@@ -146,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 2. Radio Buttons Ocultos (Step 3)
         if (currentStep === 3) {
             const radioInputs = currentContainer.querySelectorAll('input[type="hidden"][required]');
             for (let field of radioInputs) {
@@ -157,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 3. Eixo de Atenção (Step 4)
         if (currentStep === 4) {
             const sum = payload.tilt_technical + payload.tilt_culture + payload.tilt_status + payload.tilt_community;
             if (sum !== 100) {
@@ -166,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 4. Semiótica (Step 5)
         if (currentStep === 5) {
             const choicesMade = Object.keys(payload.semiotics_choices).length;
             if (choicesMade < SEMIOTICS_PAIRS.length) {
@@ -175,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 5. Prova de Fogo (Step 6)
         if (currentStep === 6) {
             const scenariosAnswered = Object.keys(payload.voice_scenarios).length;
             if (scenariosAnswered < SCENARIOS.length) {
@@ -187,19 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-    // ==========================================
-    // 4. NAVEGAÇÃO DE PASSOS
-    // ==========================================
     function transitionStep(direction) {
         const oldContainer = document.querySelector(`.step-container[data-step="${currentStep}"]`);
-        
-        // Efeito de saída suave
         oldContainer.style.opacity = '0';
         oldContainer.style.transform = 'translateY(-10px)';
         
         setTimeout(() => {
             oldContainer.classList.remove('active');
-            // Restaura estilos para a próxima vez
             oldContainer.style.opacity = '';
             oldContainer.style.transform = '';
             
@@ -209,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(`.step-container[data-step="${currentStep}"]`).classList.add('active');
             updateProgressUI();
             mainScroll.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 300); // 300ms de transição de CSS
+        }, 300); 
     }
 
     window.nextStep = function() {
@@ -382,7 +367,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (input.name) finalData[input.name] = input.value;
         });
 
-        // Adiciona os escondidos do Step 3
         const hiddenInputs = document.querySelectorAll('#onboarding-form input[type="hidden"]');
         hiddenInputs.forEach(input => {
             if (input.name) finalData[input.name] = input.value;
@@ -401,17 +385,33 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             console.log("🚀 A iniciar transmissão segura do Dossiê para a API...", dataToSubmit);
             
-            // 🔗 CHAMADA REAL À SUA API
-            const response = await fetch('/api/public-onboarding', {
+            // 🔥 URL ABSOLUTA (Garante que funciona mesmo se o html for aberto como ficheiro solto ou noutro domínio)
+            // IMPORTANTE: Altere para a URL do seu servidor em produção! Ex: 'https://lizdesign.com.br/api/public-onboarding'
+            const API_URL = '/api/public-onboarding'; 
+
+            const response = await fetch(API_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json' 
+                },
                 body: JSON.stringify(dataToSubmit)
             });
             
-            const result = await response.json();
+            // 🛡️ BLINDAGEM: Verifica se o servidor retornou HTML (Erro Next.js) e atira um erro de leitura antes de quebrar
+            const contentType = response.headers.get("content-type");
+            let result = null;
+            
+            if (contentType && contentType.includes("application/json")) {
+                result = await response.json();
+            } else {
+                // Se cair aqui, a sua rota da API está com problemas ou não existe no endereço apontado
+                const text = await response.text();
+                throw new Error("O servidor respondeu com um erro fatal (Não-JSON). Verifique se a rota da API existe e permite requisições POST.");
+            }
             
             if (!response.ok) {
-                throw new Error(result.error || "Falha na comunicação com o servidor Atelier OS.");
+                throw new Error(result?.error || "Falha na comunicação com o servidor Atelier OS.");
             }
 
             // TRANSIÇÃO PARA TELA DE SUCESSO
@@ -426,8 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("❌ Erro Crítico no Envio:", error);
             window.showToast(error.message || "Erro de ligação. Verifique a internet e tente novamente.");
             
-            // Restaura os botões para permitir nova tentativa
-            btnNext.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-9.21l-5.6 5.6"></path></svg> Tentar Novamente`;
+            btnNext.innerHTML = `Tentar Novamente`;
             btnNext.disabled = false;
             btnPrev.disabled = false;
         }
