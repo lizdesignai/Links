@@ -387,8 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // 🔥 URL ABSOLUTA (Garante que funciona mesmo se o html for aberto como ficheiro solto ou noutro domínio)
             // IMPORTANTE: Altere para a URL do seu servidor em produção! Ex: 'https://lizdesign.com.br/api/public-onboarding'
-            const API_URL = '/api/public-onboarding'; 
-
+            const API_URL = 'https://atelier.lizdesign.com.br/api/public-onboarding';
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: { 
