@@ -160,19 +160,52 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (btnText) btnText.textContent = "Processando e Enviando...";
             }
 
+            // Initialize Supabase Client
+            const supabaseUrl = 'https://tmmptilchainrsptwsxc.supabase.co';
+            const supabaseKey = 'sb_publishable_f_ygydPGHYBwqDFuiDcR_g_5ZjX2AD7';
+            const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
             const data = new FormData(form);
-            const actionUrl = form.getAttribute('action');
+            const formDataObj = {};
+            
+            for (let [key, value] of data.entries()) {
+                if (formDataObj[key]) {
+                    if (Array.isArray(formDataObj[key])) {
+                        formDataObj[key].push(value);
+                    } else {
+                        formDataObj[key] = [formDataObj[key], value];
+                    }
+                } else {
+                    formDataObj[key] = value;
+                }
+            }
+
+            // Convert arrays to comma-separated strings for TEXT columns
+            for (let key in formDataObj) {
+                if (Array.isArray(formDataObj[key])) {
+                    formDataObj[key] = formDataObj[key].join(', ');
+                }
+            }
+
+            // Determine table based on hidden _subject
+            const subject = formDataObj['_subject'] || '';
+            let tableName = '';
+            if (subject.includes('Orçamento')) tableName = 'orcamentos_identidade_visual';
+            else if (subject.includes('Briefing')) tableName = 'briefings_identidade_visual';
+            else if (subject.includes('Consultoria')) tableName = 'consultorias_posicionamento';
+
+            // Remove formspree specific fields before inserting
+            delete formDataObj['_subject'];
+            delete formDataObj['_gotcha'];
 
             try {
-                const response = await fetch(actionUrl, {
-                    method: 'POST',
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
+                if (!tableName) throw new Error('Tabela não identificada para este formulário.');
 
-                if (response.ok) {
+                const { error } = await supabase
+                    .from(tableName)
+                    .insert([formDataObj]);
+
+                if (!error) {
                     const successMessage = document.createElement('div');
                     successMessage.className = 'success-feedback';
                     successMessage.innerHTML = `
@@ -193,7 +226,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
 
                 } else {
-                    throw new Error('Erro na resposta do servidor.');
+                    console.error("Erro do Supabase:", error);
+                    throw new Error('Erro na resposta do banco de dados.');
                 }
 
             } catch (error) {
