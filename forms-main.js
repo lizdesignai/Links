@@ -160,10 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (btnText) btnText.textContent = "Processando e Enviando...";
             }
 
-            // Initialize Supabase Client
-            const supabaseUrl = 'https://tmmptilchainrsptwsxc.supabase.co';
-            const supabaseKey = 'sb_publishable_f_ygydPGHYBwqDFuiDcR_g_5ZjX2AD7';
-            const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
 
             const data = new FormData(form);
             const formDataObj = {};
@@ -187,25 +184,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // Determine table based on hidden _subject
-            const subject = formDataObj['_subject'] || '';
-            let tableName = '';
-            if (subject.includes('Orçamento')) tableName = 'orcamentos_identidade_visual';
-            else if (subject.includes('Briefing')) tableName = 'briefings_identidade_visual';
-            else if (subject.includes('Consultoria')) tableName = 'consultorias_posicionamento';
-
-            // Remove formspree specific fields before inserting
-            delete formDataObj['_subject'];
-            delete formDataObj['_gotcha'];
-
             try {
-                if (!tableName) throw new Error('Tabela não identificada para este formulário.');
+                // Enviar para a nossa API Serverless (que cuida do Neon + Make.com)
+                const response = await fetch('/api/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formDataObj)
+                });
 
-                const { error } = await supabase
-                    .from(tableName)
-                    .insert([formDataObj]);
-
-                if (!error) {
+                if (response.ok) {
                     const successMessage = document.createElement('div');
                     successMessage.className = 'success-feedback';
                     successMessage.innerHTML = `
@@ -226,8 +215,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
 
                 } else {
-                    console.error("Erro do Supabase:", error);
-                    throw new Error('Erro na resposta do banco de dados.');
+                    console.error("Erro da API:", await response.text());
+                    throw new Error('Erro na resposta do servidor.');
                 }
 
             } catch (error) {
