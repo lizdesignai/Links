@@ -215,13 +215,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
 
                 } else {
-                    console.error("Erro da API:", await response.text());
-                    throw new Error('Erro na resposta do servidor.');
+                    const apiErrorText = await response.text();
+                    console.error("Erro da API:", apiErrorText);
+                    throw new Error('Erro do servidor Vercel: ' + apiErrorText);
                 }
 
             } catch (error) {
                 console.error("Erro ao enviar formulário:", error);
-                alert("Ocorreu um erro inesperado. Por favor, tente novamente ou entre em contato pelo WhatsApp.");
+                alert("Erro: " + error.message + " - Me avise qual foi a mensagem exata para podermos arrumar!");
                 
                 if (submitBtn) {
                     submitBtn.style.opacity = '1';
