@@ -6,6 +6,7 @@ module.exports = async (req, res) => {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
+    let client;
     try {
         const formDataObj = req.body;
         
@@ -24,10 +25,9 @@ module.exports = async (req, res) => {
         delete formDataObj['_gotcha'];
 
         // 2. Conectar ao Neon Postgres
-        // Usa a variável de ambiente se existir, caso contrário a enviada pelo usuário
         const connectionString = process.env.POSTGRES_URL || 'postgresql://neondb_owner:npg_K0DUPzW4splG@ep-divine-cherry-acjd0tmq-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require';
         
-        const client = new Client({ connectionString });
+        client = new Client({ connectionString });
         await client.connect();
 
         // Inserir os dados no campo JSONB da tabela correta
@@ -38,7 +38,6 @@ module.exports = async (req, res) => {
         `;
         
         await client.query(query, [JSON.stringify(formDataObj)]);
-        await client.end();
 
         // 3. Chamar Webhook do Make.com (Se configurado)
         const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL;
@@ -60,6 +59,14 @@ module.exports = async (req, res) => {
 
     } catch (error) {
         console.error("API Error:", error);
-        res.status(500).json({ success: false, error: 'Erro interno no servidor' });
+        res.status(500).json({ success: false, error: error.message || 'Erro interno no servidor' });
+    } finally {
+        if (client) {
+            try {
+                await client.end();
+            } catch (e) {
+                // ignore
+            }
+        }
     }
 };
