@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
         else if (subject.includes('Consultoria')) tableName = 'consultorias_posicionamento';
         else tableName = 'onboarding_respostas'; // default
 
-        // Remover campos desnecessários
+        // Remover campos de controle
         delete formDataObj['_subject'];
         delete formDataObj['_gotcha'];
 
@@ -30,16 +30,45 @@ module.exports = async (req, res) => {
         client = new Client({ connectionString });
         await client.connect();
 
-        // Inserir os dados no campo JSONB da tabela correta
+        // 3. Buscar colunas reais da tabela para preencher tanto as colunas individuais quanto dados_completos
+        const colQuery = await client.query(
+            "SELECT column_name FROM information_schema.columns WHERE table_name = $1 AND column_name NOT IN ('id', 'created_at')",
+            [tableName]
+        );
+        const validColumns = colQuery.rows.map(r => r.column_name);
+
+        const insertCols = [];
+        const insertVals = [];
+        const placeholders = [];
+
+        // Preencher cada coluna individual que bate com os campos do formulário
+        for (const col of validColumns) {
+            if (col === 'dados_completos') continue;
+            
+            const matchedKey = Object.keys(formDataObj).find(k => k.toLowerCase() === col.toLowerCase());
+            if (matchedKey && formDataObj[matchedKey] !== undefined && formDataObj[matchedKey] !== null) {
+                insertCols.push(`"${col}"`);
+                insertVals.push(typeof formDataObj[matchedKey] === 'object' ? JSON.stringify(formDataObj[matchedKey]) : formDataObj[matchedKey]);
+                placeholders.push(`$${insertVals.length}`);
+            }
+        }
+
+        // Adicionar sempre dados_completos em JSONB (garantia de 100% dos dados)
+        if (validColumns.includes('dados_completos')) {
+            insertCols.push('"dados_completos"');
+            insertVals.push(JSON.stringify(formDataObj));
+            placeholders.push(`$${insertVals.length}`);
+        }
+
         const query = `
-            INSERT INTO ${tableName} (dados_completos) 
-            VALUES ($1) 
+            INSERT INTO ${tableName} (${insertCols.join(', ')}) 
+            VALUES (${placeholders.join(', ')}) 
             RETURNING id
         `;
         
-        await client.query(query, [JSON.stringify(formDataObj)]);
+        await client.query(query, insertVals);
 
-        // 3. Chamar Webhook do Make.com (Se configurado)
+        // 4. Chamar Webhook do Make.com (Se configurado)
         const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL;
         
         if (makeWebhookUrl) {
