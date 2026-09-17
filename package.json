@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/lizdesignai/Links#readme",
   "dependencies": {
+    "express": "^5.2.1",
     "pg": "^8.23.0"
   }
 }

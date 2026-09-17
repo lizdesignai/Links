@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PPJW7DNF');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Discovery - Liz Design</title>
+    <meta name="description" content="Vamos descobrir o que sua marca precisa comunicar antes de decidir como ela vai parecer.">
+    
+    <link rel="stylesheet" href="forms-style.css">
+    <link rel="icon" href="img/logo.png">
+    <style>
+        /* Estilos adicionais específicos para o Brand Discovery */
+        .range-slider {
+            width: 100%;
+            margin: 1.5rem 0 0.5rem 0;
+            -webkit-appearance: none;
+            background: rgba(140, 110, 84, 0.2);
+            height: 4px;
+            border-radius: 2px;
+            outline: none;
+        }
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--button-bg-color);
+            cursor: pointer;
+        }
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-color-dark);
+            font-weight: 500;
+        }
+        .visual-choice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .visual-choice-item {
+            border: 2px solid rgba(140, 110, 84, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fff;
+            color: var(--text-color-dark);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+        }
+        .visual-choice-item:hover, .visual-choice-item.selected {
+            border-color: var(--button-bg-color);
+            background: rgba(140, 110, 84, 0.05);
+            color: var(--button-bg-color);
+        }
+        .brand-mirror {
+            background: rgba(140, 110, 84, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(140, 110, 84, 0.2);
+            margin-bottom: 2rem;
+        }
+        .brand-mirror h3 {
+            color: var(--button-bg-color);
+            margin-bottom: 1.5rem;
+            font-family: var(--font-headline);
+            font-size: 1.5rem;
+        }
+        .brand-mirror p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .brand-mirror strong {
+            color: var(--button-bg-color);
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPJW7DNF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <main class="form-container">
+        
+        <header class="form-header">
+            <img src="img/Frame 6.png" alt="Brand Discovery" class="header-cover-image">
+            <div class="header-text">
+                <h1 class="headline">Brand Discovery</h1>
+            </div>
+            
+            <div class="progress-container" style="margin-top: 2rem; background: rgba(140, 110, 84, 0.1); border-radius: 10px; height: 8px; overflow: hidden;">
+                <div class="progress-bar" id="progress-bar" style="width: 0%; height: 100%; background: var(--button-bg-color); transition: width 0.4s ease;"></div>
+            </div>
+        </header>
+
+        <form action="https://formspree.io/f/xzdjygag" method="POST" id="brand-discovery-form" class="sophisticated-form">
+            
+            <!-- TELA DE ABERTURA -->
+            <fieldset class="form-section highlight-section form-step" data-step="0">
+                <div class="welcome-copy" style="margin-bottom: 2rem;">
+                    <h2 style="font-family: var(--font-headline); color: var(--button-bg-color); margin-bottom: 1rem; font-size: 1.8rem;">Vamos descobrir sua marca.</h2>
+                    <p>Antes de criar uma identidade visual, precisamos entender o que existe por trás dela.</p>
+                    <p>Esta experiência vai nos ajudar a descobrir:</p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-color-dark);">
+                        <li>o que sua marca representa;</li>
+                        <li>para quem ela existe;</li>
+                        <li>como ela precisa ser percebida;</li>
+                        <li>o que a diferencia;</li>
+                        <li>o que precisamos evitar;</li>
+                        <li>e qual território visual faz sentido para ela.</li>
+                    </ul>
+                    <p>Não existe resposta certa. Responda com sinceridade. Você não precisa saber termos de design.</p>
+                    <p><em>Tempo estimado: 10–15 minutos</em></p>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-next">Começar descoberta →</button>
+                </div>
+            </fieldset>
+
+            <!-- 01 CONTEXTO -->
+            <fieldset class="form-section form-step" data-step="1" style="display: none;">
+                <legend>01 — Primeiro, vamos conhecer você</legend>
+                
+                <div class="input-group">
+                    <input type="text" id="nome_cliente" name="Nome_Cliente" required placeholder=" ">
+                    <label for="nome_cliente">Seu nome *</label>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="whatsapp" name="WhatsApp" required placeholder=" ">
+                    <label for="whatsapp">WhatsApp (com DDD) *</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="Email" required placeholder=" ">
+                    <label for="email">E-mail *</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="nome_marca" name="Nome_Marca" required placeholder=" ">
+                    <label for="nome_marca">Qual é o nome da marca? *</label>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">A marca já existe? *</p>
+                    <label><input type="radio" name="Status_Marca" value="Ainda não" required> Ainda não</label>
+                    <label><input type="radio" name="Status_Marca" value="Está começando agora"> Está começando agora</label>
+                    <label><input type="radio" name="Status_Marca" value="Já existe e quero reposicioná-la"> Já existe e quero reposicioná-la</label>
+                    <label><input type="radio" name="Status_Marca" value="Já existe e quero atualizar sua identidade"> Já existe e quero atualizar sua identidade</label>
+                    <label><input type="radio" name="Status_Marca" value="É uma marca consolidada e quero modernizá-la"> É uma marca consolidada e quero modernizá-la</label>
+                </div>
+                
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 02 HISTÓRIA -->
+            <fieldset class="form-section form-step" data-step="2" style="display: none;">
+                <legend>02 — De onde essa marca veio?</legend>
+
+                <div class="input-group">
+                    <textarea id="motivo_nascimento" name="Motivo_Nascimento" rows="3" required placeholder=" "></textarea>
+                    <label for="motivo_nascimento">Por que essa empresa/marca nasceu? *</label>
+                    <p class="helper-text">Pode contar a história do jeito que você contaria para alguém próximo.</p>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="motivo_escolha_negocio" name="Motivo_Escolha_Negocio" rows="3" required placeholder=" "></textarea>
+                    <label for="motivo_escolha_negocio">O que fez você escolher esse negócio? *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="historia_importante" name="Historia_Importante" rows="3" placeholder=" "></textarea>
+                    <label for="historia_importante">Existe alguma história, pessoa, lugar ou acontecimento importante por trás da marca? (Opcional)</label>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">O nome da marca tem algum significado? *</p>
+                    <label><input type="radio" name="Tem_Significado_Nome" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="Tem_Significado_Nome" value="Não"> Não</label>
+                    <label><input type="radio" name="Tem_Significado_Nome" value="É o meu próprio nome"> É o meu próprio nome</label>
+                    <label><input type="radio" name="Tem_Significado_Nome" value="Ainda não defini"> Ainda não defini</label>
+                </div>
+                
+                <div class="input-group logic-conditional" data-depends-on="Tem_Significado_Nome" data-depends-value="Sim" style="display: none;">
+                    <textarea id="significado_nome" name="Significado_Nome" rows="3" placeholder=" "></textarea>
+                    <label for="significado_nome">Conte-nos a história por trás do nome.</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="conceito_inseparavel" name="Conceito_Inseparavel" rows="3" placeholder=" "></textarea>
+                    <label for="conceito_inseparavel">Existe alguma palavra, conceito ou história que você considera inseparável da marca? (Opcional)</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 03 NEGÓCIO -->
+            <fieldset class="form-section form-step" data-step="3" style="display: none;">
+                <legend>03 — O que a marca faz?</legend>
+
+                <div class="input-group">
+                    <input type="text" id="frase_resumo" name="Frase_Resumo" required placeholder=" ">
+                    <label for="frase_resumo">Em uma frase, o que sua empresa faz? *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="o_que_vende" name="O_Que_Vende" rows="3" required placeholder=" "></textarea>
+                    <label for="o_que_vende">O que você vende? *</label>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">Qual é o principal produto ou serviço? *</p>
+                    <label><input type="radio" name="Tipo_Produto" value="Produto" required> Produto</label>
+                    <label><input type="radio" name="Tipo_Produto" value="Serviço"> Serviço</label>
+                    <label><input type="radio" name="Tipo_Produto" value="Produto + serviço"> Produto + serviço</label>
+                    <label><input type="radio" name="Tipo_Produto" value="Experiência"> Experiência</label>
+                    <div class="input-outro">
+                        <label for="tipo_outro">Outro:</label>
+                        <input type="text" id="tipo_outro" name="Tipo_Produto_Outro">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="motivo_compra" name="Motivo_Compra" rows="3" required placeholder=" "></textarea>
+                    <label for="motivo_compra">O que faz alguém escolher comprar de você? *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="diferenca_outros" name="Diferenca_Outros" rows="3" required placeholder=" "></textarea>
+                    <label for="diferenca_outros">Por que alguém deveria escolher sua marca em vez de simplesmente escolher outra empresa? *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="algo_diferente" name="Algo_Diferente" rows="3" placeholder=" "></textarea>
+                    <label for="algo_diferente">Existe algo que você faz de uma maneira particularmente diferente? (Opcional)</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="pitch_10s" name="Pitch_10s" required placeholder=" ">
+                    <label for="pitch_10s">Se você tivesse apenas 10 segundos para explicar por que sua empresa merece existir, o que diria? *</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 04 PÚBLICO -->
+            <fieldset class="form-section form-step" data-step="4" style="display: none;">
+                <legend>04 — Agora vamos falar de quem compra</legend>
+
+                <div class="input-group">
+                    <textarea id="perfil_cliente" name="Perfil_Cliente" rows="4" required placeholder=" "></textarea>
+                    <label for="perfil_cliente">Quem é a pessoa que você mais gostaria de atrair? *</label>
+                    <p class="helper-text">Pense em uma pessoa real. Como ela é, como vive, o que valoriza e o que procura?</p>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="problema_cliente" name="Problema_Cliente" rows="3" required placeholder=" "></textarea>
+                    <label for="problema_cliente">O que essa pessoa está tentando resolver quando procura sua empresa? *</label>
+                </div>
+
+                <div class="input-group checkbox-group limit-checkboxes" data-limit="4">
+                    <p class="checkbox-label">O que mais influencia essa pessoa na hora da compra? (Selecione até 4) *</p>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="Influencia_Compra" value="Preço"> Preço</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Qualidade"> Qualidade</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Confiança"> Confiança</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Status"> Status</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Praticidade"> Praticidade</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Exclusividade"> Exclusividade</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Segurança"> Segurança</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Rapidez"> Rapidez</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Atendimento"> Atendimento</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Experiência"> Experiência</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Estética"> Estética</label>
+                        <label><input type="checkbox" name="Influencia_Compra" value="Recomendação"> Recomendação</label>
+                    </div>
+                    <div class="input-outro">
+                        <label for="influencia_outro">Outro:</label>
+                        <input type="text" id="influencia_outro" name="Influencia_Compra_Outro">
+                    </div>
+                </div>
+
+                <div class="input-group checkbox-group limit-checkboxes" data-limit="4">
+                    <p class="checkbox-label">Como você gostaria que essa pessoa se sentisse ao entrar em contato com sua marca? (Selecione até 4) *</p>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Segura"> Segura</label>
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Confiante"> Confiante</label>
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Especial"> Especial</label>
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Acolhida"> Acolhida</label>
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Inspirada"> Inspirada</label>
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Tranquila"> Tranquila</label>
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Motivada"> Motivada</label>
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Curiosa"> Curiosa</label>
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Desejando comprar"> Desejando comprar</label>
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Orgulhosa"> Orgulhosa</label>
+                        <label><input type="checkbox" name="Sentimento_Desejado" value="Empoderada"> Empoderada</label>
+                    </div>
+                    <div class="input-outro">
+                        <label for="sentimento_outro">Outro:</label>
+                        <input type="text" id="sentimento_outro" name="Sentimento_Desejado_Outro">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="cliente_indesejado" name="Cliente_Indesejado" rows="3" placeholder=" "></textarea>
+                    <label for="cliente_indesejado">Existe algum tipo de cliente que você NÃO quer atrair? (Opcional)</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 05 MERCADO -->
+            <fieldset class="form-section form-step" data-step="5" style="display: none;">
+                <legend>05 — O mercado em que você está</legend>
+
+                <div class="input-group">
+                    <textarea id="concorrentes" name="Concorrentes" rows="3" required placeholder=" "></textarea>
+                    <label for="concorrentes">Quem são seus principais concorrentes? *</label>
+                    <p class="helper-text">Envie até 5 perfis, sites ou nomes de marcas.</p>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="concorrentes_bom" name="Concorrentes_Bom" rows="3" required placeholder=" "></textarea>
+                    <label for="concorrentes_bom">O que seus concorrentes fazem bem? *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="fazer_diferente" name="Fazer_Diferente" rows="3" required placeholder=" "></textarea>
+                    <label for="fazer_diferente">O que você gostaria de fazer diferente deles? *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="evitar_mercado" name="Evitar_Mercado" rows="3" placeholder=" "></textarea>
+                    <label for="evitar_mercado">Existe alguma coisa que você vê repetidamente no seu mercado e gostaria de evitar? (Opcional)</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="diferenca_percebida" name="Diferenca_Percebida" rows="3" required placeholder=" "></textarea>
+                    <label for="diferenca_percebida">Quando alguém olha para sua marca ao lado de um concorrente, qual deveria ser a diferença percebida? *</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 06 PERSONALIDADE -->
+            <fieldset class="form-section form-step" data-step="6" style="display: none;">
+                <legend>06 — Agora vamos descobrir a personalidade</legend>
+                <p style="margin-bottom: 1.5rem; color: var(--text-color-dark);">Imagine que sua marca é uma pessoa. Como ela seria?</p>
+
+                <div class="input-group checkbox-group limit-checkboxes" data-limit="6">
+                    <p class="checkbox-label">Escolha os atributos que mais combinam (Até 6 escolhas) *</p>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Elegante"> Elegante</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Acessível"> Acessível</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Confiável"> Confiável</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Amigável"> Amigável</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Criativa"> Criativa</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Divertida"> Divertida</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Formal"> Formal</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Ousada"> Ousada</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Aventureira"> Aventureira</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Acolhedora"> Acolhedora</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Jovem"> Jovem</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Premium"> Premium</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Exclusiva"> Exclusiva</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Sustentável"> Sustentável</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Luxuosa"> Luxuosa</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Moderna"> Moderna</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Clássica"> Clássica</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Tradicional"> Tradicional</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Minimalista"> Minimalista</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Sofisticada"> Sofisticada</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Humana"> Humana</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Tecnológica"> Tecnológica</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Autêntica"> Autêntica</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Energética"> Energética</label>
+                        <label><input type="checkbox" name="Atributos_Gerais" value="Calma"> Calma</label>
+                    </div>
+                    <div class="input-outro">
+                        <label for="atributos_gerais_outro">Outro:</label>
+                        <input type="text" id="atributos_gerais_outro" name="Atributos_Gerais_Outro">
+                    </div>
+                </div>
+
+                <div class="input-group checkbox-group limit-checkboxes dynamic-options" data-source="Atributos_Gerais" data-limit="3">
+                    <p class="checkbox-label">Agora escolha apenas os 3 atributos mais importantes *</p>
+                    <p class="helper-text">Selecione primeiro os atributos acima para escolher aqui.</p>
+                    <div class="checkbox-grid target-grid">
+                        <!-- Povoado via JS -->
+                    </div>
+                </div>
+
+                <div class="input-group checkbox-group limit-checkboxes" data-limit="3">
+                    <p class="checkbox-label">Quais 3 atributos sua marca definitivamente NÃO deveria transmitir? *</p>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="Atributos_Nao_Transmitir" value="Fria"> Fria</label>
+                        <label><input type="checkbox" name="Atributos_Nao_Transmitir" value="Popular"> Popular</label>
+                        <label><input type="checkbox" name="Atributos_Nao_Transmitir" value="Arrogante"> Arrogante</label>
+                        <label><input type="checkbox" name="Atributos_Nao_Transmitir" value="Amadora"> Amadora</label>
+                        <label><input type="checkbox" name="Atributos_Nao_Transmitir" value="Complicada"> Complicada</label>
+                        <label><input type="checkbox" name="Atributos_Nao_Transmitir" value="Genérica"> Genérica</label>
+                        <label><input type="checkbox" name="Atributos_Nao_Transmitir" value="Ultrapassada"> Ultrapassada</label>
+                        <label><input type="checkbox" name="Atributos_Nao_Transmitir" value="Exclusiva demais"> Exclusiva demais</label>
+                        <label><input type="checkbox" name="Atributos_Nao_Transmitir" value="Infantil"> Infantil</label>
+                    </div>
+                    <div class="input-outro">
+                        <label for="atributos_nao_outro">Outro:</label>
+                        <input type="text" id="atributos_nao_outro" name="Atributos_Nao_Transmitir_Outro">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="porque_atributos" name="Porque_Atributos" rows="3" required placeholder=" "></textarea>
+                    <label for="porque_atributos">Por que esses atributos são importantes? *</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 07 EIXOS -->
+            <fieldset class="form-section form-step" data-step="7" style="display: none;">
+                <legend>07 — Vamos colocar sua marca em um eixo</legend>
+                <p style="margin-bottom: 2rem; color: var(--text-color-dark);">Esta etapa transforma conceitos abstratos em decisões. Mova o controle de acordo com a posição da sua marca.</p>
+
+                <div class="input-group">
+                    <p class="radio-label" style="margin-bottom: 0;">Sua marca deveria estar mais próxima de:</p>
+                    <input type="range" min="1" max="5" value="3" class="range-slider" name="Eixo_Tradicional_Contemporanea">
+                    <div class="range-labels">
+                        <span>Tradicional</span>
+                        <span>Contemporânea</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <p class="radio-label" style="margin-bottom: 0;">Sua marca deveria estar mais próxima de:</p>
+                    <input type="range" min="1" max="5" value="3" class="range-slider" name="Eixo_Seria_Descontraida">
+                    <div class="range-labels">
+                        <span>Séria</span>
+                        <span>Descontraída</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <p class="radio-label" style="margin-bottom: 0;">Sua marca deveria estar mais próxima de:</p>
+                    <input type="range" min="1" max="5" value="3" class="range-slider" name="Eixo_Acessivel_Exclusiva">
+                    <div class="range-labels">
+                        <span>Acessível</span>
+                        <span>Exclusiva</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <p class="radio-label" style="margin-bottom: 0;">Sua marca deveria estar mais próxima de:</p>
+                    <input type="range" min="1" max="5" value="3" class="range-slider" name="Eixo_Discreta_Ousada">
+                    <div class="range-labels">
+                        <span>Discreta</span>
+                        <span>Ousada</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <p class="radio-label" style="margin-bottom: 0;">Sua marca deveria estar mais próxima de:</p>
+                    <input type="range" min="1" max="5" value="3" class="range-slider" name="Eixo_Racional_Emocional">
+                    <div class="range-labels">
+                        <span>Racional</span>
+                        <span>Emocional</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <p class="radio-label" style="margin-bottom: 0;">Sua marca deveria estar mais próxima de:</p>
+                    <input type="range" min="1" max="5" value="3" class="range-slider" name="Eixo_Minimalista_Expressiva">
+                    <div class="range-labels">
+                        <span>Minimalista</span>
+                        <span>Expressiva</span>
+                    </div>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 08 PERCEPÇÃO -->
+            <fieldset class="form-section form-step" data-step="8" style="display: none;">
+                <legend>08 — Agora vamos falar de percepção</legend>
+
+                <div class="input-group">
+                    <textarea id="percepcao_primeiravez" name="Percepcao_PrimeiraVez" rows="3" required placeholder=" "></textarea>
+                    <label for="percepcao_primeiravez">Quando alguém conhece minha marca pela primeira vez, eu gostaria que pensasse: *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="percepcao_poscompra" name="Percepcao_PosCompra" rows="3" required placeholder=" "></textarea>
+                    <label for="percepcao_poscompra">Depois de comprar de mim, eu gostaria que dissesse: *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="percepcao_indesejada" name="Percepcao_Indesejada" rows="3" required placeholder=" "></textarea>
+                    <label for="percepcao_indesejada">E eu NÃO gostaria que alguém pensasse: *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="falta_marca" name="Falta_Marca" rows="3" required placeholder=" "></textarea>
+                    <label for="falta_marca">Se sua marca desaparecesse amanhã, o que seus clientes perderiam? *</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 09 TERRITÓRIO VISUAL -->
+            <fieldset class="form-section form-step" data-step="9" style="display: none;">
+                <legend>09 — O Território Visual</legend>
+                <p style="margin-bottom: 2rem; color: var(--text-color-dark);">Agora sim vamos falar de estética.</p>
+
+                <div class="input-group">
+                    <textarea id="marcas_admiradas" name="Marcas_Admiradas" rows="3" required placeholder=" "></textarea>
+                    <label for="marcas_admiradas">Existem marcas cuja estética você admira? *</label>
+                    <p class="helper-text">Pode colar links. Você pode enviar referências mesmo que sejam de empresas completamente diferentes do seu segmento.</p>
+                </div>
+
+                <div class="input-group checkbox-group">
+                    <p class="checkbox-label">O que exatamente você gosta nessas referências? *</p>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="Gosto_Referencias" value="Cores"> Cores</label>
+                        <label><input type="checkbox" name="Gosto_Referencias" value="Tipografia"> Tipografia</label>
+                        <label><input type="checkbox" name="Gosto_Referencias" value="Símbolo"> Símbolo</label>
+                        <label><input type="checkbox" name="Gosto_Referencias" value="Composição"> Composição</label>
+                        <label><input type="checkbox" name="Gosto_Referencias" value="Fotografia"> Fotografia</label>
+                        <label><input type="checkbox" name="Gosto_Referencias" value="Elegância"> Elegância</label>
+                        <label><input type="checkbox" name="Gosto_Referencias" value="Simplicidade"> Simplicidade</label>
+                        <label><input type="checkbox" name="Gosto_Referencias" value="Personalidade"> Personalidade</label>
+                        <label><input type="checkbox" name="Gosto_Referencias" value="Modernidade"> Modernidade</label>
+                    </div>
+                    <div class="input-outro">
+                        <label for="gosto_outro">Outro:</label>
+                        <input type="text" id="gosto_outro" name="Gosto_Referencias_Outro">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="marcas_nao_admiradas" name="Marcas_Nao_Admiradas" rows="3" placeholder=" "></textarea>
+                    <label for="marcas_nao_admiradas">Existe alguma marca cuja estética você NÃO gostaria de seguir? (Opcional)</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="nao_gosto_referencias" name="Nao_Gosto_Referencias" rows="3" placeholder=" "></textarea>
+                    <label for="nao_gosto_referencias">O que você não gosta nela?</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 10 JOGO VISUAL -->
+            <fieldset class="form-section form-step" data-step="10" style="display: none;">
+                <legend>10 — Jogo Visual</legend>
+                <p style="margin-bottom: 2rem; color: var(--text-color-dark);">Vamos descobrir seu território sem precisar falar "design".</p>
+
+                <div class="input-group visual-selection-group">
+                    <p class="radio-label">Qual desses ambientes parece mais próximo da sua marca? *</p>
+                    <div class="visual-choice-grid">
+                        <div class="visual-choice-item" data-value="Boutique sofisticada" data-input="Ambiente_Proximo">Boutique sofisticada</div>
+                        <div class="visual-choice-item" data-value="Estúdio criativo" data-input="Ambiente_Proximo">Estúdio criativo</div>
+                        <div class="visual-choice-item" data-value="Empresa tecnológica" data-input="Ambiente_Proximo">Empresa tecnológica</div>
+                        <div class="visual-choice-item" data-value="Hotel contemporâneo" data-input="Ambiente_Proximo">Hotel contemporâneo</div>
+                        <div class="visual-choice-item" data-value="Café artesanal" data-input="Ambiente_Proximo">Café artesanal</div>
+                        <div class="visual-choice-item" data-value="Escritório corporativo" data-input="Ambiente_Proximo">Escritório corporativo</div>
+                        <div class="visual-choice-item" data-value="Loja popular" data-input="Ambiente_Proximo">Loja popular</div>
+                        <div class="visual-choice-item" data-value="Galeria de arte" data-input="Ambiente_Proximo">Galeria de arte</div>
+                    </div>
+                    <input type="hidden" name="Ambiente_Proximo" id="Ambiente_Proximo" required>
+                    <div class="input-outro" style="margin-top: 1rem;">
+                        <label for="ambiente_outro">Outro:</label>
+                        <input type="text" id="ambiente_outro" name="Ambiente_Proximo_Outro">
+                    </div>
+                </div>
+
+                <div class="input-group visual-selection-group">
+                    <p class="radio-label">Qual dessas atmosferas combina mais com sua marca? *</p>
+                    <div class="visual-choice-grid">
+                        <div class="visual-choice-item" data-value="Minimalista" data-input="Atmosfera_Combinada">Minimalista</div>
+                        <div class="visual-choice-item" data-value="Luxuosa" data-input="Atmosfera_Combinada">Luxuosa</div>
+                        <div class="visual-choice-item" data-value="Natural" data-input="Atmosfera_Combinada">Natural</div>
+                        <div class="visual-choice-item" data-value="Urbana" data-input="Atmosfera_Combinada">Urbana</div>
+                        <div class="visual-choice-item" data-value="Vibrante" data-input="Atmosfera_Combinada">Vibrante</div>
+                        <div class="visual-choice-item" data-value="Sofisticada" data-input="Atmosfera_Combinada">Sofisticada</div>
+                        <div class="visual-choice-item" data-value="Acolhedora" data-input="Atmosfera_Combinada">Acolhedora</div>
+                        <div class="visual-choice-item" data-value="Tecnológica" data-input="Atmosfera_Combinada">Tecnológica</div>
+                    </div>
+                    <input type="hidden" name="Atmosfera_Combinada" id="Atmosfera_Combinada" required>
+                </div>
+                
+                <div class="input-group">
+                    <textarea id="universo_evitar" name="Universo_Evitar" rows="3" placeholder=" "></textarea>
+                    <label for="universo_evitar">Existe algum universo visual que devemos evitar? (Opcional)</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 11 CORES, SÍMBOLOS E PREFERÊNCIAS -->
+            <fieldset class="form-section form-step" data-step="11" style="display: none;">
+                <legend>11 — Cores, Símbolos e Preferências</legend>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">Existe alguma cor que você gostaria de ver na identidade? *</p>
+                    <label><input type="radio" name="Cor_Desejada_Opcao" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="Cor_Desejada_Opcao" value="Não"> Não</label>
+                    <label><input type="radio" name="Cor_Desejada_Opcao" value="Não sei"> Não sei</label>
+                </div>
+
+                <div class="input-group logic-conditional" data-depends-on="Cor_Desejada_Opcao" data-depends-value="Sim" style="display: none;">
+                    <input type="text" id="cor_desejada" name="Cor_Desejada_Qual" placeholder=" ">
+                    <label for="cor_desejada">Qual cor?</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="cor_indesejada" name="Cor_Indesejada" required placeholder=" ">
+                    <label for="cor_indesejada">Existe alguma cor que você definitivamente NÃO quer? *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="simbolo_desejado" name="Simbolo_Desejado" rows="3" placeholder=" "></textarea>
+                    <label for="simbolo_desejado">Existe algum símbolo, elemento ou referência que você gostaria de explorar? (Opcional)</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="simbolo_indesejado" name="Simbolo_Indesejado" rows="3" placeholder=" "></textarea>
+                    <label for="simbolo_indesejado">Existe algum símbolo que você definitivamente NÃO quer? (Opcional)</label>
+                </div>
+
+                <!-- Lógica de exibir apenas se a marca já existir -->
+                <div class="logic-conditional-brand-exists" style="display: none;">
+                    <div class="input-group">
+                        <textarea id="identidade_preservar" name="Identidade_Preservar" rows="3" placeholder=" "></textarea>
+                        <label for="identidade_preservar">Existe alguma coisa da identidade atual que você gostaria de preservar?</label>
+                    </div>
+
+                    <div class="input-group">
+                        <textarea id="identidade_abandonar" name="Identidade_Abandonar" rows="3" placeholder=" "></textarea>
+                        <label for="identidade_abandonar">Existe alguma coisa da identidade atual que você gostaria de abandonar?</label>
+                    </div>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 12 APLICAÇÕES -->
+            <fieldset class="form-section form-step" data-step="12" style="display: none;">
+                <legend>12 — Onde essa identidade vai viver?</legend>
+
+                <div class="input-group checkbox-group">
+                    <p class="checkbox-label">Onde sua identidade visual será mais utilizada? *</p>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="Aplicacoes" value="Instagram"> Instagram</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Site"> Site</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="WhatsApp"> WhatsApp</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Fachada"> Fachada</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Embalagem"> Embalagem</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Cartão"> Cartão</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Uniforme"> Uniforme</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Material impresso"> Material impresso</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Apresentações"> Apresentações</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Documentos"> Documentos</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Sinalização"> Sinalização</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Aplicativo"> Aplicativo</label>
+                        <label><input type="checkbox" name="Aplicacoes" value="Produtos"> Produtos</label>
+                    </div>
+                    <div class="input-outro">
+                        <label for="aplicacoes_outro">Outro:</label>
+                        <input type="text" id="aplicacoes_outro" name="Aplicacoes_Outro">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="aplicacao_principal" name="Aplicacao_Principal" required placeholder=" ">
+                    <label for="aplicacao_principal">Qual desses pontos de contato é o mais importante? *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="aplicacao_especial" name="Aplicacao_Especial" rows="3" placeholder=" "></textarea>
+                    <label for="aplicacao_especial">Existe alguma aplicação que seria especialmente importante para o projeto? (Opcional)</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 13 FUTURO -->
+            <fieldset class="form-section form-step" data-step="13" style="display: none;">
+                <legend>13 — Para onde a marca está indo?</legend>
+
+                <div class="input-group">
+                    <input type="text" id="empresa_hoje" name="Empresa_Hoje" required placeholder=" ">
+                    <label for="empresa_hoje">Onde sua empresa está hoje? *</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="empresa_5anos" name="Empresa_5_Anos" rows="3" required placeholder=" "></textarea>
+                    <label for="empresa_5anos">Onde você gostaria que ela estivesse daqui a 5 anos? *</label>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">A identidade visual precisa representar mais: *</p>
+                    <label><input type="radio" name="Representacao_Futuro" value="Quem a marca é hoje" required> Quem a marca é hoje</label>
+                    <label><input type="radio" name="Representacao_Futuro" value="Quem ela quer se tornar"> Quem ela quer se tornar</label>
+                    <label><input type="radio" name="Representacao_Futuro" value="Um equilíbrio entre os dois"> Um equilíbrio entre os dois</label>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">Você pretende expandir produtos, serviços, público ou região? *</p>
+                    <label><input type="radio" name="Expansao" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="Expansao" value="Não"> Não</label>
+                    <label><input type="radio" name="Expansao" value="Talvez"> Talvez</label>
+                </div>
+
+                <div class="input-group logic-conditional" data-depends-on="Expansao" data-depends-value="Sim" style="display: none;">
+                    <textarea id="como_expandir" name="Como_Expandir" rows="3" placeholder=" "></textarea>
+                    <label for="como_expandir">Como pretende expandir?</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 14 A PERGUNTA MAIS IMPORTANTE -->
+            <fieldset class="form-section form-step" data-step="14" style="display: none;">
+                <legend>14 — A Pergunta Mais Importante</legend>
+
+                <div class="input-group">
+                    <textarea id="unica_coisa_resolver" name="Unica_Coisa_Resolver" rows="5" required placeholder=" "></textarea>
+                    <label for="unica_coisa_resolver">Se pudéssemos fazer apenas uma coisa com essa nova identidade, o que você gostaria que ela resolvesse? *</label>
+                    <p class="helper-text">Pode ser algo como: "Quero parecer mais profissional", "Quero conseguir cobrar mais", "Quero me diferenciar".</p>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 15 ESPELHO DA MARCA -->
+            <fieldset class="form-section form-step" data-step="15" style="display: none;">
+                <legend>15 — Agora vamos testar o que descobrimos</legend>
+                
+                <div class="brand-mirror" id="brand-mirror-content">
+                    <h3>✦ O que descobrimos até agora</h3>
+                    <div id="mirror-data">Gerando síntese da sua marca...</div>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">Isso parece sua marca? *</p>
+                    <label><input type="radio" name="Validacao_Espelho" value="Sim, é exatamente isso" required> Sim, é exatamente isso.</label>
+                    <label><input type="radio" name="Validacao_Espelho" value="Está próximo, mas quero ajustar"> Está próximo, mas quero ajustar.</label>
+                    <label><input type="radio" name="Validacao_Espelho" value="Não. Quero explicar melhor"> Não. Quero explicar melhor.</label>
+                </div>
+
+                <div class="input-group logic-conditional" data-depends-on="Validacao_Espelho" data-depends-value="Está próximo, mas quero ajustar|Não. Quero explicar melhor" style="display: none;">
+                    <textarea id="ajustes_espelho" name="Ajustes_Espelho" rows="4" placeholder=" "></textarea>
+                    <label for="ajustes_espelho">Conte-nos o que precisa ser ajustado:</label>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 16 ÚLTIMA PERGUNTA -->
+            <fieldset class="form-section form-step" data-step="16" style="display: none;">
+                <legend>16 — Uma Última Pergunta</legend>
+
+                <div class="input-group">
+                    <textarea id="consideracoes_finais" name="Consideracoes_Finais" rows="5" placeholder=" "></textarea>
+                    <label for="consideracoes_finais">Existe alguma coisa que você gostaria que nossa equipe soubesse antes de começar? (Opcional)</label>
+                    <p class="helper-text">Pode escrever livremente. Ideias, referências, preocupações, expectativas, histórias ou qualquer coisa que você considere importante.</p>
+                </div>
+
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 17 FINALIZAÇÃO -->
+            <fieldset class="form-section form-step" data-step="17" style="display: none;">
+                <legend>17 — Finalização</legend>
+
+                <div class="welcome-copy" style="margin-bottom: 2rem;">
+                    <h2 style="font-family: var(--font-headline); color: var(--button-bg-color); margin-bottom: 1rem; font-size: 1.8rem;">Sua parte terminou. A nossa começa agora.</h2>
+                    <p>Obrigado por compartilhar sua marca conosco. Suas respostas serão transformadas em uma direção estratégica para o projeto.</p>
+                    <p>A partir daqui, nossa equipe irá:</p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-color-dark);">
+                        <li>01. interpretar suas respostas</li>
+                        <li>02. identificar padrões e oportunidades</li>
+                        <li>03. pesquisar seu mercado</li>
+                        <li>04. definir o território estratégico da marca</li>
+                        <li>05. transformar tudo isso em decisões visuais</li>
+                    </ul>
+                    <p><strong>Você não precisa saber explicar design. Essa parte é nossa.</strong></p>
+                </div>
+
+                <input type="hidden" name="_subject" value="Novo Briefing (Brand Discovery) Recebido!">
+                <input type="text" name="_gotcha" style="display:none" />
+                
+                <div class="form-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                    <button type="button" class="shimmer-button btn-prev" style="background: transparent; color: var(--button-bg-color); border: 1px solid var(--button-bg-color);">Anterior</button>
+                    <button type="submit" class="shimmer-button animate-shimmer" id="btn-enviar-briefing">
+                        <strong>Enviar meu Brand Discovery →</strong>
+                    </button>
+                </div>
+            </fieldset>
+
+        </form>
+    </main>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="brand-discovery.js"></script>
+</body>
+</html>
