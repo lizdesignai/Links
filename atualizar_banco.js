@@ -15,6 +15,8 @@ async function updateDatabase() {
         // Mapeamento dos novos campos do Brand Discovery
         // O tipo padrão será TEXT para suportar tanto strings curtas quanto longas/arrays.
         const newColumns = [
+            'emoji_empresa',
+            'musica_empresa',
             'status_marca',
             'motivo_nascimento',
             'motivo_escolha_negocio',

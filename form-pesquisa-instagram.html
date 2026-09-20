@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PPJW7DNF');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Satisfação - Gerenciamento de Instagram</title>
+    
+    <link rel="stylesheet" href="forms-style.css">
+    <link rel="icon" href="img/logo.png">
+    <style>
+        .nps-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            justify-content: space-between;
+        }
+        .nps-group label {
+            flex: 1;
+            text-align: center;
+            background: #f7f5f2;
+            padding: 0.8rem 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            color: var(--text-color-dark);
+            min-width: 35px;
+        }
+        .nps-group input[type="radio"] {
+            display: none;
+        }
+        .nps-group input[type="radio"]:checked + span {
+            color: var(--button-bg-color);
+        }
+        .nps-group label:has(input[type="radio"]:checked) {
+            border-color: var(--button-bg-color);
+            background: rgba(140, 110, 84, 0.1);
+        }
+        .nps-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPJW7DNF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <main class="form-container">
+        
+        <header class="form-header">
+            <div class="header-text">
+                <h1 class="headline">Como está sendo sua experiência com a Liz Design?</h1>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar" style="width: 100%;"></div>
+            </div>
+        </header>
+
+        <form action="/api/submit" method="POST" id="pesquisa-instagram-form" class="sophisticated-form" novalidate>
+            
+            <fieldset class="form-section form-step" data-step="1">
+                
+                <div class="welcome-copy" style="margin-bottom: 2rem;">
+                    <p>Leva menos de 2 minutos. Queremos entender o que está funcionando e como o gerenciamento está impactando sua marca.</p>
+                </div>
+
+                <!-- Identificação Básica -->
+                <div class="input-group">
+                    <label for="nome">Qual é o seu nome? *</label>
+                    <input type="text" id="nome" name="Nome_Cliente" required placeholder=" ">
+                </div>
+
+                <!-- Pergunta 1 -->
+                <div class="input-group radio-group">
+                    <p class="radio-label">1. De 1 a 5, quanto você está satisfeito(a) com o gerenciamento do seu Instagram? *</p>
+                    <label><input type="radio" name="Satisfacao_Gerenciamento" value="1 — Muito insatisfeito(a)" required> 1 — Muito insatisfeito(a)</label>
+                    <label><input type="radio" name="Satisfacao_Gerenciamento" value="2 — Insatisfeito(a)"> 2 — Insatisfeito(a)</label>
+                    <label><input type="radio" name="Satisfacao_Gerenciamento" value="3 — Neutro(a)"> 3 — Neutro(a)</label>
+                    <label><input type="radio" name="Satisfacao_Gerenciamento" value="4 — Satisfeito(a)"> 4 — Satisfeito(a)</label>
+                    <label><input type="radio" name="Satisfacao_Gerenciamento" value="5 — Muito satisfeito(a)"> 5 — Muito satisfeito(a)</label>
+                </div>
+
+                <!-- Pergunta 2 -->
+                <div class="input-group radio-group">
+                    <p class="radio-label">2. Hoje, quanto você sente que o Instagram da sua marca melhorou desde que começamos o gerenciamento? *</p>
+                    <label><input type="radio" name="Instagram_Melhorou" value="1 — Não melhorou" required> 1 — Não melhorou</label>
+                    <label><input type="radio" name="Instagram_Melhorou" value="2 — Melhorou pouco"> 2 — Melhorou pouco</label>
+                    <label><input type="radio" name="Instagram_Melhorou" value="3 — Melhorou razoavelmente"> 3 — Melhorou razoavelmente</label>
+                    <label><input type="radio" name="Instagram_Melhorou" value="4 — Melhorou bastante"> 4 — Melhorou bastante</label>
+                    <label><input type="radio" name="Instagram_Melhorou" value="5 — Melhorou muito"> 5 — Melhorou muito</label>
+                </div>
+
+                <!-- Pergunta 3 -->
+                <div class="input-group">
+                    <p class="radio-label" style="margin-bottom: 0;">3. De 0 a 10, qual a chance de você indicar a Liz Design para alguém que precisa melhorar a presença da própria marca no Instagram? *</p>
+                    <div class="nps-group">
+                        <label><input type="radio" name="Chance_Indicar" value="0" required><span>0</span></label>
+                        <label><input type="radio" name="Chance_Indicar" value="1"><span>1</span></label>
+                        <label><input type="radio" name="Chance_Indicar" value="2"><span>2</span></label>
+                        <label><input type="radio" name="Chance_Indicar" value="3"><span>3</span></label>
+                        <label><input type="radio" name="Chance_Indicar" value="4"><span>4</span></label>
+                        <label><input type="radio" name="Chance_Indicar" value="5"><span>5</span></label>
+                        <label><input type="radio" name="Chance_Indicar" value="6"><span>6</span></label>
+                        <label><input type="radio" name="Chance_Indicar" value="7"><span>7</span></label>
+                        <label><input type="radio" name="Chance_Indicar" value="8"><span>8</span></label>
+                        <label><input type="radio" name="Chance_Indicar" value="9"><span>9</span></label>
+                        <label><input type="radio" name="Chance_Indicar" value="10"><span>10</span></label>
+                    </div>
+                    <div class="nps-labels">
+                        <span>Muito improvável</span>
+                        <span>Muito provável</span>
+                    </div>
+                </div>
+
+                <!-- Pergunta 4 -->
+                <div class="input-group checkbox-group">
+                    <p class="checkbox-label">4. O que você percebe que melhorou no seu Instagram? (Pode marcar mais de uma) *</p>
+                    <label><input type="checkbox" name="O_Que_Melhorou" value="Aparência e identidade"> Aparência e identidade</label>
+                    <label><input type="checkbox" name="O_Que_Melhorou" value="Organização e consistência"> Organização e consistência</label>
+                    <label><input type="checkbox" name="O_Que_Melhorou" value="Qualidade dos conteúdos"> Qualidade dos conteúdos</label>
+                    <label><input type="checkbox" name="O_Que_Melhorou" value="Profissionalismo da marca"> Profissionalismo da marca</label>
+                    <label><input type="checkbox" name="O_Que_Melhorou" value="Alcance e visibilidade"> Alcance e visibilidade</label>
+                    <label><input type="checkbox" name="O_Que_Melhorou" value="Engajamento"> Engajamento</label>
+                    <label><input type="checkbox" name="O_Que_Melhorou" value="Comunicação com o público"> Comunicação com o público</label>
+                    <label><input type="checkbox" name="O_Que_Melhorou" value="Ainda não percebi uma mudança significativa"> Ainda não percebi uma mudança significativa</label>
+                </div>
+
+                <!-- Pergunta 5 -->
+                <div class="input-group">
+                    <label for="relato">5. Se você tivesse que contar para alguém como está sendo trabalhar com a Liz Design no gerenciamento do seu Instagram, o que você diria? *</label>
+                    <p class="helper-text">Seu relato poderá nos ajudar a entender o impacto real do nosso trabalho.</p>
+                    <textarea id="relato" name="Relato" rows="4" required placeholder=" "></textarea>
+                </div>
+
+                <div class="input-group checkbox-group" style="margin-top: -1rem;">
+                    <label style="background: rgba(140, 110, 84, 0.05); padding: 1rem; border-radius: 8px;">
+                        <input type="checkbox" name="Autoriza_Depoimento" value="Sim" checked> 
+                        Autorizo o uso do meu relato como depoimento (apenas primeiro nome e marca).
+                    </label>
+                </div>
+
+                <input type="hidden" name="_subject" value="Pesquisa de Satisfação - Gerenciamento de Instagram">
+                <input type="text" name="_gotcha" style="display:none" />
+                
+                <div class="form-navigation" style="justify-content: center; margin-top: 2rem;">
+                    <button type="submit" class="shimmer-button animate-shimmer" id="btn-enviar" style="width: 100%;">
+                        <strong>Enviar Respostas</strong>
+                    </button>
+                </div>
+            </fieldset>
+
+        </form>
+    </main>
+
+    <script src="forms-main.js"></script>
+</body>
+</html>

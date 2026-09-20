@@ -49,7 +49,7 @@
         .visual-choice-item {
             border: 2px solid rgba(140, 110, 84, 0.2);
             border-radius: 8px;
-            padding: 1rem;
+            padding: 0.75rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -57,9 +57,17 @@
             color: var(--text-color-dark);
             font-weight: 500;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 80px;
+            gap: 0.5rem;
+        }
+        .visual-choice-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
         }
         .visual-choice-item:hover, .visual-choice-item.selected {
             border-color: var(--button-bg-color);
@@ -372,6 +380,18 @@
                 <legend>06 — Agora vamos descobrir a personalidade</legend>
                 <p style="margin-bottom: 1.5rem; color: var(--text-color-dark);">Imagine que sua marca é uma pessoa. Como ela seria?</p>
 
+                <div class="input-group">
+                    <input type="text" id="emoji" name="Emoji_Empresa" required placeholder=" ">
+                    <label for="emoji">Se a sua marca fosse um emoji, qual ela seria? *</label>
+                    <p class="helper-text">Pode escolher mais de um.</p>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="musica" name="Musica_Empresa" required placeholder=" ">
+                    <label for="musica">Se sua marca fosse uma música, qual ela seria? *</label>
+                    <p class="helper-text">Pode escolher mais de uma.</p>
+                </div>
+
                 <div class="input-group checkbox-group limit-checkboxes" data-limit="6">
                     <p class="checkbox-label">Escolha os atributos que mais combinam (Até 6 escolhas) *</p>
                     <div class="checkbox-grid">
@@ -594,14 +614,38 @@
                 <div class="input-group visual-selection-group">
                     <p class="radio-label">Qual desses ambientes parece mais próximo da sua marca? *</p>
                     <div class="visual-choice-grid">
-                        <div class="visual-choice-item" data-value="Boutique sofisticada" data-input="Ambiente_Proximo">Boutique sofisticada</div>
-                        <div class="visual-choice-item" data-value="Estúdio criativo" data-input="Ambiente_Proximo">Estúdio criativo</div>
-                        <div class="visual-choice-item" data-value="Empresa tecnológica" data-input="Ambiente_Proximo">Empresa tecnológica</div>
-                        <div class="visual-choice-item" data-value="Hotel contemporâneo" data-input="Ambiente_Proximo">Hotel contemporâneo</div>
-                        <div class="visual-choice-item" data-value="Café artesanal" data-input="Ambiente_Proximo">Café artesanal</div>
-                        <div class="visual-choice-item" data-value="Escritório corporativo" data-input="Ambiente_Proximo">Escritório corporativo</div>
-                        <div class="visual-choice-item" data-value="Loja popular" data-input="Ambiente_Proximo">Loja popular</div>
-                        <div class="visual-choice-item" data-value="Galeria de arte" data-input="Ambiente_Proximo">Galeria de arte</div>
+                        <div class="visual-choice-item" data-value="Boutique sofisticada" data-input="Ambiente_Proximo">
+                            <img src="img/Fotos%20Briefing/Boutique.jpg" alt="Boutique" loading="lazy">
+                            <span>Boutique sofisticada</span>
+                        </div>
+                        <div class="visual-choice-item" data-value="Estúdio criativo" data-input="Ambiente_Proximo">
+                            <img src="img/Fotos%20Briefing/Estudio.jpg" alt="Estúdio criativo" loading="lazy">
+                            <span>Estúdio criativo</span>
+                        </div>
+                        <div class="visual-choice-item" data-value="Empresa tecnológica" data-input="Ambiente_Proximo">
+                            <img src="img/Fotos%20Briefing/Empresa%20tecnológica.jpg" alt="Empresa tecnológica" loading="lazy">
+                            <span>Empresa tecnológica</span>
+                        </div>
+                        <div class="visual-choice-item" data-value="Hotel contemporâneo" data-input="Ambiente_Proximo">
+                            <img src="img/Fotos%20Briefing/Hotel.jpg" alt="Hotel contemporâneo" loading="lazy">
+                            <span>Hotel contemporâneo</span>
+                        </div>
+                        <div class="visual-choice-item" data-value="Café artesanal" data-input="Ambiente_Proximo">
+                            <img src="img/Fotos%20Briefing/Café.jpg" alt="Café artesanal" loading="lazy">
+                            <span>Café artesanal</span>
+                        </div>
+                        <div class="visual-choice-item" data-value="Escritório corporativo" data-input="Ambiente_Proximo">
+                            <img src="img/Fotos%20Briefing/Escritório%20corporativo.jpg" alt="Escritório corporativo" loading="lazy">
+                            <span>Escritório corporativo</span>
+                        </div>
+                        <div class="visual-choice-item" data-value="Loja popular" data-input="Ambiente_Proximo">
+                            <img src="img/Fotos%20Briefing/Loja%20popular.jpg" alt="Loja popular" loading="lazy">
+                            <span>Loja popular</span>
+                        </div>
+                        <div class="visual-choice-item" data-value="Galeria de arte" data-input="Ambiente_Proximo">
+                            <img src="img/Fotos%20Briefing/Galeria.png" alt="Galeria de arte" loading="lazy">
+                            <span>Galeria de arte</span>
+                        </div>
                     </div>
                     <input type="hidden" name="Ambiente_Proximo" id="Ambiente_Proximo" required>
                     <div class="input-outro" style="margin-top: 1rem;">

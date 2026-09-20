@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h2 style="font-family: var(--font-headline); font-size: 2.2rem; color: var(--button-bg-color); margin-bottom: 1rem;">Brand Discovery Concluído!</h2>
                         <p style="font-size: 1.1rem; color: var(--text-color-dark); opacity: 0.9; max-width: 400px; margin: 0 auto;">
                             Recebemos todas as suas informações com sucesso.<br><br>
-                            Fique de olho no seu <strong>WhatsApp</strong>, nossa automação já está processando sua estratégia e eu entrarei em contato em breve!
+                            Muito obrigada pelo seu tempo. Em breve entrarei em contato com você!
                         </p>
                     </div>
                 `;
