@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PPJW7DNF');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raio-X do Instagram - Liz Design</title>
+    
+    <link rel="stylesheet" href="forms-style.css">
+    <link rel="icon" href="img/logo.png">
+    <style>
+        .quiz-choice {
+            display: block;
+            background: #f7f5f2;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .quiz-choice:hover {
+            border-color: rgba(140, 110, 84, 0.3);
+        }
+        .quiz-choice input[type="radio"] {
+            display: none;
+        }
+        .quiz-choice input[type="radio"]:checked + span {
+            font-weight: bold;
+            color: var(--button-bg-color);
+        }
+        .quiz-choice:has(input[type="radio"]:checked) {
+            border-color: var(--button-bg-color);
+            background: rgba(140, 110, 84, 0.05);
+        }
+        
+        /* Atelier Virtual (Resultados) */
+        #atelier-view {
+            display: none;
+            animation: fadeIn 1s ease-out;
+        }
+        .score-card {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+        .score-number {
+            font-size: 5rem;
+            font-family: var(--font-headline);
+            color: var(--button-bg-color);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .progress-meter {
+            width: 100%;
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+        .progress-meter-fill {
+            height: 100%;
+            background: var(--button-bg-color);
+            transition: width 1.5s ease-out;
+            width: 0%;
+        }
+        .radar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .radar-item {
+            background: #f7f5f2;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border-bottom: 4px solid var(--button-bg-color);
+        }
+        .radar-item h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            opacity: 0.7;
+        }
+        .radar-item .dim-score {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-color-dark);
+        }
+        .evidence-box {
+            background: rgba(140, 110, 84, 0.05);
+            border-left: 4px solid var(--button-bg-color);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2rem;
+        }
+        .cta-offer {
+            background: var(--button-bg-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .cta-offer h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .cta-offer a {
+            display: inline-block;
+            background: white;
+            color: var(--button-bg-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .cta-offer a:hover {
+            transform: scale(1.05);
+        }
+
+        /* Spinner de processamento */
+        .processing-view {
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(140, 110, 84, 0.2);
+            border-top-color: var(--button-bg-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem auto;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPJW7DNF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <main class="form-container" id="quiz-container">
+        
+        <header class="form-header" id="quiz-header">
+            <div class="header-text">
+                <h1 class="headline">Raio-X do Instagram</h1>
+                <p>Descubra como o mercado percebe sua marca.</p>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
+            </div>
+        </header>
+
+        <form action="/api/submit" method="POST" id="raiox-form" class="sophisticated-form" novalidate>
+            <input type="hidden" name="_subject" value="Raio-X do Instagram">
+
+            <!-- HOME / LANDING -->
+            <fieldset class="form-section form-step" data-step="0">
+                <div class="welcome-copy" style="text-align: center; margin-bottom: 3rem; margin-top: 2rem;">
+                    <h2 style="font-family: var(--font-headline); font-size: 2.2rem; color: var(--button-bg-color); margin-bottom: 1rem;">Seu Instagram está no nível do seu negócio?</h2>
+                    <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">Avalie sua presença digital em quatro dimensões:<br><strong>Clareza · Autoridade · Percepção · Conversão</strong></p>
+                    
+                    <p style="margin-bottom: 2rem;">Compare seu resultado com a média da nossa base e descubra qual é o principal gargalo que está limitando as vendas da sua marca.</p>
+                    
+                    <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 2rem;">
+                        <span>✓ Gratuito</span> &nbsp;&middot;&nbsp;
+                        <span>✓ 3 minutos</span> &nbsp;&middot;&nbsp;
+                        <span>✓ Resultado imediato</span>
+                    </div>
+
+                    <button type="button" class="shimmer-button btn-next" style="width: 100%;">Começar Meu Raio-X</button>
+                </div>
+            </fieldset>
+
+            <!-- Q1 -->
+            <fieldset class="form-section form-step" data-step="1" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Clareza</p>
+                <div class="input-group">
+                    <p class="radio-label">1. Quando alguém entra no seu perfil pela primeira vez, quanto tempo leva para entender exatamente o que você vende? *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q1" value="A" required> <span>Na mesma hora. Bate o olho e entende.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q1" value="B"> <span>Precisa ler alguns posts ou destaques para entender bem.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q1" value="C"> <span>Geralmente me mandam direct perguntando detalhes do que eu faço.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-next" style="width: 100%;">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q2 -->
+            <fieldset class="form-section form-step" data-step="2" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Clareza</p>
+                <div class="input-group">
+                    <p class="radio-label">2. Se retirássemos seu nome e sua foto do perfil, alguém conseguiria reconhecer que aquele conteúdo pertence à sua marca? *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q2" value="A" required> <span>Sim, a linguagem e a estética são únicas.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q2" value="B"> <span>Talvez, mas seria difícil ter certeza.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q2" value="C"> <span>Não, pareceria com qualquer outro perfil do meu nicho.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q3 -->
+            <fieldset class="form-section form-step" data-step="3" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Clareza</p>
+                <div class="input-group">
+                    <p class="radio-label">3. O link na sua bio... *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q3" value="A" required> <span>É claro, direto e diz exatamente o que o cliente vai encontrar lá.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q3" value="B"> <span>É um link genérico com vários botões (tipo Linktree).</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q3" value="C"> <span>Eu nem tenho link ou é confuso para o cliente.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q4 -->
+            <fieldset class="form-section form-step" data-step="4" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Autoridade</p>
+                <div class="input-group">
+                    <p class="radio-label">4. Quantas provas sociais (depoimentos, resultados de clientes) existem visíveis no seu perfil hoje? *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q4" value="A" required> <span>Estão espalhadas nos Destaques e no Feed constantemente.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q4" value="B"> <span>Tenho algumas soltas, mas não estão organizadas.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q4" value="C"> <span>Quase nenhuma. As pessoas precisam confiar na minha palavra.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q5 -->
+            <fieldset class="form-section form-step" data-step="5" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Autoridade</p>
+                <div class="input-group">
+                    <p class="radio-label">5. Quando você fala sobre seus serviços ou produtos... *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q5" value="A" required> <span>Eu demonstro como resolvo problemas (mostrando bastidores e método).</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q5" value="B"> <span>Eu apenas posto a foto do produto ou digo que a agenda está aberta.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q5" value="C"> <span>Eu tenho vergonha/dificuldade de vender abertamente no Instagram.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q6 -->
+            <fieldset class="form-section form-step" data-step="6" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Autoridade</p>
+                <div class="input-group">
+                    <p class="radio-label">6. Você se posiciona de forma a cobrar mais do que a média do seu mercado? *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q6" value="A" required> <span>Sim, meu cliente entende por que sou mais caro.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q6" value="B"> <span>Às vezes, mas ainda perco clientes quando comparam preço.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q6" value="C"> <span>Não, costumo dar desconto ou cobrar barato para não perder o fechamento.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q7 -->
+            <fieldset class="form-section form-step" data-step="7" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Percepção</p>
+                <div class="input-group">
+                    <p class="radio-label">7. Seu Instagram atual parece tão profissional e de alto nível quanto o serviço/produto que você entrega na vida real? *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q7" value="A" required> <span>Sim, eles estão perfeitamente alinhados.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q7" value="B"> <span>Meu produto/serviço é muito melhor do que meu Instagram mostra hoje.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q7" value="C"> <span>Acho que os dois estão básicos e precisando de melhoria.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q8 -->
+            <fieldset class="form-section form-step" data-step="8" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Percepção</p>
+                <div class="input-group">
+                    <p class="radio-label">8. As cores, fontes e estilo visual das suas postagens... *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q8" value="A" required> <span>Seguem um padrão rigoroso (identidade visual) que transmite minha essência.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q8" value="B"> <span>Tento manter um padrão, mas às vezes uso templates soltos do Canva.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q8" value="C"> <span>Não tenho padrão. Cada dia posto de um jeito ou com uma cor diferente.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q9 -->
+            <fieldset class="form-section form-step" data-step="9" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Percepção</p>
+                <div class="input-group">
+                    <p class="radio-label">9. A qualidade geral das suas fotos, vídeos e do seu design... *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q9" value="A" required> <span>É impecável e demonstra luxo/cuidado em cada detalhe.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q9" value="B"> <span>É boa/ok, mas não me destaca em relação aos concorrentes.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q9" value="C"> <span>É bem amadora. Eu faço do jeito que dá, rápido pelo celular.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q10 -->
+            <fieldset class="form-section form-step" data-step="10" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Conversão</p>
+                <div class="input-group">
+                    <p class="radio-label">10. Se um cliente ideal encontrasse seu perfil hoje e quisesse muito comprar, o que aconteceria? *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q10" value="A" required> <span>Ele saberia exatamente onde clicar e o processo de venda seria fluido.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q10" value="B"> <span>Ele teria que me mandar um direct perguntando "como funciona" ou "quanto é".</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q10" value="C"> <span>Ele provavelmente ficaria confuso e desistiria da compra.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q11 -->
+            <fieldset class="form-section form-step" data-step="11" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Conversão</p>
+                <div class="input-group">
+                    <p class="radio-label">11. Com qual frequência um post ou story seu se transforma em uma venda real ou pedido de orçamento? *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q11" value="A" required> <span>Sempre. Tenho um mecanismo de vendas que funciona organicamente.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q11" value="B"> <span>De vez em quando, principalmente quando eu faço uma oferta muito direta.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q11" value="C"> <span>Quase nunca. Tenho likes e visualizações, mas não gera dinheiro no bolso.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- Q12 -->
+            <fieldset class="form-section form-step" data-step="12" style="display: none;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--button-bg-color); margin-bottom: 1rem;">Dimensão: Conversão</p>
+                <div class="input-group">
+                    <p class="radio-label">12. Suas legendas e chamadas (CTAs)... *</p>
+                    <label class="quiz-choice"><input type="radio" name="Q12" value="A" required> <span>Criam desejo, educam e sempre chamam para uma ação clara no final.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q12" value="B"> <span>São boas, mas muitas vezes eu esqueço de chamar para a venda.</span></label>
+                    <label class="quiz-choice"><input type="radio" name="Q12" value="C"> <span>São apenas emojis, reflexões soltas ou o preço seco do produto.</span></label>
+                </div>
+                <div class="form-navigation"><button type="button" class="shimmer-button btn-prev">Voltar</button><button type="button" class="shimmer-button btn-next">Próximo</button></div>
+            </fieldset>
+
+            <!-- CAPTURA (Geração de Lead) -->
+            <fieldset class="form-section form-step" data-step="13" style="display: none;">
+                <div class="welcome-copy" style="text-align: center; margin-bottom: 2rem;">
+                    <h2 style="font-family: var(--font-headline); font-size: 2rem; color: var(--button-bg-color); margin-bottom: 1rem;">Seu diagnóstico está pronto.</h2>
+                    <p>Preencha os dados abaixo para visualizar imediatamente seu Radar de Marca, sua pontuação em relação à média do mercado e descobrir o seu principal gargalo.</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="nome">Qual é o seu nome? *</label>
+                    <input type="text" id="nome" name="Nome_Cliente" required placeholder=" ">
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Seu melhor e-mail *</label>
+                    <input type="email" id="email" name="Email" required placeholder=" ">
+                </div>
+
+                <div class="input-group">
+                    <label for="whatsapp">WhatsApp *</label>
+                    <input type="tel" id="whatsapp" name="WhatsApp" required placeholder=" ">
+                </div>
+
+                <!-- Hidden inputs para enviar as notas pro BD -->
+                <input type="hidden" name="Score_Clareza" id="score_clareza">
+                <input type="hidden" name="Score_Autoridade" id="score_autoridade">
+                <input type="hidden" name="Score_Percepcao" id="score_percepcao">
+                <input type="hidden" name="Score_Conversao" id="score_conversao">
+                <input type="hidden" name="Score_Geral" id="score_geral">
+                <input type="hidden" name="Dimensao_Gargalo" id="dimensao_gargalo">
+
+                <div class="form-navigation" style="justify-content: center; margin-top: 2rem;">
+                    <button type="submit" class="shimmer-button animate-shimmer" id="btn-gerar" style="width: 100%;">
+                        <strong>Gerar Meu Raio-X</strong>
+                    </button>
+                </div>
+            </fieldset>
+
+        </form>
+    </main>
+
+    <!-- O ATELIER (Resultados) -->
+    <main class="form-container" id="atelier-view" style="display: none;">
+        
+        <div class="processing-view" id="processing-view">
+            <div class="spinner"></div>
+            <h2 style="font-family: var(--font-headline); color: var(--button-bg-color);">Calculando diagnóstico...</h2>
+            <p style="opacity: 0.7; margin-top: 1rem;">Comparando seu perfil com a média do mercado.</p>
+        </div>
+
+        <div id="results-view" style="display: none;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; text-align: center; font-size: 0.8rem; opacity: 0.7; margin-bottom: 1rem;">Seu Raio-X</p>
+            
+            <div class="score-card">
+                <div class="score-number" id="final-score">0</div>
+                <div style="font-size: 1.2rem; font-weight: bold; color: var(--text-color-dark);">Pontuação Geral (0-100)</div>
+                
+                <div class="progress-meter">
+                    <div class="progress-meter-fill" id="score-bar"></div>
+                </div>
+
+                <div id="benchmark-text" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                    <!-- Preenchido via JS -->
+                </div>
+            </div>
+
+            <h3 style="font-family: var(--font-headline); margin-bottom: 1rem;">Desempenho por Dimensão</h3>
+            <div class="radar-grid">
+                <div class="radar-item">
+                    <h4>Clareza</h4>
+                    <div class="dim-score" id="dim-clareza">0</div>
+                </div>
+                <div class="radar-item">
+                    <h4>Autoridade</h4>
+                    <div class="dim-score" id="dim-autoridade">0</div>
+                </div>
+                <div class="radar-item">
+                    <h4>Percepção</h4>
+                    <div class="dim-score" id="dim-percepcao">0</div>
+                </div>
+                <div class="radar-item">
+                    <h4>Conversão</h4>
+                    <div class="dim-score" id="dim-conversao">0</div>
+                </div>
+            </div>
+
+            <div class="evidence-box">
+                <h3 style="color: var(--button-bg-color); margin-bottom: 0.5rem;">⚠️ Seu maior gargalo é <span id="gargalo-nome" style="text-transform: uppercase;"></span></h3>
+                <p id="gargalo-desc" style="line-height: 1.6; margin-bottom: 1rem;"></p>
+                
+                <div style="font-size: 0.85rem; border-top: 1px dashed rgba(140,110,84,0.3); padding-top: 1rem; margin-top: 1rem;" id="evidencia-cientifica">
+                    <!-- Preenchido via JS -->
+                </div>
+            </div>
+
+            <div class="cta-offer">
+                <h3>O que você deveria corrigir primeiro?</h3>
+                <p style="margin-bottom: 1rem; opacity: 0.9;">Sua marca está deixando dinheiro na mesa por não transmitir profissionalismo na dimensão de <strong id="cta-gargalo"></strong>. Nós podemos corrigir isso para você de forma cirúrgica.</p>
+                <a href="mapa.html" id="cta-link">Quero o Mapa Instagram Profissional</a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="raiox.js"></script>
+</body>
+</html>

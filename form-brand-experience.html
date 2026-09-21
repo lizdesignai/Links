@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PPJW7DNF');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Experience Review - Liz Design</title>
+    
+    <link rel="stylesheet" href="forms-style.css">
+    <link rel="icon" href="img/logo.png">
+    <style>
+        .nps-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            justify-content: space-between;
+        }
+        .nps-group label {
+            flex: 1;
+            text-align: center;
+            background: #f7f5f2;
+            padding: 0.8rem 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            color: var(--text-color-dark);
+            min-width: 35px;
+        }
+        .nps-group input[type="radio"] {
+            display: none;
+        }
+        .nps-group input[type="radio"]:checked + span {
+            color: var(--button-bg-color);
+        }
+        .nps-group label:has(input[type="radio"]:checked) {
+            border-color: var(--button-bg-color);
+            background: rgba(140, 110, 84, 0.1);
+        }
+        .nps-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPJW7DNF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <main class="form-container">
+        
+        <header class="form-header">
+            <div class="header-text">
+                <h1 class="headline">BRAND EXPERIENCE REVIEW</h1>
+                <p>Sua experiência com a Liz Design</p>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar" style="width: 10%;"></div>
+            </div>
+        </header>
+
+        <form action="/api/submit" method="POST" id="brand-experience-form" class="sophisticated-form" novalidate>
+
+            <!-- INTRO & IDENTIFICAÇÃO -->
+            <fieldset class="form-section form-step" data-step="0">
+                <div class="welcome-copy" style="margin-bottom: 2rem;">
+                    <p>Sua identidade já está nas suas mãos. Agora queremos saber uma coisa: <strong>como foi viver esse processo com a gente?</strong></p>
+                    <p>São poucas perguntas e suas respostas vão nos ajudar a melhorar nosso trabalho, nossa experiência e os próximos projetos que criarmos.</p>
+                    <p><em>Tempo estimado: 3–5 minutos.</em></p>
+                </div>
+
+                <div class="input-group">
+                    <label for="nome">Qual é o seu nome? *</label>
+                    <input type="text" id="nome" name="Nome_Cliente" required placeholder=" ">
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Seu e-mail *</label>
+                    <input type="email" id="email" name="Email" required placeholder=" ">
+                </div>
+
+                <div class="input-group">
+                    <label for="whatsapp">Seu WhatsApp *</label>
+                    <input type="tel" id="whatsapp" name="WhatsApp" required placeholder=" ">
+                </div>
+
+                <div class="form-navigation" style="justify-content: flex-end;">
+                    <button type="button" class="shimmer-button btn-next">Iniciar Review</button>
+                </div>
+            </fieldset>
+
+            <!-- 01 A EXPERIÊNCIA -->
+            <fieldset class="form-section form-step" data-step="1" style="display: none;">
+                <legend>01 — A EXPERIÊNCIA</legend>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">1. De 1 a 5, quanto você está satisfeito(a) com a experiência que teve com a Liz Design? *</p>
+                    <label><input type="radio" name="Satisfacao_Experiencia" value="1 — Muito insatisfeito" required> 1 — Muito insatisfeito</label>
+                    <label><input type="radio" name="Satisfacao_Experiencia" value="2 — Insatisfeito"> 2 — Insatisfeito</label>
+                    <label><input type="radio" name="Satisfacao_Experiencia" value="3 — Neutro"> 3 — Neutro</label>
+                    <label><input type="radio" name="Satisfacao_Experiencia" value="4 — Satisfeito"> 4 — Satisfeito</label>
+                    <label><input type="radio" name="Satisfacao_Experiencia" value="5 — Muito satisfeito"> 5 — Muito satisfeito</label>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">2. O quanto o resultado final correspondeu ao que você esperava quando iniciou o projeto? *</p>
+                    <label><input type="radio" name="Correspondeu_Esperado" value="1 — Ficou muito abaixo do que eu esperava" required> 1 — Ficou muito abaixo do que eu esperava</label>
+                    <label><input type="radio" name="Correspondeu_Esperado" value="2 — Ficou abaixo"> 2 — Ficou abaixo</label>
+                    <label><input type="radio" name="Correspondeu_Esperado" value="3 — Correspondeu parcialmente"> 3 — Correspondeu parcialmente</label>
+                    <label><input type="radio" name="Correspondeu_Esperado" value="4 — Correspondeu ao que eu esperava"> 4 — Correspondeu ao que eu esperava</label>
+                    <label><input type="radio" name="Correspondeu_Esperado" value="5 — Superou minhas expectativas"> 5 — Superou minhas expectativas</label>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">3. O quanto você sentiu que a Liz Design entendeu sua marca? *</p>
+                    <label><input type="radio" name="Entendeu_Marca" value="1 — Não entendeu" required> 1 — Não entendeu</label>
+                    <label><input type="radio" name="Entendeu_Marca" value="2 — Entendeu pouco"> 2 — Entendeu pouco</label>
+                    <label><input type="radio" name="Entendeu_Marca" value="3 — Entendeu parcialmente"> 3 — Entendeu parcialmente</label>
+                    <label><input type="radio" name="Entendeu_Marca" value="4 — Entendeu bem"> 4 — Entendeu bem</label>
+                    <label><input type="radio" name="Entendeu_Marca" value="5 — Entendeu profundamente"> 5 — Entendeu profundamente</label>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">4. O processo para chegar ao resultado foi: *</p>
+                    <label><input type="radio" name="Processo_Resultado" value="Muito difícil" required> Muito difícil</label>
+                    <label><input type="radio" name="Processo_Resultado" value="Difícil"> Difícil</label>
+                    <label><input type="radio" name="Processo_Resultado" value="Nem fácil, nem difícil"> Nem fácil, nem difícil</label>
+                    <label><input type="radio" name="Processo_Resultado" value="Fácil"> Fácil</label>
+                    <label><input type="radio" name="Processo_Resultado" value="Muito fácil"> Muito fácil</label>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="shimmer-button btn-prev">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 02 O QUE MAIS IMPORTOU -->
+            <fieldset class="form-section form-step" data-step="2" style="display: none;">
+                <legend>02 — O QUE MAIS IMPORTOU</legend>
+
+                <div class="input-group checkbox-group limit-checkboxes" data-limit="3">
+                    <p class="checkbox-label">5. O que você mais gostou na experiência? (Selecione até 3) *</p>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Atendimento"> Atendimento</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Comunicação"> Comunicação</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Briefing"> Briefing</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Organização"> Organização</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Criatividade"> Criatividade</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Processo de criação"> Processo de criação</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Explicação das escolhas"> Explicação das escolhas</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Atenção aos detalhes"> Atenção aos detalhes</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Resultado visual"> Resultado visual</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Identidade estratégica"> Identidade estratégica</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Cumprimento dos prazos"> Cumprimento dos prazos</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Flexibilidade"> Flexibilidade</label>
+                    <label><input type="checkbox" name="O_Que_Mais_Gostou" value="Proatividade"> Proatividade</label>
+                    <div class="input-outro">
+                        <label for="gostou_outro">Outro:</label>
+                        <input type="text" id="gostou_outro" name="O_Que_Mais_Gostou_Outro">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="momento_marcou">6. Qual foi o momento do projeto que mais marcou você? *</label>
+                    <p class="helper-text">Pode ser uma descoberta durante o briefing, uma conversa, uma apresentação, uma escolha visual, a entrega ou qualquer outro momento.</p>
+                    <textarea id="momento_marcou" name="Momento_Marcou" rows="3" required placeholder=" "></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="momento_entendeu">7. Houve algum momento em que você pensou: <em>"Agora eles entenderam exatamente o que eu queria."</em>?</label>
+                    <textarea id="momento_entendeu" name="Momento_Entendeu" rows="3" placeholder=" "></textarea>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="shimmer-button btn-prev">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 03 O RESULTADO -->
+            <fieldset class="form-section form-step" data-step="3" style="display: none;">
+                <legend>03 — O RESULTADO</legend>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">8. Pensando especificamente na nova identidade visual, quanto você está satisfeito(a)? *</p>
+                    <label><input type="radio" name="Satisfacao_Identidade" value="1 — Muito insatisfeito" required> 1 — Muito insatisfeito</label>
+                    <label><input type="radio" name="Satisfacao_Identidade" value="2 — Insatisfeito"> 2 — Insatisfeito</label>
+                    <label><input type="radio" name="Satisfacao_Identidade" value="3 — Neutro"> 3 — Neutro</label>
+                    <label><input type="radio" name="Satisfacao_Identidade" value="4 — Satisfeito"> 4 — Satisfeito</label>
+                    <label><input type="radio" name="Satisfacao_Identidade" value="5 — Muito satisfeito"> 5 — Muito satisfeito</label>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">9. Depois de ver a nova identidade, você sente que ela representa melhor sua marca? *</p>
+                    <label><input type="radio" name="Representa_Melhor" value="Muito menos" required> Muito menos</label>
+                    <label><input type="radio" name="Representa_Melhor" value="Um pouco menos"> Um pouco menos</label>
+                    <label><input type="radio" name="Representa_Melhor" value="Praticamente igual"> Praticamente igual</label>
+                    <label><input type="radio" name="Representa_Melhor" value="Um pouco mais"> Um pouco mais</label>
+                    <label><input type="radio" name="Representa_Melhor" value="Muito mais"> Muito mais</label>
+                </div>
+
+                <div class="input-group checkbox-group limit-checkboxes" data-limit="5">
+                    <p class="checkbox-label">10. Quais características você acredita que sua nova identidade transmite? (Selecione até 5) *</p>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Profissionalismo"> Profissionalismo</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Confiança"> Confiança</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Modernidade"> Modernidade</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Sofisticação"> Sofisticação</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Exclusividade"> Exclusividade</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Proximidade"> Proximidade</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Criatividade"> Criatividade</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Autoridade"> Autoridade</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Qualidade"> Qualidade</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Personalidade"> Personalidade</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Organização"> Organização</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Inovação"> Inovação</label>
+                        <label><input type="checkbox" name="Transmite_Caracteristicas" value="Acessibilidade"> Acessibilidade</label>
+                    </div>
+                    <div class="input-outro" style="margin-top: 1rem;">
+                        <label for="transmite_outro">Outro:</label>
+                        <input type="text" id="transmite_outro" name="Transmite_Caracteristicas_Outro">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="nao_transmite">11. Existe alguma característica que você sente que a nova identidade NÃO transmite como deveria?</label>
+                    <textarea id="nao_transmite" name="Nao_Transmite" rows="2" placeholder=" "></textarea>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="shimmer-button btn-prev">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 04 NPS -->
+            <fieldset class="form-section form-step" data-step="4" style="display: none;">
+                <legend>04 — AVALIAÇÃO FINAL</legend>
+
+                <div class="input-group">
+                    <p class="radio-label" style="margin-bottom: 0;">12. De 0 a 10, qual a probabilidade de você recomendar a Liz Design para alguém que esteja procurando uma identidade visual? *</p>
+                    <div class="nps-group">
+                        <label><input type="radio" name="NPS" value="0" required><span>0</span></label>
+                        <label><input type="radio" name="NPS" value="1"><span>1</span></label>
+                        <label><input type="radio" name="NPS" value="2"><span>2</span></label>
+                        <label><input type="radio" name="NPS" value="3"><span>3</span></label>
+                        <label><input type="radio" name="NPS" value="4"><span>4</span></label>
+                        <label><input type="radio" name="NPS" value="5"><span>5</span></label>
+                        <label><input type="radio" name="NPS" value="6"><span>6</span></label>
+                        <label><input type="radio" name="NPS" value="7"><span>7</span></label>
+                        <label><input type="radio" name="NPS" value="8"><span>8</span></label>
+                        <label><input type="radio" name="NPS" value="9"><span>9</span></label>
+                        <label><input type="radio" name="NPS" value="10"><span>10</span></label>
+                    </div>
+                    <div class="nps-labels">
+                        <span>De jeito nenhum</span>
+                        <span>Com certeza</span>
+                    </div>
+                </div>
+
+                <!-- Lógica do NPS (Dinâmico via JS) -->
+                <div class="input-group logic-nps" id="nps-0-6" style="display: none;">
+                    <label for="nps_motivo_0_6">13. O que precisaria ter acontecido para você dar uma nota maior? *</label>
+                    <textarea id="nps_motivo_0_6" name="NPS_Motivo_0_6" rows="3" placeholder=" "></textarea>
+                </div>
+                <div class="input-group logic-nps" id="nps-7-8" style="display: none;">
+                    <label for="nps_motivo_7_8">13. O que poderíamos melhorar para transformar sua experiência em algo excelente? *</label>
+                    <textarea id="nps_motivo_7_8" name="NPS_Motivo_7_8" rows="3" placeholder=" "></textarea>
+                </div>
+                <div class="input-group logic-nps" id="nps-9-10" style="display: none;">
+                    <label for="nps_motivo_9_10">13. O que fez você dar essa nota? *</label>
+                    <textarea id="nps_motivo_9_10" name="NPS_Motivo_9_10" rows="3" placeholder=" "></textarea>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="shimmer-button btn-prev">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 05 SEU DEPOIMENTO -->
+            <fieldset class="form-section form-step" data-step="5" style="display: none;">
+                <legend>05 — SEU DEPOIMENTO</legend>
+
+                <div class="input-group">
+                    <label for="explicacao_trabalho">14. Se você tivesse que explicar para outra pessoa como foi trabalhar com a Liz Design, o que diria? *</label>
+                    <p class="helper-text">Não precisa escrever de forma formal. Pode responder como você falaria naturalmente para um amigo ou colega.</p>
+                    <textarea id="explicacao_trabalho" name="Explicacao_Trabalho" rows="4" required placeholder=" "></textarea>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">15. Podemos utilizar seu relato como depoimento da Liz Design? *</p>
+                    <label><input type="radio" name="Autoriza_Depoimento" value="Sim, podem utilizar meu relato" required> Sim, podem utilizar meu relato.</label>
+                    <label><input type="radio" name="Autoriza_Depoimento" value="Sim, mas apenas meu primeiro nome"> Sim, mas prefiro que utilizem apenas meu primeiro nome.</label>
+                    <label><input type="radio" name="Autoriza_Depoimento" value="Sim, mas apenas o nome da empresa"> Sim, mas prefiro que utilizem apenas o nome da minha empresa.</label>
+                    <label><input type="radio" name="Autoriza_Depoimento" value="Prefiro que não seja publicado"> Prefiro que meu relato não seja publicado.</label>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">16. Podemos entrar em contato caso precisemos confirmar alguma informação do seu depoimento? *</p>
+                    <label><input type="radio" name="Autoriza_Contato_Confirmar" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="Autoriza_Contato_Confirmar" value="Não"> Não</label>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="shimmer-button btn-prev">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 06 PROVA DO RESULTADO -->
+            <fieldset class="form-section form-step" data-step="6" style="display: none;">
+                <legend>06 — PROVA DO RESULTADO</legend>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">17. Desde o lançamento da nova identidade, você percebeu alguma mudança na forma como sua marca é percebida? *</p>
+                    <label><input type="radio" name="Percebeu_Mudanca" value="Sim, bastante" required> Sim, bastante</label>
+                    <label><input type="radio" name="Percebeu_Mudanca" value="Sim, um pouco"> Sim, um pouco</label>
+                    <label><input type="radio" name="Percebeu_Mudanca" value="Ainda não percebi"> Ainda não percebi</label>
+                    <label><input type="radio" name="Percebeu_Mudanca" value="Não"> Não</label>
+                    <label><input type="radio" name="Percebeu_Mudanca" value="Ainda não tive tempo suficiente para avaliar"> Ainda não tive tempo suficiente para avaliar</label>
+                </div>
+
+                <!-- Lógica: Se respondeu "Sim" na 17 -->
+                <div class="input-group logic-conditional logic-mudanca" style="display: none;">
+                    <label for="mudanca_qual">18. O que mudou?</label>
+                    <textarea id="mudanca_qual" name="Mudanca_Qual" rows="3" placeholder=" "></textarea>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">19. Você recebeu algum comentário de clientes, amigos, parceiros ou funcionários sobre a nova identidade? *</p>
+                    <label><input type="radio" name="Recebeu_Comentario" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="Recebeu_Comentario" value="Não"> Não</label>
+                </div>
+
+                <!-- Lógica: Se respondeu "Sim" na 19 -->
+                <div class="logic-conditional logic-comentario" style="display: none;">
+                    <div class="input-group">
+                        <label for="o_que_disseram">20. O que disseram?</label>
+                        <p class="helper-text">Se tiver alguma mensagem, comentário ou reação que possa compartilhar conosco, você também pode enviar um print abaixo.</p>
+                        <textarea id="o_que_disseram" name="O_Que_Disseram" rows="3" placeholder=" "></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="print_file">Upload de Print (Opcional)</label>
+                        <input type="file" id="print_file" accept="image/*" style="border: 1px solid var(--border-color); padding: 0.5rem; border-radius: 8px; width: 100%; background: #fff;">
+                        <input type="hidden" name="Print_Base64" id="print_base64">
+                        <p class="helper-text" id="file_status"></p>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="shimmer-button btn-prev">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 07 SUA MARCA DEPOIS DO PROJETO -->
+            <fieldset class="form-section form-step" data-step="7" style="display: none;">
+                <legend>07 — SUA MARCA DEPOIS DO PROJETO</legend>
+
+                <div class="input-group checkbox-group limit-checkboxes" data-limit="3">
+                    <p class="checkbox-label">21. Agora que sua identidade está pronta, qual é o próximo desafio da sua marca? (Escolha até 3) *</p>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Atrair mais clientes"> Atrair mais clientes</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Melhorar minha presença no Instagram"> Melhorar minha presença no Instagram</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Criar um site"> Criar um site</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Melhorar meu posicionamento"> Melhorar meu posicionamento</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Criar materiais de divulgação"> Criar materiais de divulgação</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Melhorar minha comunicação"> Melhorar minha comunicação</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Criar embalagens"> Criar embalagens</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Melhorar minha apresentação comercial"> Melhorar minha apresentação comercial</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Organizar minha marca"> Organizar minha marca</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Aumentar o valor percebido"> Aumentar o valor percebido</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Profissionalizar minha empresa"> Profissionalizar minha empresa</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Atrair um público melhor"> Atrair um público melhor</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Aumentar vendas"> Aumentar vendas</label>
+                        <label><input type="checkbox" name="Proximo_Desafio" value="Expandir a empresa"> Expandir a empresa</label>
+                    </div>
+                    <div class="input-outro" style="margin-top: 1rem;">
+                        <label for="desafio_outro">Outro:</label>
+                        <input type="text" id="desafio_outro" name="Proximo_Desafio_Outro">
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="shimmer-button btn-prev">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 08 O QUE VOCÊ GOSTARIA -->
+            <fieldset class="form-section form-step" data-step="8" style="display: none;">
+                <legend>08 — PRÓXIMOS PASSOS</legend>
+
+                <div class="input-group">
+                    <label for="resolver_outro_problema">22. Se a Liz Design pudesse resolver outro problema da sua marca hoje, qual seria? *</label>
+                    <textarea id="resolver_outro_problema" name="Resolver_Outro_Problema" rows="3" required placeholder=" "></textarea>
+                </div>
+
+                <div class="input-group checkbox-group">
+                    <p class="checkbox-label">23. Quais desses serviços poderiam ser interessantes para sua empresa? (Selecione todos que quiser)</p>
+                    
+                    <p style="font-weight: bold; margin-top: 1rem; color: var(--button-bg-color);">Marca</p>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Manual de identidade visual"> Manual de identidade visual</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Estratégia de marca"> Estratégia de marca</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Posicionamento"> Posicionamento</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Naming"> Naming</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Slogan / tagline"> Slogan / tagline</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Arquitetura de marca"> Arquitetura de marca</label>
+
+                    <p style="font-weight: bold; margin-top: 1rem; color: var(--button-bg-color);">Digital</p>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Site"> Site</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Landing page"> Landing page</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Social media"> Social media</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Templates para Instagram"> Templates para Instagram</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Apresentação comercial"> Apresentação comercial</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="E-mail / assinatura profissional"> E-mail / assinatura profissional</label>
+
+                    <p style="font-weight: bold; margin-top: 1rem; color: var(--button-bg-color);">Comunicação</p>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Estratégia de conteúdo"> Estratégia de conteúdo</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Direção de comunicação"> Direção de comunicação</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Campanha de lançamento"> Campanha de lançamento</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Materiais publicitários"> Materiais publicitários</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Copywriting"> Copywriting</label>
+
+                    <p style="font-weight: bold; margin-top: 1rem; color: var(--button-bg-color);">Negócio</p>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Consultoria de marca"> Consultoria de marca</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Reposicionamento"> Reposicionamento</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Estratégia comercial"> Estratégia comercial</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Experiência do cliente"> Experiência do cliente</label>
+
+                    <p style="font-weight: bold; margin-top: 1rem; color: var(--button-bg-color);">Outros</p>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Quero conhecer outras possibilidades"> Quero conhecer outras possibilidades</label>
+                    <label><input type="checkbox" name="Servicos_Interesse" value="Nenhum neste momento"> Nenhum neste momento</label>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="shimmer-button btn-prev">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- 09 FUTURO -->
+            <fieldset class="form-section form-step" data-step="9" style="display: none;">
+                <legend>09 — FUTURO</legend>
+
+                <div class="input-group">
+                    <label for="melhorar_12_meses">24. Se você pudesse melhorar uma única coisa na sua marca nos próximos 12 meses, o que seria? *</label>
+                    <textarea id="melhorar_12_meses" name="Melhorar_12_Meses" rows="3" required placeholder=" "></textarea>
+                </div>
+
+                <div class="input-group radio-group">
+                    <p class="radio-label">25. Você gostaria que a Liz Design entrasse em contato para conversar sobre alguma dessas possibilidades? *</p>
+                    <label><input type="radio" name="Novo_Contato" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="Novo_Contato" value="Talvez no futuro"> Talvez no futuro</label>
+                    <label><input type="radio" name="Novo_Contato" value="Não neste momento"> Não neste momento</label>
+                </div>
+
+                <div class="input-group logic-conditional logic-contato" style="display: none;">
+                    <label for="assunto_contato">Qual assunto gostaria de conversar?</label>
+                    <textarea id="assunto_contato" name="Assunto_Contato" rows="2" placeholder=" "></textarea>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="shimmer-button btn-prev">Anterior</button>
+                    <button type="button" class="shimmer-button btn-next">Finalizar</button>
+                </div>
+            </fieldset>
+
+            <!-- 10 ENCERRAMENTO -->
+            <fieldset class="form-section form-step" data-step="10" style="display: none;">
+                <legend>10 — ENCERRAMENTO</legend>
+
+                <div class="welcome-copy" style="text-align: center; margin-top: 2rem; margin-bottom: 3rem;">
+                    <h2 style="font-family: var(--font-headline); font-size: 2rem; color: var(--button-bg-color); margin-bottom: 1.5rem;">Obrigado por fazer parte da construção da Liz Design.</h2>
+                    <p>Sua resposta não vai simplesmente para uma planilha. Ela vai nos ajudar a entender:</p>
+                    <p style="font-weight: bold; margin: 1rem 0;">o que estamos fazendo bem, onde podemos melhorar e como podemos continuar ajudando marcas como a sua.</p>
+                    <p>E, principalmente, queremos saber se aquilo que criamos realmente fez diferença para você.</p>
+                </div>
+
+                <input type="hidden" name="_subject" value="Brand Experience Review">
+                <input type="hidden" name="NPS_Motivo" id="nps_motivo_hidden">
+                <input type="text" name="_gotcha" style="display:none" />
+                
+                <div class="form-navigation" style="justify-content: center;">
+                    <button type="button" class="shimmer-button btn-prev" style="margin-right: auto;">Anterior</button>
+                    <button type="submit" class="shimmer-button animate-shimmer" id="btn-enviar" style="min-width: 250px;">
+                        <strong>Enviar minha avaliação</strong>
+                    </button>
+                </div>
+            </fieldset>
+
+        </form>
+    </main>
+
+    <script src="brand-experience.js"></script>
+</body>
+</html>

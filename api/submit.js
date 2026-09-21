@@ -17,6 +17,8 @@ module.exports = async (req, res) => {
         else if (subject.includes('Orçamento de Gerenciamento de Instagram')) tableName = 'orcamentos_gerenciamento_instagram';
         else if (subject.includes('Pesquisa de Satisfação - Identidade Visual')) tableName = 'pesquisa_satisfacao_idv';
         else if (subject.includes('Pesquisa de Satisfação - Gerenciamento de Instagram')) tableName = 'pesquisa_satisfacao_instagram';
+        else if (subject.includes('Brand Experience Review')) tableName = 'brand_experience_review';
+        else if (subject.includes('Raio-X do Instagram')) tableName = 'raiox_instagram';
         else if (subject.includes('Orçamento')) tableName = 'orcamentos_identidade_visual'; // fallback
         else if (subject.includes('Briefing')) tableName = 'briefings_identidade_visual';
         else if (subject.includes('Consultoria')) tableName = 'consultorias_posicionamento';
