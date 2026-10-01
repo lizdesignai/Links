@@ -64,6 +64,11 @@
                 <legend>Seção 1 de 6</legend>
                 
                 <div class="input-group">
+                    <input type="text" id="nome_marca" name="Nome_Marca" required placeholder=" ">
+                    <label for="nome_marca">Qual é o nome da marca? *</label>
+                </div>
+
+                <div class="input-group">
                     <input type="text" id="nome_logo" name="Nome_Logotipo" required placeholder=" ">
                     <label for="nome_logo">Qual nome usaremos no logotipo? *</label>
                 </div>
@@ -75,8 +80,8 @@
 
                 <div class="input-group">
                     <input type="text" id="tagline" name="Tagline" required placeholder=" ">
-                    <label for="tagline">Gostaria de usar uma tagline? *</label>
-                    <p class="helper-text" style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem; line-height: 1.4;">Tagline é uma frase que acompanha o logo, ajudando a comunicar o nicho ou o propósito da marca de forma rápida. Ex: NUTRICIONISTA, ENGENHARIA, CONFEITARIA</p>
+                    <label for="tagline">Qual é a tagline da marca? *</label>
+                    <p class="helper-text" style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem; line-height: 1.4;">Tagline é uma frase que acompanha o logo, ajudando a comunicar o nicho ou o propósito da marca de forma rápida. Exemplos: "Nutricionista", "Arquitetura e Interiores", "Confeitaria Artesanal". Se não tiver, escreva "Não".</p>
                 </div>
 
                 <div class="input-group">
@@ -345,8 +350,8 @@
                 <legend>Seção 6 de 6: Finalização</legend>
 
                 <div class="input-group">
-                    <textarea id="motivo_escolha" name="Motivo_Escolha_Liz" rows="3" placeholder=" "></textarea>
-                    <label for="motivo_escolha">Por qual motivo você resolveu me escolher para participar dessa etapa tão importante?</label>
+                    <textarea id="motivo_escolha" name="Motivo_Escolha" rows="3" required placeholder=" "></textarea>
+                    <label for="motivo_escolha">Por que você me escolheu para esse projeto? *</label>
                 </div>
 
                 <div class="input-group">
