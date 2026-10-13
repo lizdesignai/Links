@@ -22,6 +22,18 @@ app.post('/api/submit', async (req, res) => {
     }
 });
 
+// Route for the API draft (save/get draft)
+app.all('/api/draft', async (req, res) => {
+    const draftHandler = require('./api/draft.js');
+    try {
+        await draftHandler(req, res);
+    } catch (err) {
+        if (!res.headersSent) {
+            res.status(500).send(err.message);
+        }
+    }
+});
+
 app.listen(port, () => {
     console.log(`\n=========================================`);
     console.log(`🚀 Servidor de teste rodando localmente!`);

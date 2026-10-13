@@ -411,3 +411,316 @@ input[type="radio"]:checked::after {
         text-align: center;
     }
 }
+
+/* ==========================================================================
+   9. Auto-save & Recuperação de Progresso (UX Premium)
+   ========================================================================== */
+.autosave-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-color-dark);
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+}
+.autosave-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #5bb381; /* Verde sutil de sucesso */
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.autosave-status.saving .autosave-status-dot {
+    background-color: #d4a373; /* Tom dourado quando salvando */
+    transform: scale(1.2);
+}
+.autosave-status.saving .autosave-status-text {
+    opacity: 0.9;
+}
+
+/* Banner de Progresso Restaurado */
+.draft-notice {
+    background: rgba(140, 110, 84, 0.08);
+    border: 1px solid rgba(140, 110, 84, 0.25);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    animation: draftSlideDown 0.4s ease-out;
+}
+@keyframes draftSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.draft-notice-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: left;
+}
+.draft-notice-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--button-bg-color);
+    flex-shrink: 0;
+}
+.draft-notice-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: var(--text-color-dark);
+}
+.draft-notice-text strong {
+    color: var(--button-bg-color);
+    font-weight: 600;
+}
+.draft-notice-text span {
+    opacity: 0.85;
+}
+.draft-notice-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+.draft-notice-clear {
+    background: transparent;
+    border: 1px solid rgba(140, 110, 84, 0.4);
+    color: var(--text-color-dark);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+.draft-notice-clear:hover {
+    background: rgba(140, 110, 84, 0.15);
+    border-color: var(--button-bg-color);
+    color: var(--button-bg-color);
+}
+.draft-notice-close {
+    background: transparent;
+    border: none;
+    color: var(--text-color-dark);
+    opacity: 0.5;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    line-height: 1;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+}
+.draft-notice-close:hover {
+    opacity: 1;
+}
+@media (max-width: 600px) {
+    .draft-notice {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    .draft-notice-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* ==========================================================================
+   10. Modal e Botão de "Salvar e Continuar Depois" (Opção 2 - Link de Retorno)
+   ========================================================================== */
+.btn-save-draft-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    border: none;
+    color: var(--button-bg-color);
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    opacity: 0.85;
+    padding: 0.4rem 0.5rem;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    font-family: var(--font-base);
+}
+.btn-save-draft-action:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+.btn-save-draft-action svg {
+    flex-shrink: 0;
+}
+
+/* Backdrop escuro com blur */
+.draft-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(40, 30, 20, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 99999;
+    animation: draftModalFadeIn 0.3s ease-out;
+}
+@keyframes draftModalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Caixa do Modal */
+.draft-modal-box {
+    background: #FFFDF9;
+    color: var(--text-color-dark);
+    border-radius: 18px;
+    max-width: 480px;
+    width: 100%;
+    padding: 2.2rem 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(140, 110, 84, 0.2);
+    text-align: center;
+    animation: draftModalPop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+@keyframes draftModalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.draft-modal-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(140, 110, 84, 0.12);
+    color: var(--button-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem auto;
+}
+
+.draft-modal-header h3 {
+    font-family: var(--font-headline);
+    font-size: 1.6rem;
+    color: var(--button-bg-color);
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+}
+.draft-modal-header p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+/* Área de cópia do link */
+.draft-url-box {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+.draft-url-box input {
+    flex: 1;
+    background: #F5EFE6;
+    border: 1px solid rgba(140, 110, 84, 0.3);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    color: var(--text-color-dark);
+    outline: none;
+    font-family: monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.draft-url-box input:focus {
+    border-color: var(--button-bg-color);
+}
+.draft-url-box button {
+    flex-shrink: 0;
+    padding: 0.75rem 1.2rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    cursor: pointer;
+    background: var(--button-bg-color);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+.draft-url-box button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+.draft-url-box button.copied {
+    background: #4a8b66;
+}
+
+.draft-modal-tip {
+    background: rgba(140, 110, 84, 0.06);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    text-align: left;
+    margin-bottom: 1.8rem;
+    border-left: 3px solid var(--button-bg-color);
+}
+
+.btn-continue-now {
+    background: transparent;
+    border: 1px solid rgba(140, 110, 84, 0.35);
+    color: var(--text-color-dark);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+.btn-continue-now:hover {
+    background: rgba(140, 110, 84, 0.1);
+    border-color: var(--button-bg-color);
+    color: var(--button-bg-color);
+}
+
+@media (max-width: 500px) {
+    .draft-modal-box {
+        padding: 1.8rem 1.25rem;
+    }
+    .draft-url-box {
+        flex-direction: column;
+    }
+    .draft-url-box button {
+        width: 100%;
+    }
+}

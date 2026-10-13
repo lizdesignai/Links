@@ -24,6 +24,11 @@ module.exports = async (req, res) => {
         else if (subject.includes('Consultoria')) tableName = 'consultorias_posicionamento';
         else tableName = 'onboarding_respostas'; // default
 
+        // Extrair ID de rascunho se presente
+        const draftId = formDataObj['_draft_id'] || formDataObj['draft_id'] || null;
+        delete formDataObj['_draft_id'];
+        delete formDataObj['draft_id'];
+
         // Remover campos de controle
         delete formDataObj['_subject'];
         delete formDataObj['_gotcha'];
@@ -71,6 +76,18 @@ module.exports = async (req, res) => {
         `;
         
         await client.query(query, insertVals);
+
+        // 3.1. Marcar rascunho como finalizado caso exista
+        if (draftId) {
+            try {
+                await client.query(
+                    `UPDATE formularios_rascunhos SET status = 'finalizado', concluido_em = NOW() WHERE id = $1`,
+                    [draftId]
+                );
+            } catch (draftErr) {
+                console.warn('Erro ao finalizar rascunho:', draftErr.message);
+            }
+        }
 
         // 4. Chamar Webhook do Make.com (Se configurado)
         const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL;
