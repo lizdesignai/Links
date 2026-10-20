@@ -8,35 +8,41 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PPJW7DNF');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raio-X do Instagram - Liz Design</title>
+    <title>Raio-X do Instagram — Studio Veronna</title>
     
     <link rel="stylesheet" href="forms-style.css">
-    <link rel="icon" href="img/logo.png">
+    <!-- Favicon Dinâmico Studio Veronna -->
+    <link id="dynamic-favicon" rel="icon" type="image/svg+xml" href="img/Ativo 5.svg">
+    <script src="dynamic-favicon.js"></script>
+
     <style>
         .quiz-choice {
             display: block;
-            background: #f7f5f2;
+            background: rgba(255, 255, 255, 0.6);
             padding: 1.2rem;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 0.8rem;
             cursor: pointer;
-            border: 2px solid transparent;
+            border: 1.5px solid rgba(20, 44, 72, 0.1);
             transition: all 0.3s ease;
             position: relative;
         }
         .quiz-choice:hover {
-            border-color: rgba(140, 110, 84, 0.3);
+            border-color: var(--color-navy);
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-1px);
         }
         .quiz-choice input[type="radio"] {
             display: none;
         }
         .quiz-choice input[type="radio"]:checked + span {
             font-weight: bold;
-            color: var(--button-bg-color);
+            color: var(--color-navy);
         }
         .quiz-choice:has(input[type="radio"]:checked) {
-            border-color: var(--button-bg-color);
-            background: rgba(140, 110, 84, 0.05);
+            border-color: var(--color-navy);
+            background: rgba(185, 209, 227, 0.25);
+            box-shadow: 0 4px 15px rgba(20, 44, 72, 0.08);
         }
         
         /* Atelier Virtual (Resultados) */
@@ -45,31 +51,32 @@
             animation: fadeIn 1s ease-out;
         }
         .score-card {
-            background: var(--bg-color);
-            padding: 2rem;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.65);
+            padding: 2.2rem 2rem;
+            border-radius: 16px;
             text-align: center;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(20, 44, 72, 0.15);
             margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(20, 44, 72, 0.06);
         }
         .score-number {
             font-size: 5rem;
             font-family: var(--font-headline);
-            color: var(--button-bg-color);
+            color: var(--color-navy);
             line-height: 1;
             margin-bottom: 1rem;
         }
         .progress-meter {
             width: 100%;
             height: 12px;
-            background: #e0e0e0;
+            background: rgba(20, 44, 72, 0.1);
             border-radius: 6px;
             overflow: hidden;
             margin-top: 1rem;
         }
         .progress-meter-fill {
             height: 100%;
-            background: var(--button-bg-color);
+            background: linear-gradient(90deg, var(--color-navy), var(--color-navy-mid));
             transition: width 1.5s ease-out;
             width: 0%;
         }
@@ -80,72 +87,101 @@
             margin-bottom: 2rem;
         }
         .radar-item {
-            background: #f7f5f2;
-            padding: 1rem;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.75);
+            padding: 1.2rem 1rem;
+            border-radius: 12px;
             text-align: center;
-            border-bottom: 4px solid var(--button-bg-color);
+            border-bottom: 4px solid var(--color-navy);
+            border-top: 1px solid rgba(20, 44, 72, 0.06);
         }
         .radar-item h4 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 0.5rem;
-            opacity: 0.7;
+            opacity: 0.8;
+            color: var(--color-charcoal);
         }
         .radar-item .dim-score {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--text-color-dark);
+            color: var(--color-navy);
+            font-family: var(--font-headline);
         }
         .evidence-box {
-            background: rgba(140, 110, 84, 0.05);
-            border-left: 4px solid var(--button-bg-color);
-            padding: 1.5rem;
-            border-radius: 0 8px 8px 0;
+            background: rgba(100, 6, 6, 0.04);
+            border-left: 4px solid var(--color-burgundy);
+            padding: 1.8rem;
+            border-radius: 0 12px 12px 0;
             margin-bottom: 2rem;
+            border-top: 1px solid rgba(100, 6, 6, 0.08);
+            border-right: 1px solid rgba(100, 6, 6, 0.08);
+            border-bottom: 1px solid rgba(100, 6, 6, 0.08);
         }
         .cta-offer {
-            background: var(--button-bg-color);
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
+            background: var(--color-navy);
+            color: var(--color-linen);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
             text-align: center;
+            box-shadow: 0 12px 35px rgba(20, 44, 72, 0.25);
         }
         .cta-offer h3 {
-            color: white;
+            color: var(--color-linen);
             margin-bottom: 1rem;
+            font-family: var(--font-headline);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         .cta-offer a {
             display: inline-block;
-            background: white;
-            color: var(--button-bg-color);
-            padding: 1rem 2rem;
+            background: var(--color-linen);
+            color: var(--color-navy);
+            padding: 1rem 2.2rem;
             text-decoration: none;
             font-weight: bold;
             border-radius: 30px;
             margin-top: 1rem;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .cta-offer a:hover {
-            transform: scale(1.05);
+            transform: scale(1.04);
+            background: #ffffff;
+            color: var(--color-navy-dark);
         }
 
-        /* Spinner de processamento */
+        /* Loading / Processing com SVG 2 Studio Veronna */
         .processing-view {
             text-align: center;
             padding: 4rem 1rem;
         }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(140, 110, 84, 0.2);
-            border-top-color: var(--button-bg-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        .veronna-loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 0 auto 2rem auto;
         }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .veronna-spiral-pulse {
+            width: 72px;
+            height: 72px;
+            animation: veronnaSpinPulse 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            filter: drop-shadow(0 6px 18px rgba(100, 6, 6, 0.25));
+        }
+        @keyframes veronnaSpinPulse {
+            0% {
+                transform: rotate(0deg) scale(0.92);
+                opacity: 0.85;
+            }
+            50% {
+                transform: rotate(180deg) scale(1.06);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(360deg) scale(0.92);
+                opacity: 0.85;
+            }
+        }
     </style>
 </head>
 <body>
@@ -155,6 +191,9 @@
     <main class="form-container" id="quiz-container">
         
         <header class="form-header" id="quiz-header">
+            <div style="text-align: center; margin-bottom: 1.2rem;">
+                <img src="img/Ativo 19.svg" alt="Studio Veronna" style="width: 60px; height: auto; opacity: 0.95;">
+            </div>
             <div class="header-text">
                 <h1 class="headline">Raio-X do Instagram</h1>
                 <p>Descubra como o mercado percebe sua marca.</p>
@@ -171,12 +210,12 @@
             <!-- HOME / LANDING -->
             <fieldset class="form-section form-step" data-step="0">
                 <div class="welcome-copy" style="text-align: center; margin-bottom: 3rem; margin-top: 2rem;">
-                    <h2 style="font-family: var(--font-headline); font-size: 2.2rem; color: var(--button-bg-color); margin-bottom: 1rem;">Seu Instagram está no nível do seu negócio?</h2>
+                    <h2 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: 2.2rem; color: var(--button-bg-color); margin-bottom: 1rem;">Seu Instagram está no nível do seu negócio?</h2>
                     <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">Avalie sua presença digital em quatro dimensões:<br><strong>Clareza · Autoridade · Percepção · Conversão</strong></p>
                     
                     <p style="margin-bottom: 2rem;">Compare seu resultado com a média da nossa base e descubra qual é o principal gargalo que está limitando as vendas da sua marca.</p>
                     
-                    <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 2rem;">
+                    <div style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 2rem;">
                         <span>✓ Gratuito</span> &nbsp;&middot;&nbsp;
                         <span>✓ 3 minutos</span> &nbsp;&middot;&nbsp;
                         <span>✓ Resultado imediato</span>
@@ -333,7 +372,7 @@
             <!-- CAPTURA (Geração de Lead) -->
             <fieldset class="form-section form-step" data-step="13" style="display: none;">
                 <div class="welcome-copy" style="text-align: center; margin-bottom: 2rem;">
-                    <h2 style="font-family: var(--font-headline); font-size: 2rem; color: var(--button-bg-color); margin-bottom: 1rem;">Seu diagnóstico está pronto.</h2>
+                    <h2 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: 2rem; color: var(--button-bg-color); margin-bottom: 1rem;">Seu diagnóstico está pronto.</h2>
                     <p>Preencha os dados abaixo para visualizar imediatamente seu Radar de Marca, sua pontuação em relação à média do mercado e descobrir o seu principal gargalo.</p>
                 </div>
 
@@ -373,10 +412,13 @@
     <!-- O ATELIER (Resultados) -->
     <main class="form-container" id="atelier-view" style="display: none;">
         
+        <!-- Tela de Carregamento Studio Veronna (SVG 2) -->
         <div class="processing-view" id="processing-view">
-            <div class="spinner"></div>
-            <h2 style="font-family: var(--font-headline); color: var(--button-bg-color);">Calculando diagnóstico...</h2>
-            <p style="opacity: 0.7; margin-top: 1rem;">Comparando seu perfil com a média do mercado.</p>
+            <div class="veronna-loading-spinner">
+                <img src="img/loading-veronna.svg" alt="Calculando diagnóstico no Atelier..." class="veronna-spiral-pulse">
+            </div>
+            <h2 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; color: var(--button-bg-color);">Calculando diagnóstico...</h2>
+            <p style="opacity: 0.8; margin-top: 1rem; color: var(--color-charcoal);">Processando parâmetros e comparando perfil no Atelier do Studio Veronna.</p>
         </div>
 
         <div id="results-view" style="display: none;">
@@ -384,18 +426,18 @@
             
             <div class="score-card">
                 <div class="score-number" id="final-score">0</div>
-                <div style="font-size: 1.2rem; font-weight: bold; color: var(--text-color-dark);">Pontuação Geral (0-100)</div>
+                <div style="font-size: 1.2rem; font-weight: bold; color: var(--text-color-dark); font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.04em;">Pontuação Geral (0-100)</div>
                 
                 <div class="progress-meter">
                     <div class="progress-meter-fill" id="score-bar"></div>
                 </div>
 
-                <div id="benchmark-text" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                <div id="benchmark-text" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(20, 44, 72, 0.12);">
                     <!-- Preenchido via JS -->
                 </div>
             </div>
 
-            <h3 style="font-family: var(--font-headline); margin-bottom: 1rem;">Desempenho por Dimensão</h3>
+            <h3 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-navy);">Desempenho por Dimensão</h3>
             <div class="radar-grid">
                 <div class="radar-item">
                     <h4>Clareza</h4>
@@ -416,17 +458,17 @@
             </div>
 
             <div class="evidence-box">
-                <h3 style="color: var(--button-bg-color); margin-bottom: 0.5rem;">⚠️ Seu maior gargalo é <span id="gargalo-nome" style="text-transform: uppercase;"></span></h3>
-                <p id="gargalo-desc" style="line-height: 1.6; margin-bottom: 1rem;"></p>
+                <h3 style="color: var(--color-burgundy); margin-bottom: 0.5rem; font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.04em;">⚠️ Seu maior gargalo é <span id="gargalo-nome" style="text-transform: uppercase;"></span></h3>
+                <p id="gargalo-desc" style="line-height: 1.6; margin-bottom: 1rem; color: var(--color-charcoal);"></p>
                 
-                <div style="font-size: 0.85rem; border-top: 1px dashed rgba(140,110,84,0.3); padding-top: 1rem; margin-top: 1rem;" id="evidencia-cientifica">
+                <div style="font-size: 0.85rem; border-top: 1px dashed rgba(20, 44, 72, 0.2); padding-top: 1rem; margin-top: 1rem; color: var(--color-charcoal);" id="evidencia-cientifica">
                     <!-- Preenchido via JS -->
                 </div>
             </div>
 
             <div class="cta-offer">
                 <h3>O que você deveria corrigir primeiro?</h3>
-                <p style="margin-bottom: 1rem; opacity: 0.9;">Sua marca está deixando dinheiro na mesa por não transmitir profissionalismo na dimensão de <strong id="cta-gargalo"></strong>. Nós podemos corrigir isso para você de forma cirúrgica.</p>
+                <p style="margin-bottom: 1rem; opacity: 0.9; line-height: 1.6;">Sua marca está deixando dinheiro na mesa por não transmitir profissionalismo na dimensão de <strong id="cta-gargalo"></strong>. Nós podemos corrigir isso para você de forma cirúrgica.</p>
                 <a href="mapa.html" id="cta-link">Quero o Mapa Instagram Profissional</a>
             </div>
 

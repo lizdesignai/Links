@@ -8,14 +8,16 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PPJW7DNF');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa Instagram Profissional - Liz Design</title>
+    <title>Mapa Instagram Profissional — Studio Veronna</title>
     
     <link rel="stylesheet" href="forms-style.css">
-    <link rel="icon" href="img/logo.png">
+    <!-- Favicon Dinâmico Studio Veronna -->
+    <link id="dynamic-favicon" rel="icon" type="image/svg+xml" href="img/Ativo 5.svg">
+    <script src="dynamic-favicon.js"></script>
     
     <style>
         /* =========================================================
-           ADVANCED DESIGN SYSTEM & FLUIDITY
+           ADVANCED DESIGN SYSTEM & FLUIDITY — STUDIO VERONNA
            ========================================================= */
         body {
             background-color: var(--background-color);
@@ -26,7 +28,7 @@
         }
 
         .lp-container {
-            max-width: 1100px; /* Mais largo para o grid visual */
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -51,12 +53,13 @@
         /* ---------------- Header Logo ---------------- */
         .top-logo {
             text-align: center;
-            padding: 2rem 0;
+            padding: 2.5rem 0 1rem 0;
             opacity: 0;
             animation: fadeIn 1.5s forwards;
         }
         .top-logo img {
-            height: 40px;
+            height: 52px;
+            width: auto;
         }
         @keyframes fadeIn { to { opacity: 1; } }
 
@@ -86,15 +89,18 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: var(--button-bg-color);
+            color: var(--color-burgundy);
             margin-bottom: 1.5rem;
             font-weight: 600;
+            font-family: var(--font-details);
         }
         .hero h1 {
             font-family: var(--font-headline);
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: clamp(2.4rem, 4.8vw, 3.6rem);
             color: var(--text-color-dark);
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
         }
         .hero-visual {
@@ -109,10 +115,11 @@
             position: absolute;
             width: 350px;
             height: 350px;
-            background: linear-gradient(135deg, rgba(140, 110, 84, 0.1), rgba(140, 110, 84, 0.3));
+            background: linear-gradient(135deg, rgba(185, 209, 227, 0.35), rgba(20, 44, 72, 0.1));
             border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
             animation: float 8s ease-in-out infinite, morph 10s ease-in-out infinite;
             z-index: -1;
+            filter: blur(20px);
         }
         @keyframes morph {
             0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
@@ -121,19 +128,19 @@
         }
         
         .hero-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(140,110,84, 0.15);
-            border: 1px solid rgba(255,255,255, 0.5);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 2.2rem;
+            border-radius: 18px;
+            box-shadow: 0 20px 45px rgba(20, 44, 72, 0.12);
+            border: 1px solid rgba(255,255,255, 0.8);
             text-align: center;
             animation: float 6s ease-in-out infinite;
         }
 
         /* ---------------- Dark Contrast Section ---------------- */
         .dark-section {
-            background-color: var(--button-bg-color);
+            background-color: var(--color-navy-dark);
             color: var(--text-color-light);
             padding: 8rem 0;
             margin: 4rem 0;
@@ -142,12 +149,18 @@
         .dark-section h2 {
             color: var(--text-color-light);
             font-family: var(--font-headline);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.2;
         }
         .dark-section .highlight-text {
-            color: var(--background-color);
-            border-left-color: var(--background-color);
+            color: var(--color-linen);
+            border-left-color: var(--color-burgundy);
+            border-left: 3px solid var(--color-burgundy);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
         }
 
         /* ---------------- Bento Box / Modules Grid ---------------- */
@@ -161,15 +174,15 @@
             background: #fff;
             padding: 2.5rem;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(140,110,84, 0.05);
-            border: 1px solid rgba(140,110,84, 0.1);
+            box-shadow: 0 10px 30px rgba(20, 44, 72, 0.05);
+            border: 1px solid rgba(20, 44, 72, 0.1);
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
             position: relative;
             overflow: hidden;
         }
         .bento-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(140,110,84, 0.1);
+            box-shadow: 0 20px 40px rgba(20, 44, 72, 0.12);
         }
         .bento-item::before {
             content: '';
@@ -186,7 +199,7 @@
         .bento-number {
             font-family: var(--font-headline);
             font-size: 3rem;
-            color: rgba(140, 110, 84, 0.15);
+            color: rgba(20, 44, 72, 0.12);
             position: absolute;
             top: 1rem;
             right: 1.5rem;
@@ -197,15 +210,18 @@
             font-weight: bold;
             margin-bottom: 1rem;
             font-family: var(--font-headline);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
             position: relative;
             z-index: 1;
+            color: var(--color-navy);
         }
 
         /* ---------------- CTAs ---------------- */
         .cta-button {
             display: inline-block;
             font-family: var(--font-base);
-            color: var(--text-color-light);
+            color: #E8E3DD !important;
             background-color: var(--button-bg-color);
             font-size: 1.1rem;
             text-decoration: none;
@@ -215,17 +231,21 @@
             overflow: hidden;
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(140, 110, 84, 0.3);
-            transition: transform 0.2s ease, background-color 0.3s ease;
-            font-weight: 500;
+            box-shadow: 0 10px 25px rgba(20, 44, 72, 0.35);
+            transition: transform 0.2s ease, background-color 0.3s ease, color 0.2s ease;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin: 2rem 0;
             z-index: 10;
         }
+        .cta-button * {
+            color: inherit !important;
+        }
         .cta-button:hover {
-            transform: scale(1.05);
-            background-color: #7a5f49;
+            transform: scale(1.04);
+            background-color: var(--button-hover-bg);
+            color: #FFFFFF !important;
         }
         .cta-button::after {
             content: '';
@@ -238,14 +258,14 @@
 
         /* ---------------- Offer Box ---------------- */
         .offer-glass {
-            background: linear-gradient(145deg, #ffffff, #f7f5f2);
-            border: 1px solid rgba(140, 110, 84, 0.2);
+            background: linear-gradient(145deg, #ffffff, var(--color-linen));
+            border: 1px solid rgba(20, 44, 72, 0.15);
             padding: 4rem 3rem;
-            border-radius: 20px;
+            border-radius: 24px;
             text-align: center;
             margin: 6rem auto;
             max-width: 700px;
-            box-shadow: 0 30px 60px rgba(140,110,84, 0.15);
+            box-shadow: 0 30px 60px rgba(20, 44, 72, 0.12);
             position: relative;
             overflow: hidden;
         }
@@ -254,7 +274,7 @@
             position: absolute;
             top: -50%; left: -50%;
             width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(140,110,84,0.05) 0%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle, rgba(185, 209, 227, 0.2) 0%, rgba(255,255,255,0) 70%);
             z-index: 0;
         }
         .offer-content {
@@ -264,13 +284,13 @@
         .price-tag {
             font-family: var(--font-headline);
             font-size: 4rem;
-            color: var(--button-bg-color);
+            color: var(--color-navy);
             margin: 2rem 0;
             line-height: 1;
         }
         .check-list { list-style: none; text-align: left; max-width: 400px; margin: 0 auto; }
-        .check-list li { margin-bottom: 1rem; padding-left: 2rem; position: relative; }
-        .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--button-bg-color); font-weight: bold; }
+        .check-list li { margin-bottom: 1rem; padding-left: 2rem; position: relative; color: var(--color-charcoal); }
+        .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--color-burgundy); font-weight: bold; }
 
         /* ---------------- Responsive ---------------- */
         @media (max-width: 900px) {
@@ -278,33 +298,19 @@
             .split-section.reverse { direction: ltr; }
             .split-section.reverse > * { direction: ltr; }
             .hero-visual { min-height: 250px; }
-            
-            /* Ajustes no Blob para não quebrar a tela no mobile */
             .hero-blob { width: 250px; height: 250px; }
-            
-            /* Reduzindo respiros gerais para telas menores, adicionando margem lateral na seção escura (O problema não é postar mais) */
             .dark-section { padding: 4rem 1.5rem; margin: 6rem 20px; border-radius: 20px; }
             .hero { padding-top: 1rem; padding-bottom: 2rem; }
-            
-            /* Ajustes nos cards Bento */
             .bento-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
             .bento-item { padding: 1.5rem; }
             .bento-number { font-size: 2.5rem; }
-            
-            /* Ajuste da oferta de checkout */
             .offer-glass { padding: 2rem 1.5rem; margin: 3rem auto; }
             .price-tag { font-size: 3rem; }
-            
-            /* Typography */
             .hero h1 { font-size: 2.2rem; }
             .headline-section { font-size: 1.8rem !important; }
             .dark-section h2 { font-size: 1.8rem; }
-            
-            /* Listas */
             .check-list { width: 100%; max-width: 100%; padding-right: 1rem; }
             .check-list li { font-size: 0.95rem; }
-            
-            /* Ajuste CTA */
             .cta-button { padding: 1rem 2rem; font-size: 1rem; width: 100%; text-align: center; }
         }
     </style>
@@ -314,7 +320,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="top-logo">
-        <img src="img/Logo terracota.svg" alt="Liz Design Logo">
+        <img src="img/Ativo 19.svg" alt="Studio Veronna">
     </div>
 
     <div class="lp-container">
@@ -331,7 +337,7 @@
             <div class="hero-visual reveal" style="transition-delay: 0.2s;">
                 <div class="hero-blob"></div>
                 <div class="hero-card">
-                    <h3 style="font-family: var(--font-headline); font-size: 1.5rem; color: var(--button-bg-color); margin-bottom: 1rem;">O Mapa Instagram Profissional</h3>
+                    <h3 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.5rem; color: var(--button-bg-color); margin-bottom: 1rem;">O Mapa Instagram Profissional</h3>
                     <p style="font-size: 0.95rem; margin-bottom: 0;">Um diagnóstico estratégico e interativo para transformar o resultado do seu teste em um <strong>plano claro de melhoria</strong>.</p>
                 </div>
             </div>
@@ -352,10 +358,10 @@
                 <p>E é justamente aí que muitas marcas deixam valor na mesa.</p>
             </div>
             <div class="reveal" style="text-align: center;">
-                <h3 style="font-family: var(--font-headline); font-size: 2rem; margin-bottom: 1.5rem; opacity: 0.8;">Existe uma diferença entre:</h3>
-                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.2);">ter um Instagram</div>
+                <h3 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: 2rem; margin-bottom: 1.5rem; opacity: 0.85;">Existe uma diferença entre:</h3>
+                <div style="background: rgba(255,255,255,0.08); padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.15);">ter um Instagram</div>
                 <p style="opacity: 0.6; font-style: italic;">e</p>
-                <div style="background: var(--background-color); color: var(--button-bg-color); padding: 1.8rem 1.5rem; border-radius: 12px; font-weight: bold; font-size: 1.25rem; box-shadow: 0 15px 35px rgba(0,0,0,0.2); transform: scale(1.02); margin-top: 1rem;">ter um Instagram que trabalha a favor da sua marca.</div>
+                <div style="background: var(--background-color); color: var(--button-bg-color); padding: 1.8rem 1.5rem; border-radius: 12px; font-weight: bold; font-size: 1.25rem; box-shadow: 0 15px 35px rgba(0,0,0,0.3); transform: scale(1.02); margin-top: 1rem;">ter um Instagram que trabalha a favor da sua marca.</div>
             </div>
         </div>
     </section>
@@ -364,7 +370,7 @@
     <div class="lp-container">
         <section style="padding: 6rem 0;">
             <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto;">
-                <h2 style="font-family: var(--font-headline); font-size: clamp(2rem, 4vw, 3rem); color: var(--button-bg-color); line-height: 1.2;">Dentro do seu Mapa, você vai encontrar:</h2>
+                <h2 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: clamp(2rem, 4vw, 3rem); color: var(--button-bg-color); line-height: 1.2;">Dentro do seu Mapa, você vai encontrar:</h2>
                 <p style="margin-top: 1rem;">O seu score anterior apenas respondeu "Como está minha presença hoje?". O Mapa responde <strong>"O que eu faço agora?"</strong></p>
             </div>
             
@@ -410,29 +416,29 @@
         <!-- EVIDÊNCIA / LÓGICA -->
         <section class="split-section reveal">
             <div>
-                <h2 style="font-family: var(--font-headline); font-size: 2.5rem; color: var(--button-bg-color); line-height: 1.2;">Por que criamos o Mapa?</h2>
+                <h2 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: 2.5rem; color: var(--button-bg-color); line-height: 1.2;">Por que criamos o Mapa?</h2>
                 <p style="margin-top: 1.5rem;">Porque existe uma diferença enorme entre opinião e diagnóstico.</p>
-                <div style="border-left: 3px solid var(--button-bg-color); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; opacity: 0.8;">
+                <div style="border-left: 3px solid var(--color-burgundy); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; opacity: 0.85;">
                     "Seu feed está feio. Você precisa postar mais. Use cores melhores. Faça Reels."
                 </div>
                 <p>Isso é conselho solto. O Mapa parte de uma lógica profissional e analítica:</p>
-                <p style="font-weight: bold; color: var(--button-bg-color); font-size: 1.2rem; margin-top: 1rem;">observar → identificar → comparar → priorizar → agir.</p>
+                <p style="font-weight: bold; color: var(--color-navy); font-size: 1.2rem; margin-top: 1rem;">observar → identificar → comparar → priorizar → agir.</p>
             </div>
-            <div style="background: rgba(140, 110, 84, 0.05); padding: 3rem; border-radius: 20px; position: relative;">
-                <div style="position: absolute; top: -20px; right: -20px; font-size: 4rem; opacity: 0.1; color: var(--button-bg-color);">"</div>
-                <h3 style="font-family: var(--font-headline); font-size: 1.8rem; margin-bottom: 1rem; color: var(--button-bg-color);">A ciência visual</h3>
+            <div style="background: rgba(20, 44, 72, 0.04); padding: 3rem; border-radius: 20px; position: relative; border: 1px solid rgba(20, 44, 72, 0.08);">
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 4rem; opacity: 0.15; color: var(--color-burgundy);">"</div>
+                <h3 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.8rem; margin-bottom: 1rem; color: var(--color-navy);">A ciência visual</h3>
                 <p style="font-size: 0.95rem; opacity: 0.9;">A aparência não é apenas decoração. Pesquisas sobre credibilidade digital provam que a organização visual dita como as pessoas avaliam a sua confiança.</p>
-                <p style="font-size: 0.95rem; opacity: 0.9; margin-top: 1rem;">Não queremos apenas deixar seu Instagram "bonito". Queremos que a sua imagem seja coerente com o valor de luxo que você entrega.</p>
+                <p style="font-size: 0.95rem; opacity: 0.9; margin-top: 1rem;">Não queremos apenas deixar seu Instagram "bonito". Queremos que a sua imagem seja coerente com o valor de prestígio que você entrega.</p>
             </div>
         </section>
 
         <!-- VISÃO DE FUTURO -->
         <section style="padding: 5rem 0; text-align: center;" class="reveal">
-            <h2 style="font-family: var(--font-headline); font-size: clamp(2rem, 4vw, 3rem); color: var(--button-bg-color); margin-bottom: 3rem;">Imagine abrir seu Instagram e perceber que:</h2>
+            <h2 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: clamp(2rem, 4vw, 3rem); color: var(--button-bg-color); margin-bottom: 3rem;">Imagine abrir seu Instagram e perceber que:</h2>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 3rem;">
-                <span style="background: #fff; padding: 1rem 2rem; border-radius: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-weight: 500;">✓ Sua comunicação é mais clara</span>
-                <span style="background: #fff; padding: 1rem 2rem; border-radius: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-weight: 500;">✓ Seu perfil transmite profissionalismo</span>
-                <span style="background: #fff; padding: 1rem 2rem; border-radius: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-weight: 500;">✓ Seu conteúdo tem direção</span>
+                <span style="background: #fff; padding: 1rem 2rem; border-radius: 30px; box-shadow: 0 5px 15px rgba(20,44,72,0.06); font-weight: 500;">✓ Sua comunicação é mais clara</span>
+                <span style="background: #fff; padding: 1rem 2rem; border-radius: 30px; box-shadow: 0 5px 15px rgba(20,44,72,0.06); font-weight: 500;">✓ Seu perfil transmite profissionalismo</span>
+                <span style="background: #fff; padding: 1rem 2rem; border-radius: 30px; box-shadow: 0 5px 15px rgba(20,44,72,0.06); font-weight: 500;">✓ Seu conteúdo tem direção</span>
             </div>
             <p style="font-size: 1.2rem;">Isso não começa com mais um template.</p>
             <p style="font-size: 1.2rem; font-weight: bold; color: var(--button-bg-color);">Começa sabendo o que precisa mudar.</p>
@@ -442,9 +448,9 @@
         <section id="checkout" class="reveal">
             <div class="offer-glass">
                 <div class="offer-content">
-                    <img src="img/Logo terracota.svg" alt="Liz Design" style="height: 30px; margin-bottom: 1.5rem; opacity: 0.5;">
-                    <h2 style="font-family: var(--font-headline); font-size: 2.5rem; color: var(--button-bg-color); margin-bottom: 0.5rem;">O Mapa Instagram Profissional</h2>
-                    <h3 style="font-weight: 400; font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.8;">Seu diagnóstico transformado em plano de ação.</h3>
+                    <img src="img/Ativo 19.svg" alt="Studio Veronna" style="height: 44px; width: auto; margin-bottom: 1.5rem; opacity: 0.95;">
+                    <h2 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: 2.5rem; color: var(--button-bg-color); margin-bottom: 0.5rem;">O Mapa Instagram Profissional</h2>
+                    <h3 style="font-weight: 400; font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.85;">Seu diagnóstico transformado em plano de ação.</h3>
                     
                     <ul class="check-list">
                         <li>Análise detalhada das 4 dimensões</li>
@@ -458,7 +464,7 @@
                     
                     <a href="#" class="cta-button" style="width: 100%; max-width: 400px; display: block; margin: 0 auto;">Transformar Resultado em Plano</a>
                     
-                    <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 1.5rem;">Tudo organizado em uma experiência interativa exclusiva da Liz Design.</p>
+                    <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1.5rem;">Tudo organizado em uma experiência interativa exclusiva do Studio Veronna.</p>
                 </div>
             </div>
         </section>
@@ -466,28 +472,34 @@
         <!-- OBJEÇÕES / FAQ -->
         <section class="split-section reveal" style="padding-bottom: 2rem;">
             <div>
-                <h2 style="font-family: var(--font-headline); font-size: 2rem; color: var(--button-bg-color); margin-bottom: 1rem;">E se eu já souber o que preciso melhorar?</h2>
+                <h2 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: 2rem; color: var(--button-bg-color); margin-bottom: 1rem;">E se eu já souber o que preciso melhorar?</h2>
                 <p>Melhor ainda. O Mapa não existe para dizer aquilo que você já sabe. Ele existe para <strong>organizar o problema.</strong></p>
                 <p>Você pode saber que está desorganizado. Mas qual dimensão está mais comprometida? O que deve ser corrigido primeiro e o que pode esperar?</p>
             </div>
             <div>
-                <h2 style="font-family: var(--font-headline); font-size: 2rem; color: var(--button-bg-color); margin-bottom: 1rem;">"Mas eu posso descobrir isso sozinho"</h2>
+                <h2 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: 2rem; color: var(--button-bg-color); margin-bottom: 1rem;">"Mas eu posso descobrir isso sozinho"</h2>
                 <p>Pode. O problema hoje nunca é a falta de informação, <strong>é o excesso de informação sem uma ordem clara.</strong></p>
                 <p>O Mapa existe exatamente para poupar as horas que você passaria tentando descobrir qual conselho aleatório seguir.</p>
             </div>
         </section>
 
         <!-- ENCERRAMENTO -->
-        <section class="reveal" style="text-align: center; padding: 6rem 0; border-top: 1px solid rgba(140, 110, 84, 0.1); margin-top: 4rem;">
+        <section class="reveal" style="text-align: center; padding: 6rem 0; border-top: 1px solid rgba(20, 44, 72, 0.12); margin-top: 4rem;">
             <p style="font-size: 1.2rem; margin-bottom: 1rem;">Seu Instagram já está dizendo alguma coisa sobre o seu negócio.</p>
-            <h2 style="font-family: var(--font-headline); font-size: 2.5rem; color: var(--button-bg-color); margin-bottom: 3rem;">Você sabe o que ele está dizendo?</h2>
+            <h2 style="font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.05em; font-size: 2.5rem; color: var(--button-bg-color); margin-bottom: 3rem;">Você sabe o que ele está dizendo?</h2>
             
             <a href="#checkout" class="cta-button">Quero Meu Mapa Instagram Profissional</a>
         </section>
 
-        <footer style="text-align: center; padding: 2rem 0 4rem 0; font-size: 0.9rem; opacity: 0.6;">
-            <img src="img/Logo terracota.svg" alt="Liz Design" style="height: 20px; margin-bottom: 1rem;">
+        <footer style="text-align: center; padding: 2rem 0 4rem 0; font-size: 0.9rem; opacity: 0.85;">
+            <img src="img/Ativo 19.svg" alt="Studio Veronna" style="height: 28px; width: auto; margin-bottom: 1rem; opacity: 0.95;">
             <p>Design para marcas que querem ser percebidas pelo valor que entregam.</p>
+            <div style="margin: 1.2rem 0 0.8rem 0; display: flex; justify-content: center; align-items: center; gap: 1.2rem; font-size: 0.85rem; flex-wrap: wrap;">
+                <a href="politica-privacidade.html" style="color: var(--color-navy); text-decoration: none; border-bottom: 1px dotted currentColor; transition: color 0.2s;" onmouseover="this.style.color='var(--color-burgundy)'" onmouseout="this.style.color='var(--color-navy)'">Política de Privacidade</a>
+                <span>&middot;</span>
+                <a href="termos-de-uso.html" style="color: var(--color-navy); text-decoration: none; border-bottom: 1px dotted currentColor; transition: color 0.2s;" onmouseover="this.style.color='var(--color-burgundy)'" onmouseout="this.style.color='var(--color-navy)'">Termos de Uso</a>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Studio Veronna &copy; 2026 &middot; Todos os direitos reservados.</p>
         </footer>
     </div>
 
