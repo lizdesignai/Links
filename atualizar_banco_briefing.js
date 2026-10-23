@@ -13,7 +13,7 @@ async function updateDatabase() {
     try {
         await client.connect();
         const table = 'briefings_identidade_visual';
-        const newColumns = ['nome_marca', 'motivo_escolha'];
+        const newColumns = ['nome_marca', 'motivo_escolha', 'concorrente_1', 'concorrente_2', 'concorrente_3', 'concorrente_4'];
 
         for (const col of newColumns) {
             try {

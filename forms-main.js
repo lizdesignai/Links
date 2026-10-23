@@ -48,6 +48,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==========================================================================
+    // 2.1 FORMATAÇÃO INTELIGENTE DE INSTAGRAM (@)
+    // ==========================================================================
+    const instagramInputs = document.querySelectorAll('input[name*="Concorrente_" i], input[id*="concorrente_" i]');
+    instagramInputs.forEach(input => {
+        input.addEventListener('blur', function () {
+            let val = this.value.trim();
+            if (val) {
+                // Remove prefixos de URL caso o cliente cole o link completo do Instagram
+                val = val.replace(/^(https?:\/\/)?(www\.)?instagram\.com\//i, '').replace(/\/.*$/, '').replace(/^@+/, '');
+                if (val) {
+                    this.value = '@' + val;
+                }
+            }
+        });
+    });
+
+
+    // ==========================================================================
     // 3. LÓGICA MULTI-STEP E VALIDAÇÃO RIGOROSA
     // ==========================================================================
     const formsWithSteps = document.querySelectorAll('form.sophisticated-form');
